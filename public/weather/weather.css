@@ -1,0 +1,13 @@
+﻿body{margin:0;padding:0;background:black!important;padding-top:50px;}
+#mobile4{overflow:initial;width:800px;margin:0 auto;}
+#mobile4 .wtleft,
+#mobile4 .wt,
+#mobile4 .wt1{width:auto;}
+#mobile4 .wtline:nth-child(2n){margin-top:15px;}
+#mobile4 .wtleft{float:none;height: 200px;}
+#mobile4 .wtname{height:auto;padding-bottom: 30px;font-size: 50px;}
+#mobile4 .wtname strong{font-weight: normal;}
+
+#mobile4 .wt{width:260px;}
+#mobile4 strong{font-weight: normal!important;}
+#mobile4 *{color:white;font-family: STXihei,微软雅黑!important;}
