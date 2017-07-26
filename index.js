@@ -1,22 +1,22 @@
 ﻿var express = require('express')
-, WebSocket = require('ws')
-, request = require('request')
-, http = require('http')
-, url = require('url')
-, fs = require('fs')
-, app = express()
-, bodyParser = require('body-parser')
-, multer = require('multer')
-, upload = multer({ dest: 'uploads/' })
-, cors = require('cors')
-, port = 8888 ;
-const { exec } = require('child_process');
+		, WebSocket = require('ws')
+		, request = require('request')
+		, http = require('http')
+		, url = require('url')
+		, fs = require('fs')
+		, app = express()
+		, bodyParser = require('body-parser')
+		, multer = require('multer')
+		, upload = multer({ dest: 'uploads/' })
+		, cors = require('cors')
+		, port = 8888
+		, { exec } = require('child_process');
 
-/*******引入功能模块*********/
+/*******引入功能模块*******/
 const Volume = require('./service/volume.js'),
-	Clock=require('./service/clock.js'),
-	Music = require('./service/music.js'),
-	Picture = require('./service/picture.js');
+			Clock=require('./service/clock.js'),
+			Music = require('./service/music.js'),
+			Picture = require('./service/picture.js');
 
 //让网站跨域访问
 app.use(cors());
@@ -33,18 +33,18 @@ wss.on('connection', function connection(ws) {
 
   ws.on('message', function incoming(message) {
     console.log('received: %s', message);
-	try{
-		var obj = JSON.parse(message);
-		switch(obj.k){
-			case 'status':
-				for(var k in obj.v){
-					OS_STATUS[k] = obj.v[k];
-				}
-			break;
-		}	
-	}catch(ex){
-		console.log(ex);
-	}	
+		try {
+			var obj = JSON.parse(message);
+			switch(obj.k){
+				case 'status':
+					for(var k in obj.v){
+						OS_STATUS[k] = obj.v[k];
+					}
+				break;
+			}
+		}catch(ex){
+			console.log(ex);
+		}
   });
 });
 
