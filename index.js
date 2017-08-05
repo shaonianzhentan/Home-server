@@ -85,6 +85,12 @@ app.post('/os', function(req, res){
 			console.log(OS_STATUS.volume);
 			res.json(OS_STATUS)
 		break;
+		case 'sensor': //传感器数据
+			for(var k in obj.v){
+				OS_STATUS['sensor_'+k] = obj.v[k];
+			}
+			res.send('success');
+		break;
 		case 'vol_up': //增加声音
 			res.send(Volume.plus());
 		break;
