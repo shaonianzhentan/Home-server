@@ -42,6 +42,8 @@ wss.on('connection', function connection(ws) {
 					}
 				break;
 			}
+			//推送信息
+			wsend(obj);
 		}catch(ex){
 			console.log(ex);
 		}
