@@ -86,8 +86,8 @@ app.post('/os', function(req, res){
 			res.json(OS_STATUS)
 		break;
 		case 'sensor': //传感器数据
-			for(var k in obj.v){
-				OS_STATUS['sensor_'+k] = obj.v[k];
+			for(var k in obj.value){
+				OS_STATUS['sensor_'+k] = obj.value[k];
 			}
 			res.send('success');
 		break;
@@ -135,7 +135,7 @@ app.post('/os', function(req, res){
 				  if (err) {
 					res.send(err);	
 				  }
-				  res.send(body);	
+				  res.send(body);
 				});
 				
 				//res.send(imageBuf.toString("base64"));
