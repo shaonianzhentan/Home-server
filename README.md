@@ -6,9 +6,14 @@
 
 随时随地享受到无处不在的音乐
 
+下载
+git clone https://github.com/shaonianzhentan/Home-server
+
+目录
+cd Home-server
+
 安装
 npm install
 
 运行
 node index.js
-
