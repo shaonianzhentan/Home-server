@@ -346,6 +346,12 @@ d.run(function(){
 	var listenerId = lirc_node.addListener(function(data) {
 		  console.log("Received IR keypress '" + data.key + "'' from remote '" + data.remote +"'");
 
+			if(data.key == "KEY_X"){
+				OS_STATUS.infraredSwitch = OS_STATUS.infraredSwitch == '开' ? '关' : '开';
+			}
+
+
+
 		if(wss!=null && OS_STATUS.infraredSwitch == '开'){
 			var result="",msg="";
 			if(data.key == "KEY_LEFT"){
@@ -366,6 +372,8 @@ d.run(function(){
 				wsend({type:'music', result:'up', msg:'播放广播'})
 			}else if(data.key == "KEY_DOWN"){
 				wsend({type:'music', result:'down', msg:'播放音乐'})
+			}else if(data.key == "KEY_WWW"){
+				wsend({type:'voice', result:'start'})
 			}
 		}
 	});
