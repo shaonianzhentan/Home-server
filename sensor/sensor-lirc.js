@@ -18,10 +18,11 @@ module.exports = {
                 console.log("红外控制开启...");
                 // 监听按键命令
                 var listenerId = lirc_node.addListener(function (data) {
-                    console.log("Received IR keypress '" + data.key + "'' from remote '" + data.remote + "'");
+			var key = data.key;
+                    console.log("Received IR keypress '" + key + "'' from remote '" + data.remote + "'");
                     
-                    if((typeof obj[obj.key]) === "function"){
-                        obj[data.key]();
+                    if((typeof obj[key]) === "function"){
+                        obj[key]();
                     }        
                 });
 
