@@ -8,15 +8,17 @@ var Volume={
 		return Volume.value[Volume.index];
 	},
 	set:()=>{
-		/*
+		
 		exec("amixer set Speaker " + Volume.value[Volume.index],function(err, stdout, stderr){
 			if(err) console.log(err);
 		});
-		*/
+		
 		console.log(Volume.value[Volume.index]);
+		/*
 		exec("amixer set PCM " + Volume.value[Volume.index],function(err, stdout, stderr){
 			if(err) console.log(err);
 		});
+		*/
 	},
 	minus:function(){
 		Volume.index--;
@@ -38,7 +40,7 @@ var Volume={
 
 module.exports = Volume;
 
-/*
+
 exec("amixer cget numid=6,iface=MIXER,name='Speaker Playback Volume'",function(err, stdout, stderr){
 		if(err){ 
 			console.log(err);
@@ -52,4 +54,3 @@ exec("amixer cget numid=6,iface=MIXER,name='Speaker Playback Volume'",function(e
 			
 		}
 	});
-*/
