@@ -13,7 +13,7 @@ var Volume={
 			if(err) console.log(err);
 		});
 		
-		console.log(Volume.value[Volume.index]);
+		console.log('当前音量',  Volume.value[Volume.index]);
 		/*
 		exec("amixer set PCM " + Volume.value[Volume.index],function(err, stdout, stderr){
 			if(err) console.log(err);
