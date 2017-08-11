@@ -16,7 +16,6 @@
 const os = require('./service/os.js'),
 	Volume = require('./service/volume.js'),
 	Clock = require('./service/clock.js'),
-	Music = require('./service/music.js'),
 	Picture = require('./service/picture.js');
 
 //让网站跨域访问
@@ -74,78 +73,35 @@ var OS_STATUS = {
 	ServerTime: (new Date()).toLocaleString(),
 	infraredSwitch: '开',
 	volume: '',
-	screenshots: ''
+	screenshots: '',
+	sensor_temperature: '', //温度
+	sensor_humidity: '' //湿度
 }
 
+//监听变量
+Object.defineProperty(OS_STATUS, 'sensor_temperature', {
+	get: function () {
+		return this._sensor_temperature;
+	},
+	set: function (newValue) {
+		this._sensor_temperature = newValue;
+		app_os.status();
+	}
+});
+
+
 //操作系统
+const app_os = require('./service/app_music.js')
 app.post('/os', function (req, res) {
 	var obj = req.body;
-	switch (obj.key) {
-		case 'status': //获取状态
-			wsend({ type: 'program', result: 'status' })
-			OS_STATUS.ServerTime = (new Date()).toLocaleString()
-			OS_STATUS.volume = Volume.get();
-			console.log(OS_STATUS.volume);
-			res.json(OS_STATUS)
-			break;
-		case 'sensor': //传感器数据
-			for (var k in obj.value) {
-				OS_STATUS['sensor_' + k] = obj.value[k];
-			}
-			res.send('success');
-			break;
-		case 'vol_up': //增加声音
-			res.send(Volume.plus());
-			break;
-		case 'vol_down': //减少声音
-			res.send(Volume.minus());
-			break;
-		case 'date': //校准时间
-			exec("sudo ntpd -s -d", function (err, stdout, stderr) { });
-			res.send('success');
-			break;
-		case 'reboot': //重启
-			exec("sudo reboot", function (err, stdout, stderr) { });
-			res.send('success');
-			break;
-		case 'shutdown': //关机
-			exec("sudo halt", function (err, stdout, stderr) { });
-			res.send('success');
-			break;
-		case 'infrared': //红外线
-			OS_STATUS.infraredSwitch = obj.value;
-			res.send('success');
-			break;
-		case 'reset': //重启程序
-			exec("pm2 restart electron", function (err, stdout, stderr) {
-				console.log(stdout);
-			});
-			res.send('success');
-			break;
-		case 'reset_service': //重启服务
-			exec("pm2 restart app", function (err, stdout, stderr) {
-				console.log(stdout);
-			});
-			res.send('success');
-			break;
-		case 'picture': //拍照
-			var filename = 'zhaopian.jpg';
-			exec("raspistill -o " + filename + " -q 5", function (err, stdout, stderr) {
-				//var imageBuf = fs.readFileSync(filename);
-				request.post({
-					url: 'http://23.105.217.23:8081/jiluxinqingupload', formData: {
-						jiluxinqing: fs.createReadStream(filename),
-					}
-				}, function optionalCallback(err, httpResponse, body) {
-					if (err) {
-						res.send(err);
-					}
-					res.send(body);
-				});
+	var key = obj.key;
 
-				//res.send(imageBuf.toString("base64"));
-			});
-			break;
+	app_os.init(res, wsend, OS_STATUS);
+
+	if ((typeof app_os[key]) === "function") {
+		app_os[key]();
+	} else {
+		res.send('404');
 	}
 });
 
@@ -189,56 +145,21 @@ app.post('/program', function (req, res) {
 	}
 });
 
+
+const app_music = require('./service/app_music.js')
 //音乐
 app.post('/music', function (req, res) {
 	var obj = req.body;
-	switch (obj.key) {
-		case 'load': //载入链接
-			wsend({ type: 'music', result: 'load', msg: obj.value })
-			res.send('success')
-			break;
-		case 'play': //播放
-			wsend({ type: 'music', result: 'play', msg: '播放' })
-			res.send('success')
-			break;
-		case 'prev': //上一曲
-			wsend({ type: 'music', result: 'prev', msg: '上一曲' })
-			res.send('success')
-			break;
-		case 'next': //下一曲
-			wsend({ type: 'music', result: 'next', msg: '下一曲' })
-			res.send('success')
-			break;
-		case 'pause': //暂停
-			wsend({ type: 'music', result: 'pause', msg: '暂停' })
-			res.send('success')
-			break;
-		case 'random': //随机播放
-			wsend({ type: 'music', result: 'random', msg: '随机播放' })
-			res.send('success')
-			break;
-		case 'save': //添加音乐
-			var args = obj.value;
-			Music.save(args.id, args.type, args.link, args.title).then(function (data) {
-				res.send(data);
-			}, function (data) {
-				res.send(data);
-			});
-			break;
-		case 'del': //删除音乐
-			var args = obj.value;
-			Music.del(args).then(function (data) {
-				res.send(data);
-			}, function (data) {
-				res.send(data);
-			});
-			break;
-		case 'get': //获取音乐
-			Music.get().then(function (data) {
-				res.send(data);
-			});
-			break;
+	var key = obj.key;
+
+	app_music.init(res, wsend, obj.value);
+
+	if ((typeof app_music[key]) === "function") {
+		app_music[key]();
+	} else {
+		res.send('404');
 	}
+
 });
 
 //闹钟
