@@ -11,7 +11,7 @@ module.exports = {
     status: () => {
         wsend({ type: 'program', result: 'status', msg: OS_STATUS })
         OS_STATUS.ServerTime = (new Date()).toLocaleString()
-        OS_STATUS.volume = Volume.get();
+        //OS_STATUS.volume = Volume.get();
         if (res) res.json(OS_STATUS);
     },
     //传感器数据
