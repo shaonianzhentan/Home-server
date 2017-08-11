@@ -91,7 +91,7 @@ Object.defineProperty(OS_STATUS, 'sensor_temperature', {
 
 
 //操作系统
-const app_os = require('./service/app_music.js')
+const app_os = require('./service/app_os.js')
 app.post('/os', function (req, res) {
 	var obj = req.body;
 	var key = obj.key;
