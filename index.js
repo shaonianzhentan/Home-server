@@ -321,7 +321,7 @@ app.get('*', function (req, res) {
 });
 
 server.listen(port, function listening() {
-	console.log('当前IP地址：%s，监听端口 %d',os.ip, server.address().port);
+	console.log('当前IP地址：%s，监听端口 %d', os.ip, server.address().port);
 });
 
 /**********************************红外线接收模块**********************************************/
@@ -329,36 +329,36 @@ const sensor_lirc = require('./sensor/sensor-lirc.js');
 sensor_lirc.init({
 	KEY_X: () => {
 		OS_STATUS.infraredSwitch = OS_STATUS.infraredSwitch == '开' ? '关' : '开';
-		wsend({ type: 'program', result: 'speak', msg: '红外控制'+ OS_STATUS.infraredSwitch});
+		wsend({ type: 'program', result: 'speak', msg: '红外控制' + OS_STATUS.infraredSwitch });
 	},
 	KEY_LEFT: () => {
-		if(OS_STATUS.infraredSwitch == '开')	wsend({ type: 'music', result: 'prev', msg: '上一曲' })
+		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'prev', msg: '上一曲' })
 	},
 	KEY_RIGHT: () => {
-		if(OS_STATUS.infraredSwitch == '开')	wsend({ type: 'music', result: 'next', msg: '下一曲' })
+		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'next', msg: '下一曲' })
 	},
-	KEY_VOLUMEUP: () => {		
-		if(OS_STATUS.infraredSwitch == '开')	Volume.plus();
+	KEY_VOLUMEUP: () => {
+		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'tips', msg: Volume.plus() });
 	},
 	KEY_VOLUMEDOWN: () => {
-		if(OS_STATUS.infraredSwitch == '开')	Volume.minus();
+		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'tips', msg: Volume.minus() });
 	},
 	KEY_ENTER: () => {
-		if(OS_STATUS.infraredSwitch == '开')	wsend({ type: 'music', result: 'play', msg: '播放' })
+		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'play', msg: '播放' })
 	},
 	KEY_BACK: () => {
-		if(OS_STATUS.infraredSwitch == '开')	wsend({ type: 'music', result: 'pause', msg: '暂停' })
+		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'pause', msg: '暂停' })
 	},
 	KEY_HOME: () => {
-		if(OS_STATUS.infraredSwitch == '开')	wsend({ type: 'program', result: 'reload' })
+		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'reload' })
 	},
 	KEY_UP: () => {
-		if(OS_STATUS.infraredSwitch == '开')	wsend({ type: 'music', result: 'up', msg: '播放广播' })
+		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'up', msg: '播放广播' })
 	},
 	KEY_DOWN: () => {
-		if(OS_STATUS.infraredSwitch == '开')	wsend({ type: 'music', result: 'down', msg: '播放音乐' })
+		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'down', msg: '播放音乐' })
 	},
 	KEY_WWW: () => {
-		if(OS_STATUS.infraredSwitch == '开')	wsend({ type: 'voice', result: 'start' })
+		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'voice', result: 'start' })
 	}
 });

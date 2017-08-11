@@ -15,5 +15,5 @@ function getIPAdress() {
 var ip = getIPAdress();
 
 module.exports = {
-    ip:ip
+    ip: ip
 }
