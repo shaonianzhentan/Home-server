@@ -3,9 +3,9 @@ var res = null, wsend = null, OS_STATUS = null;
 
 module.exports = {
     init: (_res, _wsend, _args) => {
-        res = a;
-        wsend = b;
-        OS_STATUS = c;
+        res = _res;
+        wsend = _wsend;
+        OS_STATUS = _args;
     },
     //获取状态
     status: () => {
