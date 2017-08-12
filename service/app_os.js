@@ -1,3 +1,6 @@
+const Volume = require('volume.js')
+          , request = require('request')
+          , { exec } = require('child_process');
 
 var res = null, wsend = null, OS_STATUS = null;
 
@@ -11,7 +14,7 @@ module.exports = {
     status: () => {
         wsend({ type: 'program', result: 'status', msg: OS_STATUS })
         OS_STATUS.ServerTime = (new Date()).toLocaleString()
-        //OS_STATUS.volume = Volume.get();
+        OS_STATUS.volume = Volume.get();
         if (res) res.json(OS_STATUS);
     },
     //传感器数据
