@@ -1,4 +1,4 @@
-const Volume = require('volume.js')
+const Volume = require('./volume.js')
           , request = require('request')
           , { exec } = require('child_process');
 
