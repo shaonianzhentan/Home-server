@@ -93,10 +93,15 @@ Object.defineProperty(OS_STATUS, 'sensor_temperature', {
 //操作系统
 const app_os = require('./service/app_os.js')
 app.post('/os', function (req, res) {
-	var obj = req.body;
-	var key = obj.key;
+	var obj = req.body,
+		key = obj.key;
 
-	app_os.init(res, wsend, OS_STATUS);
+	app_os.init({
+		res: res,
+		wsend: wsend,
+		value: obj.value,
+		OS_STATUS: OS_STATUS
+	});
 
 	if ((typeof app_os[key]) === "function") {
 		app_os[key]();

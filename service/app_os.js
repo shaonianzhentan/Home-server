@@ -1,14 +1,13 @@
 const Volume = require('./volume.js')
-          , request = require('request')
-          , { exec } = require('child_process');
-
-var res = null, wsend = null, OS_STATUS = null;
+    , request = require('request')
+    , { exec } = require('child_process');
 
 module.exports = {
-    init: (_res, _wsend, _args) => {
-        res = _res;
-        wsend = _wsend;
-        OS_STATUS = _args;
+    init: (obj) => {
+        res = obj.res;
+        wsend = obj.wsend;
+        value = obj.value;
+        OS_STATUS = obj.OS_STATUS;
     },
     //获取状态
     status: () => {
@@ -19,8 +18,8 @@ module.exports = {
     },
     //传感器数据
     sensor: () => {
-        for (var k in obj.value) {
-            OS_STATUS['sensor_' + k] = obj.value[k];
+        for (var k in value) {
+            OS_STATUS['sensor_' + k] = value[k];
         }
         res.send('success');
     },
@@ -49,7 +48,7 @@ module.exports = {
     },
     //红外线
     infrared: () => {
-        OS_STATUS.infraredSwitch = obj.value;
+        OS_STATUS.infraredSwitch = value;
         res.send('success');
     },
     //重启程序
