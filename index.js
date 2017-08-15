@@ -14,9 +14,7 @@
 
 /*******引入功能模块*******/
 const os = require('./service/os.js'),
-	Volume = require('./service/volume.js'),
-	Clock = require('./service/clock.js'),
-	Picture = require('./service/picture.js');
+	Volume = require('./service/volume.js');
 
 //让网站跨域访问
 app.use(cors());
@@ -111,53 +109,36 @@ app.post('/os', function (req, res) {
 });
 
 //客户端程序
+const app_program = require('./service/app_program.js')
 app.post('/program', function (req, res) {
-	var obj = req.body;
-	switch (obj.key) {
-		case 'reload': //刷新程序
-			wsend({ type: 'program', result: 'reload' })
-			res.send('success')
-			break;
-		case 'screenshots': //截图
-			wsend({ type: 'program', result: 'screenshots' })
-			res.send('success')
-			break;
-		case 'speak': //说话
-			wsend({ type: 'program', result: 'speak', msg: obj.value })
-			res.send('success')
-			break;
-		case 'voice': //声音
-			wsend({ type: 'program', result: 'voice', msg: obj.value })
-			res.send('success')
-			break;
-		case 'write': //输入
-			wsend({ type: 'program', result: 'write', msg: obj.value })
-			res.send('success')
-			break;
-		case 'screenshots-up':
-			request.post({
-				url: 'http://23.105.217.23:8081/jiluxinqingupload', formData: {
-					jiluxinqing: fs.createReadStream(obj.value),
-				}
-			}, function optionalCallback(err, httpResponse, body) {
-				if (err) {
-					console.log(err);
-				}
-				OS_STATUS.screenshots = body;
-			});
-			res.send('success')
-			break;
-	}
-});
-
-
-const app_music = require('./service/app_music.js')
-//音乐
-app.post('/music', function (req, res) {
 	var obj = req.body;
 	var key = obj.key;
 
-	app_music.init(res, wsend, obj.value);
+	app_program.init({
+		res: res,
+		wsend: wsend,
+		value: obj.value
+	});
+
+	if ((typeof app_program[key]) === "function") {
+		app_program[key]();
+	} else {
+		res.send('404');
+	}
+});
+
+//音乐
+const app_music = require('./service/app_music.js')
+app.post('/music', function (req, res) {
+	var obj = req.body;
+	var key = obj.key;
+	var value = obj.value;
+
+	app_music.init({
+		res: res,
+		wsend: wsend,
+		value: value
+	});
 
 	if ((typeof app_music[key]) === "function") {
 		app_music[key]();
@@ -168,72 +149,42 @@ app.post('/music', function (req, res) {
 });
 
 //闹钟
+const app_clock = require('./service/app_clock.js')
 app.post('/clock', function (req, res) {
 	var obj = req.body;
-	switch (obj.key) {
-		case 'save': //添加
-			var args = obj.value;
-			Clock.save(args.id, args.time, args.voice, args.count).then(function (data) {
-				wsend({ type: 'program', result: 'refresh' })
-				res.send(data);
-			});
-			break;
-		case 'del': //删除
-			var args = obj.value;
-			Clock.del(args).then(function (data) {
-				wsend({ type: 'program', result: 'refresh' })
-				res.send(data);
-			});
-			break;
-		case 'baoshi': //报时
-			wsend({ type: 'program', result: 'baoshi', msg: obj.value || '' })
-			res.send('success');
-			break;
-		case 'get':
-			Clock.get().then(function (arr) {
-				res.jsonp(arr);
-			});
-			break;
+	var key = obj.key;
+	var value = obj.value;
+
+	app_clock.init({
+		res: res,
+		wsend: wsend,
+		value: value
+	});
+
+	if ((typeof app_clock[key]) === "function") {
+		app_clock[key]();
+	} else {
+		res.send('404');
 	}
 });
 
 //相片
+const app_picture = require('./service/app_picture.js')
 app.post('/picture', function (req, res) {
 	var obj = req.body;
-	switch (obj.key) {
-		case 'del':
-			var args = obj.value;
-			Picture.del(args.id).then(function (data) {
-				res.send(data);
-			});
-			break;
-		case 'top':
-			var args = obj.value;
-			Picture.top(args.id).then(function (data) {
-				res.send(data);
-			});
-			break;
-		case 'add':
-			var args = obj.value;
-			var oldname = req.files.picfile.path;
-			var newname = (new Date()).getTime() + '.png';
-			fs.rename(oldname, 'public/data/' + newname, function (err) {
-				if (err) {
-					throw err;
-				}
-				console.log('upload success');
-				Picture.add(args.uid, args.source, newname).then(function (data) {
-					console.log(data);
-					res.send('success');
-				});
-			})
-			break;
-		case 'get':
-			var args = obj.value;
-			Picture.get(args.uid).then(function (arr) {
-				res.jsonp(arr);
-			});
-			break;
+	var key = obj.key;
+	var value = obj.value;
+
+	app_picture.init({
+		res: res,
+		wsend: wsend,
+		value: value
+	});
+
+	if ((typeof app_picture[key]) === "function") {
+		app_picture[key]();
+	} else {
+		res.send('404');
 	}
 });
 

@@ -1,3 +1,5 @@
+const PythonShell = require('python-shell');
+
 //获取本机IP地址
 function getIPAdress() {
     var interfaces = require('os').networkInterfaces();
@@ -15,5 +17,22 @@ function getIPAdress() {
 var ip = getIPAdress();
 
 module.exports = {
-    ip: ip
+    ip: ip,
+    getcpu: () => {
+        return new Promise(function (resolve, reject) {
+            PythonShell.run('./sensor/sensor-os.py', function (err, results) {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                try {
+                    var obj = JSON.parse(results[0]);
+                    resolve(obj);
+                } catch (ex) {
+                    reject(ex);
+                }
+                console.log('results: %j', results);
+            });
+        });
+    }
 }

@@ -3,10 +3,10 @@ const Music = require('./music.js')
 var res = null, wsend = null, args = null;
 
 module.exports = {
-    init: (_res, _wsend, _args) => {
-        res = _res;
-        wsend = _wsend;
-        args = _args;
+    init: (obj) => {
+        res = obj.res;
+        wsend = obj.wsend;
+        args = obj.value;
     },
     //载入链接
     load: () => {
