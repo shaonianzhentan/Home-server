@@ -46,56 +46,68 @@
 		};
 		//结束识别
 		recognition.onend = function () {
+			console.log('end...',endText);
 			recognizing = false;
-			if (ignore_onend) {
+			if (ignore_onend || !endText) {
 				return;
 			}
-			/*
-			if (window.getSelection) {
-			  window.getSelection().removeAllRanges();
-			  var range = document.createRange();
-			  range.selectNode(document.getElementById('final_span'));
-			  window.getSelection().addRange(range);
-			}
-			*/
-		};
+			ignore_onend = true;
 
-		recognition.onresult = function (event) {
-			if (typeof (event.results) == 'undefined') {
-				/*
-				recognition.onend = null;
-				recognition.stop();
-				*/
-				return;
-			}
-
-			/*
-			for (var i = event.resultIndex; i < event.results.length; ++i) {
-			  if (event.results[i].isFinal) {
-				final_transcript += event.results[i][0].transcript;
-			  } else {
-				interim_transcript += event.results[i][0].transcript;
-			  }
-			}
-			*/
-
-			/*
-			//监听语音
-			ws.send(JSON.stringify({
-				type: 'voice',
-				result: 'listen',
-				msg: listenText
-			}));
-			if (listenText.indexOf('小白') > 0) {
-				
-			}
 			
 			ws.send(JSON.stringify({
 				type: 'voice',
 				result: 'end',
 				msg: endText
 			}));
-			*/
+			
+			setTimeout(function(){
+				location.reload();
+				ignore_onend = false;
+			},1000);
+
+		};
+
+		recognition.onresult = function (event) {
+			var result = event.results;
+			if (typeof (result) == 'undefined') {
+				/*
+				recognition.onend = null;
+				recognition.stop();
+				*/
+				return;
+			}
+			listenText='';
+			var final_transcript='';
+			for (var i = event.resultIndex; i < event.results.length; ++i) {
+ 				if (event.results[i].isFinal) {
+						final_transcript += event.results[i][0].transcript;
+				 } else {
+						listenText += event.results[i][0].transcript;
+				}
+			}
+			//一句话识别完毕
+			if(final_transcript!=""){
+			   console.log(final_transcript);
+			   endText = final_transcript;
+			   recognition.stop();
+			   return;
+			}
+
+
+			console.log(listenText);
+
+			//监听语音
+			ws.send(JSON.stringify({
+				type: 'voice',
+				result: 'listen',
+				msg: listenText
+			}));
+			
+			endText = listenText
+
+			if (listenText.indexOf('小白') > 0) {
+				recognition.stop();
+			}
 		};
 
 		function showInfo(msg) {
