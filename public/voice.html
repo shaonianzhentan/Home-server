@@ -18,7 +18,8 @@
 		//录音状态
 		var recognizing = false;
 		//是否结束
-		var ignore_onend = false;
+		var ignore_onend = false;		
+		var endText = "";
 
 		var recognition = new webkitSpeechRecognition();
 		recognition.lang = 'cmn-Hans-CN';
