@@ -25,11 +25,6 @@ module.exports = {
     voice: () => {
         wsend({ type: 'program', result: 'voice', msg: value })
         res.send('success')
-    },    
-   //开启语音
-    openvoice: () => {
-        wsend({ type: 'voice-remote', result: 'open' })
-        res.send('success')
     },
     //输入
     write: () => {
