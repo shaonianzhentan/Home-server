@@ -6,6 +6,12 @@
 
 随时随地享受到无处不在的音乐
 
+## 客户端
+
+客户端项目地址 https://github.com/shaonianzhentan/Home-client
+
+## 服务端运行
+
 下载
 git clone https://github.com/shaonianzhentan/Home-server
 
