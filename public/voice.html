@@ -45,20 +45,9 @@
 				ignore_onend = true;
 			}
 		};
-		//结束识别
-		recognition.onend = function () {
-			console.log('end...', endText);
-			recognizing = false;
-			if (ignore_onend) {
-				return;
-			}
-			if (!endText) {
-				recognition.start();
-				return;
-			}
 
-			ignore_onend = true;
-
+		function SendEndText(){
+			console.log('sending...');
 			ws.send(JSON.stringify({
 				type: 'voice',
 				result: 'end',
@@ -67,14 +56,30 @@
 
 			setTimeout(function () {
 				location.reload();
-				ignore_onend = false;
 			}, 1000);
+		}
 
+		//结束识别
+		recognition.onend = function () {
+			recognizing = false;
+			if (ignore_onend) {
+				return;
+			}
+			console.log('end...', endText);
+			if (!endText) {
+				location.reload();
+				return;
+			}
+			ignore_onend = true;
+
+			SendEndText();
 		};
 
+		var timer = null;
 		recognition.onresult = function (event) {
 			var result = event.results;
 			if (typeof (result) == 'undefined') {
+				console.log("gg---");				
 				/*
 				recognition.onend = null;
 				recognition.stop();
@@ -107,11 +112,16 @@
 				msg: listenText
 			}));
 
-			endText = listenText
+			endText = listenText;
 
-			if (listenText.indexOf('小白') > 0) {
+			clearTimeout(timer);
+			timer = setTimeout(function(){
+				console.log('timeout...');
 				recognition.stop();
-			}
+				setTimeout(function(){
+					SendEndText();
+				},2000);
+			},3000);
 		};
 
 		function showInfo(msg) {
