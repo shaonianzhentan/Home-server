@@ -26,6 +26,12 @@ module.exports = {
         wsend({ type: 'program', result: 'voice', msg: value })
         res.send('success')
     },
+    //唤醒语音识别
+    openvoice: () => {
+	    wsend({ type: 'voice', result: 'listen', msg: '魔镜魔镜，开始聆听...' });
+	    wsend({ type: 'voice-remote', result: 'open' });
+        res.send('success')
+    },
     //输入
     write: () => {
         wsend({ type: 'program', result: 'write', msg: value })
