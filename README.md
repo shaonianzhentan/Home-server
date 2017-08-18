@@ -6,9 +6,11 @@
 
 随时随地享受到无处不在的音乐
 
-## 客户端
+## 依赖项目
 
 客户端项目地址 https://github.com/shaonianzhentan/Home-client
+
+离线唤醒项目 https://github.com/Kitt-AI/snowboy
 
 ## 服务端运行
 
