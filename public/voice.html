@@ -18,7 +18,7 @@
 		//录音状态
 		var recognizing = false;
 		//是否结束
-		var ignore_onend = false;		
+		var ignore_onend = false;
 		var endText = "";
 
 		var recognition = new webkitSpeechRecognition();
@@ -49,11 +49,15 @@
 		recognition.onend = function () {
 			console.log('end...', endText);
 			recognizing = false;
-			if (ignore_onend || !endText) {
+			if (ignore_onend) {
 				return;
 			}
-			ignore_onend = true;
+			if (!endText) {
+				recognition.start();
+				return;
+			}
 
+			ignore_onend = true;
 
 			ws.send(JSON.stringify({
 				type: 'voice',
