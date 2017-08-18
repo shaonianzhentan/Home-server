@@ -40,6 +40,10 @@ wss.on('connection', function connection(ws) {
 					}
 					break;
 			}
+
+			if(obj['type'] == 'voice' && obj.result == 'end'){
+				StartVoiceServer();
+			}
 			//推送信息
 			wsend(obj);
 		} catch (ex) {
@@ -113,7 +117,7 @@ const app_program = require('./service/app_program.js')
 app.post('/program', function (req, res) {
 	var obj = req.body;
 	var key = obj.key;
-
+console.log(obj);
 	app_program.init({
 		res: res,
 		wsend: wsend,
@@ -239,3 +243,22 @@ sensor_lirc.init({
 		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'voice', result: 'start' })
 	}
 });
+
+
+const voice_server = require('./voice.js');
+
+var timer = null;
+function StartVoiceServer(){
+	if(timer) clearTimeout(timer);
+	voice_server.start(function(record){
+		console.log('start voiceing...');
+		wsend({ type: 'voice', result: 'listen',msg:'开始聆听...' });
+		wsend({ type: 'voice-remote', result: 'open' });
+		timer = setTimeout(function(){
+			record.stop();
+			StartVoiceServer();
+		},10000);
+	});
+}
+
+StartVoiceServer();
