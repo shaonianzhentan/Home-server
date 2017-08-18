@@ -38,16 +38,15 @@ wss.on('connection', function connection(ws) {
 		console.log('received: %s', message);
 		try {
 			var obj = JSON.parse(message);
+			if (obj['type'] == 'voice' && obj.result == 'end') {
+				StartVoiceServer();
+			}
 			switch (obj.k) {
 				case 'status':
 					for (var k in obj.v) {
 						OS_STATUS[k] = obj.v[k];
 					}
 					break;
-			}
-
-			if (obj['type'] == 'voice' && obj.result == 'end') {
-				StartVoiceServer();
 			}
 			//推送信息
 			wsend(obj);
@@ -249,22 +248,14 @@ sensor_lirc.init({
 	}
 });
 
-
-
-const voice_server = require('./voice.js');
-
-var timer = null;
+var RunStatus = true;
 function StartVoiceServer() {
-	if (timer) clearTimeout(timer);	
-	voice_server.start(function (record) {
-		console.log('start voiceing...');
-		wsend({ type: 'voice', result: 'listen', msg: '魔镜魔镜，开始聆听...' });
-		wsend({ type: 'voice-remote', result: 'open' });
-		timer = setTimeout(function () {
-			record.stop();
-			StartVoiceServer();
-		}, 10000);
+	//voice_server.start();
+	if(RunStatus==false) return;
+	RunStatus = false;
+        exec("pm2 restart voiceServer", function (err, stdout, stderr) { 
+		console.log('reset complate');
+		RunStatus = true;
 	});
+	console.log('reset VoiceServer...');
 }
-
-StartVoiceServer();
