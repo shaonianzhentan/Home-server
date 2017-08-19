@@ -38,3 +38,14 @@ record.start({
 }).pipe(detector);
 
 console.log('listening...');
+//通知客户端已经准备好了
+request.post({url: 'http://localhost:8888/program', form: {
+		key:"readyvoice"
+            }
+        }, function(err, httpResponse, body) {
+            if (err) {
+                console.log(err);
+		return;
+            }
+	    console.log("readyvoice");
+        });
