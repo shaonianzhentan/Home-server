@@ -1,5 +1,5 @@
 //程序运行的所有状态，都在这里
-
+const os = require('./os.js');
 
 var APP_STATUS = {
 	init: (obj) => {
