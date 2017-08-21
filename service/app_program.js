@@ -28,13 +28,13 @@ module.exports = {
     },
     //唤醒语音识别
     openvoice: () => {
-	    wsend({ type: 'voice', result: 'listen', msg: '魔镜魔镜，开始聆听...' });
-	    wsend({ type: 'voice-remote', result: 'open' });
+        wsend({ type: 'voice', result: 'listen', msg: '魔镜魔镜，开始聆听...' });
+        wsend({ type: 'voice-remote', result: 'open' });
         res.send('success')
     },
-	
-    readyvoice:()=>{
-	wsend({ type: 'voice', result: 'listen', msg: '请说出咒语”魔镜魔镜”，来召唤我吧' });
+    //通知可以使用魔镜命令了
+    readyvoice: () => {
+        wsend({ type: 'voice', result: 'listen', msg: '请说出咒语”魔镜魔镜”，来召唤我吧' });
         res.send('success')
     },
     //输入
