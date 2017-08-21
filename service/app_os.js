@@ -9,19 +9,17 @@ module.exports = {
         value = obj.value;
         OS_STATUS = obj.OS_STATUS;
     },
-    //获取状态
-    status: () => {
-        wsend({ type: 'program', result: 'status', msg: OS_STATUS })
-        OS_STATUS.ServerTime = (new Date()).toLocaleString()
-        OS_STATUS.volume = Volume.get();
-        if (res) res.json(OS_STATUS);
-    },
-    //传感器数据
-    sensor: () => {
+    //设置状态
+    setStatus: () => {
         for (var k in value) {
-            OS_STATUS['sensor_' + k] = value[k];
+            OS_STATUS[k] = value[k];
         }
         res.send('success');
+    },
+    //获取状态
+    status: () => {        
+        OS_STATUS.ServerTime = (new Date()).toLocaleString()        
+        if (res) res.json(OS_STATUS);
     },
     //增加声音
     vol_up: () => {

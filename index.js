@@ -14,7 +14,7 @@
 
 
 process.on('uncaughtException', (err) => {
-	console.error('全局错误信息：',err);
+	console.error('全局错误信息：', err);
 });
 
 /*******引入功能模块*******/
@@ -39,14 +39,7 @@ wss.on('connection', function connection(ws) {
 		try {
 			var obj = JSON.parse(message);
 			if (obj['type'] == 'voice' && obj.result == 'end') {
-				StartVoiceServer();
-			}
-			switch (obj.k) {
-				case 'status':
-					for (var k in obj.v) {
-						OS_STATUS[k] = obj.v[k];
-					}
-					break;
+				os.StartVoiceServer();
 			}
 			//推送信息
 			wsend(obj);
@@ -66,35 +59,17 @@ function wsend(data) {
 	wss.broadcast(JSON.stringify(data));
 }
 
+//初始化全局变量数据
+var APP_STATUS = require('./service/app_status.js');
+APP_STATUS.init({
+	wsend: wsend
+});
 
 /*************express**********************/
+
 app.get('/', function (req, res) {
 	res.send('hello world');
 });
-
-//系统状态
-var OS_STATUS = {
-	ip: os.ip,
-	BootTime: (new Date()).toLocaleString(),
-	ServerTime: (new Date()).toLocaleString(),
-	infraredSwitch: '开',
-	volume: '',
-	screenshots: '',
-	sensor_temperature: '', //温度
-	sensor_humidity: '' //湿度
-}
-
-//监听变量
-Object.defineProperty(OS_STATUS, 'sensor_temperature', {
-	get: function () {
-		return this._sensor_temperature;
-	},
-	set: function (newValue) {
-		this._sensor_temperature = newValue;
-		app_os.status();
-	}
-});
-
 
 //操作系统
 const app_os = require('./service/app_os.js')
@@ -106,7 +81,7 @@ app.post('/os', function (req, res) {
 		res: res,
 		wsend: wsend,
 		value: obj.value,
-		OS_STATUS: OS_STATUS
+		OS_STATUS: APP_STATUS.OS_STATUS
 	});
 
 	if ((typeof app_os[key]) === "function") {
@@ -213,49 +188,36 @@ server.listen(port, function listening() {
 const sensor_lirc = require('./sensor/sensor-lirc.js');
 sensor_lirc.init({
 	KEY_X: () => {
-		OS_STATUS.infraredSwitch = OS_STATUS.infraredSwitch == '开' ? '关' : '开';
-		wsend({ type: 'program', result: 'speak', msg: '红外控制' + OS_STATUS.infraredSwitch });
+		APP_STATUS.OS_STATUS.infraredSwitch = APP_STATUS.OS_STATUS.infraredSwitch == '开' ? '关' : '开';
 	},
 	KEY_LEFT: () => {
-		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'prev', msg: '上一曲' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'prev', msg: '上一曲' })
 	},
 	KEY_RIGHT: () => {
-		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'next', msg: '下一曲' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'next', msg: '下一曲' })
 	},
 	KEY_VOLUMEUP: () => {
-		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'tips', msg: Volume.plus() });
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'tips', msg: Volume.plus() });
 	},
 	KEY_VOLUMEDOWN: () => {
-		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'tips', msg: Volume.minus() });
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'tips', msg: Volume.minus() });
 	},
 	KEY_ENTER: () => {
-		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'play', msg: '播放' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'play', msg: '播放' })
 	},
 	KEY_BACK: () => {
-		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'pause', msg: '暂停' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'pause', msg: '暂停' })
 	},
 	KEY_HOME: () => {
-		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'reload' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'reload' })
 	},
 	KEY_UP: () => {
-		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'up', msg: '播放广播' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'up', msg: '播放广播' })
 	},
 	KEY_DOWN: () => {
-		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'down', msg: '播放音乐' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'down', msg: '播放音乐' })
 	},
 	KEY_WWW: () => {
-		if (OS_STATUS.infraredSwitch == '开') wsend({ type: 'voice', result: 'start' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'voice', result: 'start' })
 	}
 });
-
-var RunStatus = true;
-function StartVoiceServer() {
-	//voice_server.start();
-	if(RunStatus==false) return;
-	RunStatus = false;
-        exec("pm2 restart voiceServer", function (err, stdout, stderr) { 
-		console.log('reset complate');
-		RunStatus = true;
-	});
-	console.log('reset VoiceServer...');
-}
