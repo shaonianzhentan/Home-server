@@ -1,0 +1,1552 @@
+﻿{
+    "央广电台": [
+        {
+            "title": "CNR中国之声",
+            "url": "http://ngcdn001.cnr.cn/live/zgzs/index.m3u8"
+        },
+        {
+            "title": "CNR经济之声",
+            "url": "http://ngcdn002.cnr.cn/live/jjzs/index.m3u8"
+        },
+        {
+            "title": "CNR音乐之声",
+            "url": "http://ngcdn003.cnr.cn/live/yyzs/index.m3u8"
+        },
+        {
+            "title": "CNR文艺之声",
+            "url": "http://ngcdn010.cnr.cn/live/wyzs/index.m3u8"
+        },
+        {
+            "title": "CNR都市之声",
+            "url": "http://ngcdn004.cnr.cn/live/dyzs/index.m3u8"
+        },
+        {
+            "title": "CNR中华之声",
+            "url": "http://ngcdn005.cnr.cn/live/zhzs/index.m3u8"
+        },
+        {
+            "title": "CNR香港之声",
+            "url": "http://ngcdn008.cnr.cn/live/xgzs/index.m3u8"
+        },
+        {
+            "title": "CNR民族之声",
+            "url": "http://ngcdn009.cnr.cn/live/mzzs/index.m3u8"
+        },
+        {
+            "title": "CNR老年之声",
+            "url": "http://ngcdn011.cnr.cn/live/lnzs/index.m3u8"
+        },
+        {
+            "title": "CNR神舟之声",
+            "url": "http://ngcdn006.cnr.cn/live/szzs/index.m3u8"
+        },
+        {
+            "title": "CNR华夏之声",
+            "url": "http://ngcdn007.cnr.cn/live/hxzs/index.m3u8"
+        },
+        {
+            "title": "CNR乡村之声",
+            "url": "http://ngcdn017.cnr.cn/live/xczs/index.m3u8"
+        },
+        {
+            "title": "CNR相声小品",
+            "url": "http://ngcdn023.cnr.cn/live/xsxp/index.m3u8"
+        },
+        {
+            "title": "CNR古典音乐频道",
+            "url": "http://ngcdn022.cnr.cn/live/gdyy/index.m3u8"
+        },
+        {
+            "title": "CNR长篇联播频道",
+            "url": "http://ngcdn024.cnr.cn/live/cplb/index.m3u8"
+        },
+        {
+            "title": "CNR中国民乐频道",
+            "url": "http://ngcdn021.cnr.cn/live/zgmy/index.m3u8"
+        },
+        {
+            "title": "CNR维语广播",
+            "url": "http://ngcdn013.cnr.cn/live/wygb/index.m3u8"
+        },
+        {
+            "title": "CNR藏语广播",
+            "url": "http://ngcdn012.cnr.cn/live/zygb/index.m3u8"
+        },
+        {
+            "title": "CNR哈语广播",
+            "url": "http://ngcdn021.cnr.cn/live/zgmy/index.m3u8"
+        },
+        {
+            "title": "CNR娱乐广播",
+            "url": "http://ngcdn014.cnr.cn/live/ylgb/index.m3u8"
+        },
+        {
+            "title": "CNR高速广播",
+            "url": "http://ngcdn016.cnr.cn/live/gsgljtgb/index.m3u8"
+        },
+        {
+            "title": "CRI华语环球",
+            "url": "http://sk.cri.cn/hyhq/index.m3u8"
+        },
+        {
+            "title": "CRI南海之声",
+            "url": "http://sk.cri.cn/nhzs/index.m3u8"
+        },
+        {
+            "title": "CRI客家之声",
+            "url": "http://sk.cri.cn/hakka/index.m3u8"
+        },
+        {
+            "title": "CRU国广FM887",
+            "url": "http://sk.cri.cn/887.m3u8"
+        }
+    ],
+    "河南": [
+        {
+            "title": "河南交通广播",
+            "url": "rtmp: //live.hnr.cn/live/jiaotong"
+        },
+        {
+            "title": "河南新闻广播",
+            "url": "rtmp: //live.hnr.cn/live/xinwen"
+        },
+        {
+            "title": "河南音乐广播",
+            "url": "rtmp: //live.hnr.cn/live/yinyue"
+        },
+        {
+            "title": "河南经济广播",
+            "url": "rtmp: //live.hnr.cn/live/jingji"
+        },
+        {
+            "title": "河南娱乐广播",
+            "url": "rtmp: //live.hnr.cn/live/yule"
+        },
+        {
+            "title": "河南影视广播",
+            "url": "rtmp: //live.hnr.cn/live/yingshi"
+        },
+        {
+            "title": "河南1074农村广播",
+            "url": "rtmp: //live.hnr.cn/live/nongcun"
+        },
+        {
+            "title": "河南FM999私家车广播",
+            "url": "rtmp: //live.hnr.cn/live/sijiache"
+        },
+        {
+            "title": "河南乐龄1056",
+            "url": "rtmp: //live.hnr.cn/live/yueling"
+        },
+        {
+            "title": "河南驾车1066",
+            "url": "rtmp: //live.hnr.cn/live/jiaoyu"
+        },
+        {
+            "title": "河南电台天籁之音",
+            "url": "rtmp: //live.hnr.cn/live/gudian"
+        },        
+        {
+            "title": "河南新闻广播",
+            "url": "http://qgzb.cnr.cn/live/hnxwgb/playlist.m3u8"
+        },
+        {
+            "title": "河南交通广播",
+            "url": "http://qgzb.cnr.cn/live/hnjtgblili/playlist.m3u8"
+        },
+        {
+            "title": "河南音乐广播",
+            "url": "http://qgzb.cnr.cn/live/hnyygb/playlist.m3u8"
+        },
+        {
+            "title": "河南经济广播",
+            "url": "http://qgzb.cnr.cn/live/henanjingji/playlist.m3u8"
+        },
+        {
+            "title": "河南娱乐广播",
+            "url": "http://qgzb.cnr.cn/live/hnylgb/playlist.m3u8"
+        },
+        {
+            "title": "河南影视广播MyRadio",
+            "url": "http://qgzb.cnr.cn/live/hnysgb/playlist.m3u8"
+        },
+        {
+            "title": "河南1074绿色频道",
+            "url": "http://qgzb.cnr.cn/live/hnysgb/playlist.m3u8"
+        },
+        {
+            "title": "河南FM999私家车广播",
+            "url": "http://qgzb.cnr.cn/live/hnfm999/playlist.m3u8"
+        },
+        {
+            "title": "河南乐龄1056",
+            "url": "http://qgzb.cnr.cn/live/yl1056/playlist.m3u8"
+        },
+        {
+            "title": "河南驾车1066",
+            "url": "http://qgzb.cnr.cn/live/hndtjc/playlist.m3u8"
+        },
+        {
+            "title": "郑州新闻广播",
+            "url": "http://qgzb.cnr.cn/live/zzxwgb/playlist.m3u8"
+        },
+        {
+            "title": "郑州经济广播",
+            "url": "http://qgzb.cnr.cn/live/zzjjgb/playlist.m3u8"
+        },
+        {
+            "title": "郑州音乐广播",
+            "url": "http://qgzb.cnr.cn/live/zzyyhlgb/playlist.m3u8"
+        },
+        {
+            "title": "郑州经典音乐广播",
+            "url": "http://qg2.cnr.cn/live/zzjdyygb/playlist.m3u8"
+        },
+        {
+            "title": "郑州汽车FM912",
+            "url": "http://qg2.cnr.cn/live/zzqcfm912/playlist.m3u8"
+        },
+        {
+            "title": "郑州女性时空",
+            "url": "http://qgzb.cnr.cn/live/zznxskgb/playlist.m3u8"
+        },
+        {
+            "title": "郑州都市汽车广播",
+            "url": "http://qgzb.cnr.cn/live/zzdsqcgb/playlist.m3u8"
+        },
+        {
+            "title": "郑州故事经典广播",
+            "url": "http://qgzb.cnr.cn/live/zzgsjdgb/playlist.m3u8"
+        },
+        {
+            "title": "南阳新闻频率",
+            "url": "http://qgzb.cnr.cn/live/nyxwpl/playlist.m3u8"
+        },
+        {
+            "title": "南阳交通广播",
+            "url": "http://qgzb.cnr.cn/live/nyjtgb/playlist.m3u8"
+        },
+        {
+            "title": "洛阳新闻",
+            "url": "http://http.qingting.fm/1227.mp3"
+        },
+        {
+            "title": "洛阳交通",
+            "url": "http://http.qingting.fm/1225.mp3"
+        },
+        {
+            "title": "洛阳经济",
+            "url": "http://http.qingting.fm/1226.mp3"
+        },
+        {
+            "title": "洛阳驾车",
+            "url": "http://http.qingting.fm/2167859.mp3"
+        }
+    ],
+    "北京": [
+        {
+            "title": "北京新闻广播",
+            "url": "http://qgzb.cnr.cn/live/bjxwgb/playlist.m3u8"
+        },
+        {
+            "title": "北京文艺广播",
+            "url": "http://qgzb.cnr.cn/live/bjwygb/playlist.m3u8"
+        },
+        {
+            "title": "北京交通广播",
+            "url": "http://qgzb.cnr.cn/live/bjjtgb/playlist.m3u8"
+        },
+        {
+            "title": "北京音乐广播",
+            "url": "http://qgzb.cnr.cn/live/bjyygb/playlist.m3u8"
+        },
+        {
+            "title": "北京城市广播",
+            "url": "http://qgzb.cnr.cn/live/bjcsgb/playlist.m3u8"
+        },
+        {
+            "title": "北京故事广播",
+            "url": "http://qgzb.cnr.cn/live/bjgsgb/playlist.m3u8"
+        },
+        {
+            "title": "北京体育广播",
+            "url": "http://qgzb.cnr.cn/live/bjtygb/playlist.m3u8"
+        },
+        {
+            "title": "北京长书广播",
+            "url": "http://qgzb.cnr.cn/live/bjtygb/playlist.m3u8"
+        },
+        {
+            "title": "北京教学广播",
+            "url": "http://qgzb.cnr.cn/live/bjjxgb/playlist.m3u8"
+        },
+        {
+            "title": "北京外语广播",
+            "url": "http://qgzb.cnr.cn/live/bjwaiyu/playlist.m3u8"
+        },
+        {
+            "title": "北京爱家广播",
+            "url": "http://qgzb.cnr.cn/live/bjajgb/playlist.m3u8"
+        }
+    ],
+    "天津": [
+        {
+            "title": "天津新闻广播",
+            "url": "http://qgzb.cnr.cn/live/tjxwgb/playlist.m3u8"
+        },
+        {
+            "title": "天津经济广播",
+            "url": "http://qgzb.cnr.cn/live/tjjjgb/playlist.m3u8"
+        },
+        {
+            "title": "天津交通广播",
+            "url": "http://qgzb.cnr.cn/live/tjjjgb/playlist.m3u8"
+        },
+        {
+            "title": "天津文艺广播",
+            "url": "http://qgzb.cnr.cn/live/tjwygb/playlist.m3u8"
+        },
+        {
+            "title": "天津音乐广播",
+            "url": "http://qgzb.cnr.cn/live/tjyygb/playlist.m3u8"
+        },
+        {
+            "title": "天津小说广播",
+            "url": "http://qgzb.cnr.cn/live/tjxsgb/playlist.m3u8"
+        },
+        {
+            "title": "天津相声广播",
+            "url": "http://qgzb.cnr.cn/live/tjxsgb/playlist.m3u8"
+        },
+        {
+            "title": "天津生活广播",
+            "url": "http://qgzb.cnr.cn/live/tjshgb/playlist.m3u8"
+        },
+        {
+            "title": "天津滨海广播",
+            "url": "http://qgzb.cnr.cn/live/tjbhgb/playlist.m3u8"
+        },
+        {
+            "title": "天津农村广播",
+            "url": "http://qgzb.cnr.cn/live/tjncgb/playlist.m3u8"
+        },
+        {
+            "title": "天津古典音乐广播",
+            "url": "http://qgzb.cnr.cn/live/tjgdyygb/playlist.m3u8"
+        },
+        {
+            "title": "天津北方调频广播",
+            "url": "http://qgzb.cnr.cn/live/tjbftpgb/playlist.m3u8"
+        },
+        {
+            "title": "天津外语广播",
+            "url": "http://qgzb.cnr.cn/live/tjwygb/playlist.m3u8"
+        },
+        {
+            "title": "天津MYFM1005",
+            "url": "http://qg2.cnr.cn/live/tjmyfm1005/playlist.m3u8"
+        }
+    ],
+    "上海": [
+        {
+            "title": "上海奉贤广播电台",
+            "url": "http://qgzb.cnr.cn/live/fxbroadcast/playlist.m3u8"
+        },
+        {
+            "title": "闵行人民广播电台",
+            "url": "http://qgzb.cnr.cn/live/mxbroadcast/playlist.m3u8"
+        },
+        {
+            "title": "上海KFM981",
+            "url": "http://qg2.cnr.cn/live/shkfm981/playlist.m3u8"
+        },
+        {
+            "title": "上海899驾车调频",
+            "url": "http://qg2.cnr.cn/live/sh899jctp/playlist.m3u8"
+        },
+        {
+            "title": "上海新闻广播",
+            "url": "http://qg2.cnr.cn/live/shxwgb/playlist.m3u8"
+        },
+        {
+            "title": "上海LoveRadio",
+            "url": "http://qg2.cnr.cn/live/shloveradio/playlist.m3u8"
+        },
+        {
+            "title": "上海交通广播电台",
+            "url": "http://qg2.cnr.cn/live/shjtgbdt/playlist.m3u8"
+        },
+        {
+            "title": "上海浦江之声",
+            "url": "http://qg2.cnr.cn/live/shpjzs/playlist.m3u8"
+        }
+    ],
+    "河北": [
+        {
+            "title": "河北新闻广播",
+            "url": "http://qgzb.cnr.cn/live/hbxwgb/playlist.m3u8"
+        },
+        {
+            "title": "河北经济广播",
+            "url": "http://qgzb.cnr.cn/live/hbjjgb/playlist.m3u8"
+        },
+        {
+            "title": "河北交通广播",
+            "url": "http://qgzb.cnr.cn/live/hbjtgb/playlist.m3u8"
+        },
+        {
+            "title": "河北音乐广播",
+            "url": "http://qgzb.cnr.cn/live/hbyygb/playlist.m3u8"
+        },
+        {
+            "title": "河北私家车广播",
+            "url": "http://qgzb.cnr.cn/live/hbsjcgb/playlist.m3u8"
+        },
+        {
+            "title": "河北农民广播",
+            "url": "http://qgzb.cnr.cn/live/hbnmgb/playlist.m3u8"
+        },
+        {
+            "title": "河北生活广播",
+            "url": "http://qgzb.cnr.cn/live/hbshgb/playlist.m3u8"
+        },
+        {
+            "title": "河北旅游广播",
+            "url": "http://qgzb.cnr.cn/live/hblygb/playlist.m3u8"
+        },
+        {
+            "title": "河北科技广播",
+            "url": "http://qgzb.cnr.cn/live/hbkjgb/playlist.m3u8"
+        },
+        {
+            "title": "河北故事广播",
+            "url": "http://qg2.cnr.cn/live/hbgsgb/playlist.m3u8"
+        },
+        {
+            "title": "河北MYFM1029",
+            "url": "http://qg2.cnr.cn/live/hbmyfm1029/playlist.m3u8"
+        },
+        {
+            "title": "石家庄新闻广播",
+            "url": "http://qgzb.cnr.cn/live/sjzxwgb/playlist.m3u8"
+        },
+        {
+            "title": "石家庄经济广播",
+            "url": "http://qgzb.cnr.cn/live/sjzjjgb/playlist.m3u8"
+        },
+        {
+            "title": "石家庄音乐广播",
+            "url": "http://qgzb.cnr.cn/live/sjzyygb/playlist.m3u8"
+        },
+        {
+            "title": "石家庄交通广播",
+            "url": "http://qgzb.cnr.cn/live/sjzjtgb/playlist.m3u8"
+        },
+        {
+            "title": "石家庄绿色之声",
+            "url": "http://qgzb.cnr.cn/live/sjzlszs/playlist.m3u8"
+        },
+        {
+            "title": "衡水新闻广播",
+            "url": "http://qgzb.cnr.cn/live/hsxwgb/playlist.m3u8"
+        },
+        {
+            "title": "衡水文艺广播",
+            "url": "http://qgzb.cnr.cn/live/hswygb/playlist.m3u8"
+        },
+        {
+            "title": "衡水交通广播",
+            "url": "http://qgzb.cnr.cn/live/hsjtgb/playlist.m3u8"
+        },
+        {
+            "title": "保定新闻广播",
+            "url": "http://qgzb.cnr.cn/live/bdxwgb/playlist.m3u8"
+        },
+        {
+            "title": "保定交通广播",
+            "url": "http://qgzb.cnr.cn/live/bdjtgb/playlist.m3u8"
+        },
+        {
+            "title": "保定经济广播",
+            "url": "http://qgzb.cnr.cn/live/bdjjgb/playlist.m3u8"
+        },
+        {
+            "title": "保定城市服务广播",
+            "url": "http://qgzb.cnr.cn/live/bdcsfwgb/playlist.m3u8"
+        },
+        {
+            "title": "保定飞扬调频汽车音乐广播",
+            "url": "http://qgzb.cnr.cn/live/bdautomusic/playlist.m3u8"
+        },
+        {
+            "title": "保定欢乐调频884",
+            "url": "http://qg2.cnr.cn/live/bdhltp884/playlist.m3u8"
+        },
+        {
+            "title": "石家庄经典流行1015音乐广播",
+            "url": "http://qg2.cnr.cn/live/sjzjdlx1015yygb/playlist.m3u8"
+        },
+        {
+            "title": "衡水湖城之声961",
+            "url": "http://qg2.cnr.cn/live/hshczs961/playlist.m3u8"
+        }
+    ],
+    "江苏": [
+        {
+            "title": "江苏新闻综合广播",
+            "url": "http://qg2.cnr.cn/live/jsxwzhgb/playlist.m3u8"
+        },
+        {
+            "title": "江苏新闻广播",
+            "url": "http://qg2.cnr.cn/live/jsxwzhgb/playlist.m3u8"
+        },
+        {
+            "title": "江苏经典流行音乐",
+            "url": "http://qg2.cnr.cn/live/jsjdlxyy/playlist.m3u8"
+        },
+        {
+            "title": "江苏音乐魅力897",
+            "url": "http://qg2.cnr.cn/live/jsyyml879/playlist.m3u8"
+        },
+        {
+            "title": "江苏文艺广播",
+            "url": "http://qg2.cnr.cn/live/jswygb/playlist.m3u8"
+        },
+        {
+            "title": "fm997江苏汽车调频",
+            "url": "http://qg2.cnr.cn/live/fm997jsqctp/playlist.m3u8"
+        },
+        {
+            "title": "江苏交通广播",
+            "url": "http://qg2.cnr.cn/live/jsjtgb/playlist.m3u8"
+        },
+        {
+            "title": "江苏财经广播",
+            "url": "http://qg2.cnr.cn/live/jscjgb/playlist.m3u8"
+        },
+        {
+            "title": "江苏健康广播",
+            "url": "http://qg2.cnr.cn/live/jsjkgb/playlist.m3u8"
+        },
+        {
+            "title": "江苏故事广播",
+            "url": "http://qg2.cnr.cn/live/jsgsgb/playlist.m3u8"
+        },
+        {
+            "title": "南京炫动1066",
+            "url": "http://qg2.cnr.cn/live/njxd1066/playlist.m3u8"
+        },
+        {
+            "title": "南京新闻广播",
+            "url": "http://qg2.cnr.cn/live/njxwgb/playlist.m3u8"
+        },
+        {
+            "title": "南京新闻综合广播",
+            "url": "http://qgzb.cnr.cn/live/njxwzhgb/playlist.m3u8"
+        },
+        {
+            "title": "南京经济广播",
+            "url": "http://qgzb.cnr.cn/live/njjjgb/playlist.m3u8"
+        },
+        {
+            "title": "南京交通广播",
+            "url": "http://qgzb.cnr.cn/live/njjtgb/playlist.m3u8"
+        },
+        {
+            "title": "南京音乐广播",
+            "url": "http://qgzb.cnr.cn/live/njyygb/playlist.m3u8"
+        },
+        {
+            "title": "南京城市管理广播",
+            "url": "http://qgzb.cnr.cn/live/njcsglgb/playlist.m3u8"
+        },
+        {
+            "title": "南京体育广播",
+            "url": "http://qgzb.cnr.cn/live/njtygb/playlist.m3u8"
+        },
+        {
+            "title": "南京JINFM885",
+            "url": "http://qg2.cnr.cn/live/njjinfm885/playlist.m3u8"
+        },
+        {
+            "title": "南京MYFM1035",
+            "url": "http://qg2.cnr.cn/live/njmyfm1035/playlist.m3u8"
+        },
+        {
+            "title": "南通经济广播",
+            "url": "http://qg2.cnr.cn/live/ntjjgb/playlist.m3u8"
+        },
+        {
+            "title": "南通新闻广播",
+            "url": "http://qgzb.cnr.cn/live/ntxwgb/playlist.m3u8"
+        },
+        {
+            "title": "南通财经广播",
+            "url": "http://qgzb.cnr.cn/live/ntcjgb/playlist.m3u8"
+        },
+        {
+            "title": "苏州新闻广播",
+            "url": "http://qgzb.cnr.cn/live/szxwgb/playlist.m3u8"
+        },
+        {
+            "title": "苏州交通广播",
+            "url": "http://qgzb.cnr.cn/live/szjtgb/playlist.m3u8"
+        },
+        {
+            "title": "苏州都市音乐广播",
+            "url": "http://qgzb.cnr.cn/live/szdsyygb/playlist.m3u8"
+        },
+        {
+            "title": "苏州汽车广播",
+            "url": "http://qgzb.cnr.cn/live/szqcgb/playlist.m3u8"
+        },
+        {
+            "title": "苏州生活广播",
+            "url": "http://qgzb.cnr.cn/live/szshgb/playlist.m3u8"
+        },
+        {
+            "title": "苏州音乐广播",
+            "url": "http://qg2.cnr.cn/live/szyygb/playlist.m3u8"
+        },
+        {
+            "title": "苏州戏曲广播",
+            "url": "http://qg2.cnr.cn/live/szxqgb/playlist.m3u8"
+        },
+        {
+            "title": "扬州新闻广播",
+            "url": "http://qg2.cnr.cn/live/yzxwgb/playlist.m3u8"
+        },
+        {
+            "title": "扬州交通广播",
+            "url": "http://qg2.cnr.cn/live/yzjtgb/playlist.m3u8"
+        },
+        {
+            "title": "常熟交通广播",
+            "url": "http://qg2.cnr.cn/live/csjtgb/playlist.m3u8"
+        },
+        {
+            "title": "常熟新闻广播",
+            "url": "http://qg2.cnr.cn/live/csxwgb/playlist.m3u8"
+        },
+        {
+            "title": "常熟音乐广播",
+            "url": "http://qg2.cnr.cn/live/csyygb/playlist.m3u8"
+        },
+        {
+            "title": "常州城市调频",
+            "url": "http://qg2.cnr.cn/live/czcstp/playlist.m3u8"
+        },
+        {
+            "title": "常州交通广播",
+            "url": "http://qg2.cnr.cn/live/czjtgb/playlist.m3u8"
+        },
+        {
+            "title": "常州生活健康广播",
+            "url": "http://qg2.cnr.cn/live/czshjkgb/playlist.m3u8"
+        },
+        {
+            "title": "常州戏曲广播",
+            "url": "http://qg2.cnr.cn/live/czxqgb/playlist.m3u8"
+        },
+        {
+            "title": "靖江交通广播",
+            "url": "http://qg3.radio.cn/live/jingjiangjtgb/playlist.m3u8"
+        }
+    ],
+    "浙江": [
+        {
+            "title": "浙江之声",
+            "url": "http://qg2.cnr.cn/live/zjzs/playlist.m3u8"
+        },
+        {
+            "title": "浙江民生996",
+            "url": "http://qg2.cnr.cn/live/zjms996/playlist.m3u8"
+        },
+        {
+            "title": "浙江经济广播",
+            "url": "http://qg2.cnr.cn/live/zjjjgb/playlist.m3u8"
+        },
+        {
+            "title": "浙江城市之声",
+            "url": "http://qg2.cnr.cn/live/zjcszs/playlist.m3u8"
+        },
+        {
+            "title": "浙江悦动之音",
+            "url": "http://qg2.cnr.cn/live/zjydzy/playlist.m3u8"
+        },
+        {
+            "title": "杭州电台中波954",
+            "url": "http://qg2.cnr.cn/live/hzdtzb954/playlist.m3u8"
+        },
+        {
+            "title": "杭州交通电台",
+            "url": "http://qg2.cnr.cn/live/hzjtdt/playlist.m3u8"
+        },
+        {
+            "title": "杭州华语之声",
+            "url": "http://qg2.cnr.cn/live/hzhyzs/playlist.m3u8"
+        },
+        {
+            "title": "舟山新闻综合",
+            "url": "http://qg2.cnr.cn/live/zsxwzh/playlist.m3u8"
+        },
+        {
+            "title": "温岭人民广播电台",
+            "url": "http://qg2.cnr.cn/live/wlrmgbdt/playlist.m3u8"
+        },
+        {
+            "title": "温州交通广播",
+            "url": "http://qgzb.cnr.cn/live/wzjtgb/playlist.m3u8"
+        },
+        {
+            "title": "温州经济广播",
+            "url": "http://qgzb.cnr.cn/live/wzjjgb/playlist.m3u8"
+        },
+        {
+            "title": "温州绿色之声",
+            "url": "http://qgzb.cnr.cn/live/wzlszs/playlist.m3u8"
+        },
+        {
+            "title": "温州私家车音乐",
+            "url": "http://qgzb.cnr.cn/live/wzsjcyy/playlist.m3u8"
+        },
+        {
+            "title": "嘉兴新闻广播",
+            "url": "http://qgzb.cnr.cn/live/jxxwgb/playlist.m3u8"
+        },
+        {
+            "title": "嘉兴交通广播",
+            "url": "http://qgzb.cnr.cn/live/jxjtgb/playlist.m3u8"
+        },
+        {
+            "title": "嘉兴生活广播",
+            "url": "http://qgzb.cnr.cn/live/jxshgb/playlist.m3u8"
+        }
+    ],
+    "安徽": [
+        {
+            "title": "安徽之声",
+            "url": "http://qg2.cnr.cn/live/ahzs/playlist.m3u8"
+        },
+        {
+            "title": "安徽MYFM961",
+            "url": "http://qg2.cnr.cn/live/ahmyfm961/playlist.m3u8"
+        },
+        {
+            "title": "安徽JINFM929",
+            "url": "http://qg2.cnr.cn/live/ahjinfm929/playlist.m3u8"
+        },
+        {
+            "title": "合肥交通广播",
+            "url": "http://qgzb.cnr.cn/live/hfjtgb/playlist.m3u8"
+        },
+        {
+            "title": "合肥汽车音乐广播",
+            "url": "http://qgzb.cnr.cn/live/hfqcyygb/playlist.m3u8"
+        },
+        {
+            "title": "合肥故事广播",
+            "url": "http://qgzb.cnr.cn/live/hfgsgb/playlist.m3u8"
+        },
+        {
+            "title": "合肥徽商广播",
+            "url": "http://qgzb.cnr.cn/live/hfhsgb/playlist.m3u8"
+        },
+        {
+            "title": "马鞍山金曲广播",
+            "url": "http://qg2.cnr.cn/live/masjqgb/playlist.m3u8"
+        }
+    ],
+    "厦门": [
+        {
+            "title": "福建交通广播",
+            "url": "http://qg2.cnr.cn/live/fjjtgb/playlist.m3u8"
+        },
+        {
+            "title": "福建经济电台961",
+            "url": "http://qg2.cnr.cn/live/fjjjdt/playlist.m3u8"
+        },
+        {
+            "title": "厦门新闻广播",
+            "url": "http://qgzb.cnr.cn/live/xmxwgb/playlist.m3u8"
+        },
+        {
+            "title": "厦门经济交通广播",
+            "url": "http://qgzb.cnr.cn/live/xmjjjtgb/playlist.m3u8"
+        },
+        {
+            "title": "厦门音乐广播",
+            "url": "http://qgzb.cnr.cn/live/xmyygb/playlist.m3u8"
+        },
+        {
+            "title": "厦门闽南之声广播",
+            "url": "http://qgzb.cnr.cn/live/xmmnzsgb/playlist.m3u8"
+        },
+        {
+            "title": "厦门旅游广播",
+            "url": "http://qgzb.cnr.cn/live/xmlygb/playlist.m3u8"
+        },
+        {
+            "title": "厦门892集美广播",
+            "url": "http://qg2.cnr.cn/live/xm892jmgb/playlist.m3u8"
+        },
+        {
+            "title": "厦门电台94私家车",
+            "url": "http://qg2.cnr.cn/live/xmdt94sjc/playlist.m3u8"
+        }
+    ],
+    "江西": [
+        {
+            "title": "江西新闻广播",
+            "url": "http://qgzb.cnr.cn/live/jxxwgb/playlist.m3u8"
+        },
+        {
+            "title": "江西财经广播",
+            "url": "http://qgzb.cnr.cn/live/jxcjgb/playlist.m3u8"
+        },
+        {
+            "title": "江西交通广播",
+            "url": "http://qgzb.cnr.cn/live/jxjtgb/playlist.m3u8"
+        },
+        {
+            "title": "江西音乐广播",
+            "url": "http://qgzb.cnr.cn/live/jxyygb/playlist.m3u8"
+        },
+        {
+            "title": "江西都市广播",
+            "url": "http://qgzb.cnr.cn/live/jxdsgb/playlist.m3u8"
+        },
+        {
+            "title": "江西旅游广播",
+            "url": "http://qgzb.cnr.cn/live/jxlygb/playlist.m3u8"
+        },
+        {
+            "title": "江西民生广播",
+            "url": "http://qgzb.cnr.cn/live/jxmsgb/playlist.m3u8"
+        },
+        {
+            "title": "江西农村广播",
+            "url": "http://qgzb.cnr.cn/live/jxncgb/playlist.m3u8"
+        },
+        {
+            "title": "江西绿色985",
+            "url": "http://qg2.cnr.cn/live/jxls985/playlist.m3u8"
+        },
+        {
+            "title": "江西成功992",
+            "url": "http://qg2.cnr.cn/live/jxcg992/playlist.m3u8"
+        },
+        {
+            "title": "江西MYFM969",
+            "url": "http://qg2.cnr.cn/live/jxmyfm969/playlist.m3u8"
+        },
+        {
+            "title": "江西JINFM974",
+            "url": "http://qg2.cnr.cn/live/jxjinfm974/playlist.m3u8"
+        },
+        {
+            "title": "赣州红色广播",
+            "url": "http://qg2.cnr.cn/live/gzhsgb/playlist.m3u8"
+        }
+    ],
+    "山东": [
+        {
+            "title": "山东新闻广播",
+            "url": "http://qgzb.cnr.cn/live/sdxwgb/playlist.m3u8"
+        },
+        {
+            "title": "山东经济广播",
+            "url": "http://qgzb.cnr.cn/live/sdjjgb/playlist.m3u8"
+        },
+        {
+            "title": "山东交通广播",
+            "url": "http://qgzb.cnr.cn/live/sdjtgb/playlist.m3u8"
+        },
+        {
+            "title": "山东城市之音",
+            "url": "http://qgzb.cnr.cn/live/sdcszy/playlist.m3u8"
+        },
+        {
+            "title": "山东音乐广播",
+            "url": "http://qg2.cnr.cn/live/sdyygb/playlist.m3u8"
+        },
+        {
+            "title": "山东女主播电台",
+            "url": "http://qgzb.cnr.cn/live/sdnzbdt/playlist.m3u8"
+        },
+        {
+            "title": "山东生活广播",
+            "url": "http://qgzb.cnr.cn/live/sdshgb/playlist.m3u8"
+        },
+        {
+            "title": "山东体育广播",
+            "url": "http://qgzb.cnr.cn/live/sdtygb/playlist.m3u8"
+        },
+        {
+            "title": "山东商务广播",
+            "url": "http://qgzb.cnr.cn/live/sdswgb/playlist.m3u8"
+        },
+        {
+            "title": "山东乡村广播",
+            "url": "http://qgzb.cnr.cn/live/sdxcgb/playlist.m3u8"
+        },
+        {
+            "title": "济宁经典890音乐广播",
+            "url": "http://qg2.cnr.cn/live/jnjd890yygb/playlist.m3u8"
+        },
+        {
+            "title": "济宁私家车107",
+            "url": "http://qg2.cnr.cn/live/jnsjc107/playlist.m3u8"
+        },
+        {
+            "title": "烟台环球广播",
+            "url": "http://qg2.cnr.cn/live/ythqgb/playlist.m3u8"
+        },
+        {
+            "title": "惠州电台阳光100",
+            "url": "http://qg2.cnr.cn/live/hzdtyg100/playlist.m3u8"
+        },
+        {
+            "title": "惠州交通广播",
+            "url": "http://qg2.cnr.cn/live/hzjtgb/playlist.m3u8"
+        },
+        {
+            "title": "济南Music887",
+            "url": "http://qg2.cnr.cn/live/jnmusic887/playlist.m3u8"
+        }
+    ],
+    "湖南": [
+        {
+            "title": "CNR高速广播湖南905",
+            "url": "http://qg2.cnr.cn/live/cnrgsgbhn905/playlist.m3u8"
+        },
+        {
+            "title": "湖南交通频道",
+            "url": "http://qgzb.cnr.cn/live/hnjtpd/playlist.m3u8"
+        },
+        {
+            "title": "湖南电台青春975",
+            "url": "http://qgzb.cnr.cn/live/hndtqc975/playlist.m3u8"
+        },
+        {
+            "title": "汽车音乐电台",
+            "url": "http://qgzb.cnr.cn/live/893qcyydt/playlist.m3u8"
+        },
+        {
+            "title": "湖南经广魅力901",
+            "url": "http://qgzb.cnr.cn/live/hnjgml901/playlist.m3u8"
+        },
+        {
+            "title": "长沙新闻广播",
+            "url": "http://qg2.cnr.cn/live/csxwgb/playlist.m3u8"
+        },
+        {
+            "title": "长沙交通电台",
+            "url": "http://qg2.cnr.cn/live/csjtdt/playlist.m3u8"
+        },
+        {
+            "title": "长沙品味音乐广播",
+            "url": "http://qg2.cnr.cn/live/cspwyygb/playlist.m3u8"
+        },
+        {
+            "title": "湖南常德鼎城广播电台",
+            "url": "http://qg2.cnr.cn/live/hncddcgbdt/playlist.m3u8"
+        },
+        {
+            "title": "乐田FM1069",
+            "url": "http://qgzb.cnr.cn/live/ltfm1069/playlist.m3u8"
+        },
+        {
+            "title": "乐田1069湖南旅游频道",
+            "url": "http://qg2.cnr.cn/live/lt1069hnlypd/playlist.m3u8"
+        },
+        {
+            "title": "郴州汽车音乐电台",
+            "url": "http://qgzb.cnr.cn/live/czqcyydt/playlist.m3u8"
+        },
+        {
+            "title": "郴州电台MyFM883",
+            "url": "http://qgzb.cnr.cn/live/czdtmyfm883/playlist.m3u8"
+        },
+        {
+            "title": "郴州交通频道",
+            "url": "http://qgzb.cnr.cn/live/czjtpd/playlist.m3u8"
+        }
+    ],
+    "湖北": [
+        {
+            "title": "湖北之声",
+            "url": "http://qgzb.cnr.cn/live/hbzs/playlist.m3u8"
+        },
+        {
+            "title": "湖北私家车广播",
+            "url": "http://qgzb.cnr.cn/live/hbsjcgb/playlist.m3u8"
+        },
+        {
+            "title": "湖北经典音乐",
+            "url": "http://qgzb.cnr.cn/live/hbjdyy/playlist.m3u8"
+        },
+        {
+            "title": "湖北楚天音乐",
+            "url": "http://qgzb.cnr.cn/live/hbctyy/playlist.m3u8"
+        },
+        {
+            "title": "湖北经济广播",
+            "url": "http://qgzb.cnr.cn/live/hbecmo/playlist.m3u8"
+        },
+        {
+            "title": "湖北生活广播",
+            "url": "http://qgzb.cnr.cn/live/hbshgb/playlist.m3u8"
+        },
+        {
+            "title": "楚天交通",
+            "url": "http://qgzb.cnr.cn/live/ctjt/playlist.m3u8"
+        },
+        {
+            "title": "武汉经典音乐广播",
+            "url": "http://qg2.cnr.cn/live/whjdyygb/playlist.m3u8"
+        },
+        {
+            "title": "武汉交通广播",
+            "url": "http://qg2.cnr.cn/live/whjtgb/playlist.m3u8"
+        },
+        {
+            "title": "武汉长江经济广播",
+            "url": "http://qg2.cnr.cn/live/whcjjjgb/playlist.m3u8"
+        },
+        {
+            "title": "武汉新闻广播",
+            "url": "http://qg2.cnr.cn/live/whxwgb/playlist.m3u8"
+        },
+        {
+            "title": "武汉动感936",
+            "url": "http://qg2.cnr.cn/live/whdg936/playlist.m3u8"
+        }
+    ],
+    "广东": [
+        {
+            "title": "广州花都广播电台",
+            "url": "http://qgzb.cnr.cn/live/gzhdgbdt/playlist.m3u8"
+        },
+        {
+            "title": "广州MYFM880",
+            "url": "http://qg2.cnr.cn/live/gzmyfm880/playlist.m3u8"
+        },
+        {
+            "title": "怀集音乐之声",
+            "url": "http://qgzb.cnr.cn/live/hjyyzs/playlist.m3u8"
+        },
+        {
+            "title": "怀集同城网络电台",
+            "url": "http://qg2.cnr.cn/live/hjtcwldt/playlist.m3u8"
+        },
+        {
+            "title": "中华电台快乐888",
+            "url": "http://qgzb.cnr.cn/live/zsfunny/playlist.m3u8"
+        },
+        {
+            "title": "中山电台新锐967",
+            "url": "http://qgzb.cnr.cn/live/zsxinrui/playlist.m3u8"
+        },
+        {
+            "title": "广东电台优悦广播",
+            "url": "http://qg2.cnr.cn/live/gddtyygb/playlist.m3u8"
+        },
+        {
+            "title": "广东广播电视台文体广播经典1077",
+            "url": "http://qg2.cnr.cn/live/gdgbdstwtgbjd1077/playlist.m3u8"
+        },
+        {
+            "title": "广东梅州私家车广播FM940",
+            "url": "http://qg2.cnr.cn/live/gdmzsjcgbfm940/playlist.m3u8"
+        },
+        {
+            "title": "广东普宁人民广播电台",
+            "url": "http://qg2.cnr.cn/live/gdpnrmgbdt/playlist.m3u8"
+        },
+        {
+            "title": "佛山电台高明台",
+            "url": "http://qg2.cnr.cn/live/fsdtgmt/playlist.m3u8"
+        },
+        {
+            "title": "佛山电台真爱946",
+            "url": "http://qgzb.cnr.cn/live/fsdtza946/playlist.m3u8"
+        },
+        {
+            "title": "佛山南海电台飞跃924",
+            "url": "http://qgzb.cnr.cn/live/fsnhdtfy924/playlist.m3u8"
+        },
+        {
+            "title": "佛山电台畅游883",
+            "url": "http://qgzb.cnr.cn/live/fsdtcy883/playlist.m3u8"
+        }
+    ],
+    "四川": [
+        {
+            "title": "四川新闻资讯广播",
+            "url": "http://qg2.cnr.cn/live/scxwzxgb/playlist.m3u8"
+        },
+        {
+            "title": "四川民生894",
+            "url": "http://qg2.cnr.cn/live/scms894/playlist.m3u8"
+        },
+        {
+            "title": "四川财富广播",
+            "url": "http://qg2.cnr.cn/live/sccfgb/playlist.m3u8"
+        },
+        {
+            "title": "四川文艺广播",
+            "url": "http://qg2.cnr.cn/live/scwygb/playlist.m3u8"
+        },
+        {
+            "title": "四川岷江音乐频率",
+            "url": "http://qg2.cnr.cn/live/scmjyypl/playlist.m3u8"
+        },
+        {
+            "title": "四川旅游生活广播",
+            "url": "http://qg2.cnr.cn/live/sclyshgb/playlist.m3u8"
+        },
+        {
+            "title": "四川交通广播",
+            "url": "http://qg2.cnr.cn/live/scjtgb/playlist.m3u8"
+        },
+        {
+            "title": "四川城市之音",
+            "url": "http://qg2.cnr.cn/live/scjtgb/playlist.m3u8"
+        },
+        {
+            "title": "四川民族频率",
+            "url": "http://qg2.cnr.cn/live/scmzpl/playlist.m3u8"
+        },
+        {
+            "title": "四川公共新闻广播",
+            "url": "http://qg2.cnr.cn/live/scggxwgb/playlist.m3u8"
+        },
+        {
+            "title": "成都简单音乐广播",
+            "url": "http://qgzb.cnr.cn/live/cdjdyygb/playlist.m3u8"
+        },
+        {
+            "title": "成都环球之声FM963",
+            "url": "http://qg2.cnr.cn/live/cdhqzsfm936/playlist.m3u8"
+        },
+        {
+            "title": "成都飞跃在线",
+            "url": "http://qg2.cnr.cn/live/cdfyzx/playlist.m3u8"
+        },
+        {
+            "title": "德阳音乐交通广播",
+            "url": "http://qgzb.cnr.cn/live/dyyyjtgb/playlist.m3u8"
+        },
+        {
+            "title": "德阳新闻广播",
+            "url": "http://qgzb.cnr.cn/live/dyxwgb/playlist.m3u8"
+        },
+        {
+            "title": "德阳旌阳电台",
+            "url": "http://qg2.cnr.cn/live/dyjygb/playlist.m3u8"
+        },
+        {
+            "title": "四川南部新闻综合广播",
+            "url": "http://qg2.cnr.cn/live/scnbxwzhgb/playlist.m3u8"
+        },
+        {
+            "title": "四川私家车925",
+            "url": "http://qg2.cnr.cn/live/scsjc925/playlist.m3u8"
+        },
+        {
+            "title": "重庆音乐广播",
+            "url": "http://qg2.cnr.cn/live/cqyygb/playlist.m3u8"
+        },
+        {
+            "title": "重庆文艺广播",
+            "url": "http://qg2.cnr.cn/live/cqwygb/playlist.m3u8"
+        },
+        {
+            "title": "重庆经济广播",
+            "url": "http://qg2.cnr.cn/live/cqjjgb/playlist.m3u8"
+        },
+        {
+            "title": "重庆之声",
+            "url": "http://qg2.cnr.cn/live/cqzs/playlist.m3u8"
+        },
+        {
+            "title": "重庆交通广播",
+            "url": "http://qg2.cnr.cn/live/cqjtgb/playlist.m3u8"
+        },
+        {
+            "title": "四川南充交通音乐频率",
+            "url": "http://qg2.cnr.cn/live/scncjtyypl/playlist.m3u8"
+        },
+        {
+            "title": "四川南充电台最爱1004",
+            "url": "http://qg2.cnr.cn/live/scncdtza1004/playlist.m3u8"
+        },
+        {
+            "title": "攀枝花885都市调频",
+            "url": "http://qg2.cnr.cn/live/pzh885/playlist.m3u8"
+        },
+        {
+            "title": "攀枝花汽车电台",
+            "url": "http://qg2.cnr.cn/live/pzhqcdt/playlist.m3u8"
+        },
+        {
+            "title": "攀枝花新闻广播",
+            "url": "http://qgzb.cnr.cn/live/pzhxwgb/playlist.m3u8"
+        },
+        {
+            "title": "攀枝花对农广播",
+            "url": "http://qgzb.cnr.cn/live/pzhdngb/playlist.m3u8"
+        }
+    ],
+    "贵州": [
+        {
+            "title": "贵州经济广播",
+            "url": "http://qgzb.cnr.cn/live/gzjjgb/playlist.m3u8"
+        },
+        {
+            "title": "贵州旅游广播",
+            "url": "http://qgzb.cnr.cn/live/gzlygb/playlist.m3u8"
+        },
+        {
+            "title": "贵州FM916音乐广播",
+            "url": "http://qg2.cnr.cn/live/gzfm916yygb/playlist.m3u8"
+        },
+        {
+            "title": "贵州遵义交通广播",
+            "url": "http://qg2.cnr.cn/live/gzzyjtgb/playlist.m3u8"
+        }
+    ],
+    "吉林": [
+        {
+            "title": "吉林新闻综合广播",
+            "url": "http://qgzb.cnr.cn/live/jlxwzhgb/playlist.m3u8"
+        },
+        {
+            "title": "吉林经济广播",
+            "url": "http://qgzb.cnr.cn/live/jljjgb/playlist.m3u8"
+        },
+        {
+            "title": "吉林交通广播",
+            "url": "http://qgzb.cnr.cn/live/jljtgb/playlist.m3u8"
+        },
+        {
+            "title": "吉林音乐广播",
+            "url": "http://qgzb.cnr.cn/live/jlyygb/playlist.m3u8"
+        },
+        {
+            "title": "吉林旅游广播",
+            "url": "http://qgzb.cnr.cn/live/jllygb/playlist.m3u8"
+        },
+        {
+            "title": "吉林教育广播",
+            "url": "http://qgzb.cnr.cn/live/jljygb/playlist.m3u8"
+        },
+        {
+            "title": "吉林资讯广播",
+            "url": "http://qgzb.cnr.cn/live/jlzxgb/playlist.m3u8"
+        },
+        {
+            "title": "吉林乡村广播",
+            "url": "http://qgzb.cnr.cn/live/jlxcgb/playlist.m3u8"
+        },
+        {
+            "title": "吉林健康娱乐广播",
+            "url": "http://qgzb.cnr.cn/live/jljkylgb/playlist.m3u8"
+        },
+        {
+            "title": "畅听940吉林市音乐广播",
+            "url": "http://qg2.cnr.cn/live/ct940jlyygb/playlist.m3u8"
+        },
+        {
+            "title": "吉林市都市110",
+            "url": "http://qg2.cnr.cn/live/jlsds110/playlist.m3u8"
+        },
+        {
+            "title": "吉林市汽车台",
+            "url": "http://qg2.cnr.cn/live/jlsqct/playlist.m3u8"
+        },
+        {
+            "title": "长春生活故事广播",
+            "url": "http://qg2.cnr.cn/live/ccshgsgb/playlist.m3u8"
+        },
+        {
+            "title": "长春新闻广播",
+            "url": "http://qg2.cnr.cn/live/ccxwgb/playlist.m3u8"
+        },
+        {
+            "title": "长春MYFM880",
+            "url": "http://qg2.cnr.cn/live/ccmyfm880/playlist.m3u8"
+        },
+        {
+            "title": "延边旅游生活广播",
+            "url": "http://qg2.cnr.cn/live/1046yblyshgb/playlist.m3u8"
+        },
+        {
+            "title": "延边新闻广播",
+            "url": "http://qg2.cnr.cn/live/ybxwgb/playlist.m3u8"
+        },
+        {
+            "title": "延边文艺生活广播",
+            "url": "http://qg2.cnr.cn/live/ybwygb/playlist.m3u8"
+        }
+    ],
+    "辽宁": [
+        {
+            "title": "大连财经广播",
+            "url": "http://qg2.cnr.cn/live/dlcjgb/playlist.m3u8"
+        },
+        {
+            "title": "大连少儿广播",
+            "url": "http://qg2.cnr.cn/live/dlsegb/playlist.m3u8"
+        },
+        {
+            "title": "大连新闻广播",
+            "url": "http://qg2.cnr.cn/live/dlxwgb/playlist.m3u8"
+        },
+        {
+            "title": "大连都市广播",
+            "url": "http://qg2.cnr.cn/live/dldsgb/playlist.m3u8"
+        },
+        {
+            "title": "大连体育广播",
+            "url": "http://qg2.cnr.cn/live/dltygb/playlist.m3u8"
+        },
+        {
+            "title": "大连交通广播",
+            "url": "http://qg2.cnr.cn/live/dljtgb/playlist.m3u8"
+        },
+        {
+            "title": "大连金州经济广播",
+            "url": "http://qg2.cnr.cn/live/dljzjjgb/playlist.m3u8"
+        },
+        {
+            "title": "辽宁资讯广播大连分台",
+            "url": "http://qg2.cnr.cn/live/lnzxgbdlft/playlist.m3u8"
+        },
+        {
+            "title": "丹东娱乐广播",
+            "url": "http://qg2.cnr.cn/live/ddylgb/playlist.m3u8"
+        }
+    ],
+    "黑龙江": [
+        {
+            "title": "哈尔滨交通广播",
+            "url": "http://qg2.cnr.cn/live/hebjtgb/playlist.m3u8"
+        },
+        {
+            "title": "哈尔滨经济广播",
+            "url": "http://qg2.cnr.cn/live/hebjjgb/playlist.m3u8"
+        },
+        {
+            "title": "哈尔滨文艺频率",
+            "url": "http://qg2.cnr.cn/live/hebwypl/playlist.m3u8"
+        },
+        {
+            "title": "哈尔滨城市广播",
+            "url": "http://qg2.cnr.cn/live/hebcsgb/playlist.m3u8"
+        },
+        {
+            "title": "哈尔滨古典音乐广播",
+            "url": "http://qg2.cnr.cn/live/hebgdyygb/playlist.m3u8"
+        },
+        {
+            "title": "哈尔滨新闻频率",
+            "url": "http://qg2.cnr.cn/live/hebxwpl/playlist.m3u8"
+        },
+        {
+            "title": "哈尔滨音乐广播",
+            "url": "http://qg2.cnr.cn/live/hebyygb/playlist.m3u8"
+        }
+    ],
+    "陕西": [
+        {
+            "title": "陕西都市快报广播",
+            "url": "http://qg2.cnr.cn/live/sxdskbgb/playlist.m3u8"
+        },
+        {
+            "title": "陕西都市广播",
+            "url": "http://qg2.cnr.cn/live/sxdsgb/playlist.m3u8"
+        },
+        {
+            "title": "陕西秦腔广播",
+            "url": "http://qg2.cnr.cn/live/sxqqgb/playlist.m3u8"
+        },
+        {
+            "title": "西安交通广播",
+            "url": "http://qgzb.cnr.cn/live/xajtgb/playlist.m3u8"
+        },
+        {
+            "title": "西安音乐广播",
+            "url": "http://qgzb.cnr.cn/live/xayygb/playlist.m3u8"
+        },
+        {
+            "title": "西安MYFM1055",
+            "url": "http://qg2.cnr.cn/live/xamyfm1055/playlist.m3u8"
+        },
+        {
+            "title": "安康交通音乐广播",
+            "url": "http://qg2.cnr.cn/live/akjtyygb/playlist.m3u8"
+        },
+        {
+            "title": "安康新闻广播",
+            "url": "http://qg2.cnr.cn/live/akxwgb/playlist.m3u8"
+        }
+    ],
+    "甘肃": [
+        {
+            "title": "白银FM1005",
+            "url": "http://qgzb.cnr.cn/live/byfm1005/playlist.m3u8"
+        }
+    ],
+    "内蒙古": [
+        {
+            "title": "赤峰综合广播",
+            "url": "http://qgzb.cnr.cn/live/cfzhgb/playlist.m3u8"
+        },
+        {
+            "title": "赤峰蒙语广播",
+            "url": "http://qgzb.cnr.cn/live/cfmygb/playlist.m3u8"
+        },
+        {
+            "title": "赤峰农村牧区广播",
+            "url": "http://qgzb.cnr.cn/live/cfncmqgb/playlist.m3u8"
+        },
+        {
+            "title": "赤峰交通广播",
+            "url": "http://qgzb.cnr.cn/live/cfjtgb/playlist.m3u8"
+        },
+        {
+            "title": "赤峰欢乐调频",
+            "url": "http://qg2.cnr.cn/live/cfhltb/playlist.m3u8"
+        },
+        {
+            "title": "包头新闻综合广播",
+            "url": "http://qgzb.cnr.cn/live/btxwzhgb/playlist.m3u8"
+        },
+        {
+            "title": "包头交通广播",
+            "url": "http://qg2.cnr.cn/live/btjtgb/playlist.m3u8"
+        },
+        {
+            "title": "包头汽车音乐广播",
+            "url": "http://qg2.cnr.cn/live/btqcyygb/playlist.m3u8"
+        },
+        {
+            "title": "包头生活娱乐广播",
+            "url": "http://qg2.cnr.cn/live/btshylgb/playlist.m3u8"
+        },
+        {
+            "title": "包头文艺广播",
+            "url": "http://qg2.cnr.cn/live/btwygb/playlist.m3u8"
+        },
+        {
+            "title": "呼和浩特新闻综合广播",
+            "url": "http://qgzb.cnr.cn/live/hhhtxwzhgb/playlist.m3u8"
+        },
+        {
+            "title": "呼和浩特交通广播",
+            "url": "http://qg2.cnr.cn/live/hhhtjtgb/playlist.m3u8"
+        },
+        {
+            "title": "呼和浩特文艺广播",
+            "url": "http://qg2.cnr.cn/live/hhhtwygb/playlist.m3u8"
+        },
+        {
+            "title": "呼和浩特城市生活广播",
+            "url": "http://qg2.cnr.cn/live/hhhtcsshgb/playlist.m3u8"
+        }
+    ],
+    "广西": [
+        {
+            "title": "广西电台新闻910",
+            "url": "http://qg2.cnr.cn/live/gxdtxw910/playlist.m3u8"
+        },
+        {
+            "title": "广西电台交通1003",
+            "url": "http://qg2.cnr.cn/live/gxdtjt1003/playlist.m3u8"
+        },
+        {
+            "title": "广西私家车930",
+            "url": "http://qg2.cnr.cn/live/gxsjc930/playlist.m3u8"
+        },
+        {
+            "title": "广西音乐台",
+            "url": "http://qgzb.cnr.cn/live/gxyyt/playlist.m3u8"
+        },
+        {
+            "title": "广西女主播电台",
+            "url": "http://qgzb.cnr.cn/live/gxnzbdt/playlist.m3u8"
+        },
+        {
+            "title": "广西北部湾之声",
+            "url": "http://qgzb.cnr.cn/live/gxbbwzs/playlist.m3u8"
+        },
+        {
+            "title": "广西风尚调频",
+            "url": "http://qg2.cnr.cn/live/gxfstp/playlist.m3u8"
+        },
+        {
+            "title": "玉林综合广播",
+            "url": "http://qg2.cnr.cn/live/ylzhgb/playlist.m3u8"
+        }
+    ],
+    "新疆": [
+        {
+            "title": "新疆汉语综合广播",
+            "url": "http://qgzb.cnr.cn/live/xjhyzhgb/playlist.m3u8"
+        },
+        {
+            "title": "新疆音乐广播",
+            "url": "http://qgzb.cnr.cn/live/xjyygb/playlist.m3u8"
+        },
+        {
+            "title": "新疆故事广播",
+            "url": "http://qgzb.cnr.cn/live/xjgsgb/playlist.m3u8"
+        },
+        {
+            "title": "新疆维吾尔语综合广播",
+            "url": "http://qgzb.cnr.cn/live/xjwweyzhgb/playlist.m3u8"
+        },
+        {
+            "title": "新疆柯尔克孜语广播",
+            "url": "http://qgzb.cnr.cn/live/xjkekzygb/playlist.m3u8"
+        },
+        {
+            "title": "乌鲁木齐1033交通音乐广播",
+            "url": "http://qg2.cnr.cn/live/wlmq1033jtyygb/playlist.m3u8"
+        },
+        {
+            "title": "新疆924WiFiRadio",
+            "url": "http://qg2.cnr.cn/live/xj924wifiradio/playlist.m3u8"
+        },
+        {
+            "title": "新疆MYFM1039",
+            "url": "http://qg2.cnr.cn/live/xjmyfm1039/playlist.m3u8"
+        },
+        {
+            "title": "新疆兵团之声",
+            "url": "http://qg2.cnr.cn/live/xjbtzs/playlist.m3u8"
+        },
+        {
+            "title": "新疆城市广播",
+            "url": "http://qg2.cnr.cn/live/xjcsgb/playlist.m3u8"
+        },
+        {
+            "title": "新疆990新闻音乐广播",
+            "url": "http://qg2.cnr.cn/live/xj990xwyygb/playlist.m3u8"
+        },
+        {
+            "title": "巴州电台交通频率",
+            "url": "http://qg2.cnr.cn/live/bazhouvechle/playlist.m3u8"
+        },
+        {
+            "title": "巴州电台蒙古语广播",
+            "url": "http://qg2.cnr.cn/live/bzdtmgygb/playlist.m3u8"
+        },
+        {
+            "title": "巴州电台新闻频率",
+            "url": "http://qg2.cnr.cn/live/bzdtxwpl/playlist.m3u8"
+        }
+    ]
+}
