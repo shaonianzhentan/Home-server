@@ -197,10 +197,16 @@ sensor_lirc.init({
 		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'next', msg: '下一曲' })
 	},
 	KEY_VOLUMEUP: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'tips', msg: Volume.plus() });
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开')
+			os.setVolume(1).then(data => {
+				wsend({ type: 'program', result: 'tips', msg: '增加音量' });
+			})
 	},
 	KEY_VOLUMEDOWN: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'tips', msg: Volume.minus() });
+		if (APP_STATUS.OS_STATUS.infraredSwitch == '开')
+			os.setVolume(0).then(data => {
+				wsend({ type: 'program', result: 'tips', msg: '减少音量' });
+			})
 	},
 	KEY_ENTER: () => {
 		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'play', msg: '播放' })

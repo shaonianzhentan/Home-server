@@ -68,12 +68,24 @@ module.exports = {
                     return;
                 }
                 try {
-                    //stdout.match(/max=(\d+)/);
-                    var volume_value = '50%';
+
+                    /*numid=6,iface=MIXER,name='Speaker Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=30,step=0
+  : values=3,3
+  | dBminmax-min=-45.00dB,max=0.00dB
+ */
+                    var min = 0;
+                    var max = stdout.match(/max=(\d+)/)[1];
+                    var volume_value = stdout.match(/values=\d+,(\d+)/)[1];
+
                     if (type == 1) {
                         //增加声音  
+                        volume_value += 1;
+                        if (volume_value >= max) volume_value = max;
                     } else {
                         //减少声音
+                        volume_value -= 1;
+                        if (volume_value < 3) volume_value = 3;
                     }
 
                     //外置小音响的音量处理
@@ -86,7 +98,11 @@ module.exports = {
                         if (err) console.error('找不到设备2', err);
                     });
 
-                    resolve(volume_value);
+                    resolve({
+                        min: 0,
+                        max: max,
+                        value: volume_value
+                    });
                     /*
                     Volume.index = Math.floor(parseInt(RegExp.$1) / 2);                    
                     */

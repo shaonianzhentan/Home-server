@@ -14,7 +14,15 @@
 </head>
 
 <body>
+	<audio id="audio" controls></audio>
 	<script type="text/javascript">
+		var audio = document.getElementById("audio");
+		function play(url) {
+			audio.src = url;
+			audio.play();
+		}
+
+
 		//录音状态
 		var recognizing = false;
 		//是否结束
@@ -34,7 +42,9 @@
 		recognition.onerror = function (event) {
 			if (event.error == 'no-speech') {
 				showInfo('info_no_speech');
-				ignore_onend = true;
+				setTimeout(function () {
+					recognition.start();
+				}, 1000);
 			}
 			if (event.error == 'audio-capture') {
 				showInfo('info_no_microphone');
@@ -46,7 +56,7 @@
 			}
 		};
 
-		function SendEndText(){
+		function SendEndText() {
 			console.log('sending...');
 			ws.send(JSON.stringify({
 				type: 'voice',
@@ -79,7 +89,7 @@
 		recognition.onresult = function (event) {
 			var result = event.results;
 			if (typeof (result) == 'undefined') {
-				console.log("gg---");				
+				console.log("gg---");
 				/*
 				recognition.onend = null;
 				recognition.stop();
@@ -115,13 +125,13 @@
 			endText = listenText;
 
 			clearTimeout(timer);
-			timer = setTimeout(function(){
+			timer = setTimeout(function () {
 				console.log('timeout...');
 				recognition.stop();
-				setTimeout(function(){
+				setTimeout(function () {
 					SendEndText();
-				},2000);
-			},3000);
+				}, 2000);
+			}, 3000);
 		};
 
 		function showInfo(msg) {
@@ -182,6 +192,9 @@
 								case 'close':
 									//关闭语音识别，重新刷新界面
 									location.reload();
+									break;									
+								case 'speak':
+									play(obj.msg);
 									break;
 							}
 							break;

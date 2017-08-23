@@ -2,6 +2,8 @@ const Volume = require('./volume.js')
     , request = require('request')
     , { exec } = require('child_process');
 
+const os = require('os');
+
 module.exports = {
     init: (obj) => {
         res = obj.res;
@@ -17,17 +19,23 @@ module.exports = {
         res.send('success');
     },
     //获取状态
-    status: () => {        
-        OS_STATUS.ServerTime = (new Date()).toLocaleString()        
+    status: () => {
+        OS_STATUS.ServerTime = (new Date()).toLocaleString()
         if (res) res.json(OS_STATUS);
     },
     //增加声音
     vol_up: () => {
-        res.send(Volume.plus());
+        os.setVolume(1).then(data => {
+
+        })
+        res.send('增加声音');
     },
     //减少声音
     vol_down: () => {
-        res.send(Volume.minus());
+        os.setVolume(0).then(data => {
+
+        })
+        res.send('减少声音');
     },
     //校准时间
     date: () => {
