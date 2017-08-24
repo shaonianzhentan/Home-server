@@ -289,12 +289,10 @@
 	}
 
 	prev() {
-
 		this.musicIndex--;
 		if (this.musicIndex < 0) {
 			this.musicIndex = this.musicList.length - 1;
 		}
-
 		this.setStatus('上一曲');
 		this.load();
 	}

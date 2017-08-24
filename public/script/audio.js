@@ -27,13 +27,12 @@ class Media {
 			'reconnectionDelay': 30000
 		});
 
-
 		Messenger.options = {
 			extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
 			theme: 'flat'
 		}
 	}
-	ShowMsg(msg, time, callback) {
+	ShowMsg(msg) {
 		var _self = this;
 		try {
 
@@ -56,10 +55,7 @@ class Media {
 		} catch (ex) {
 
 		}
-
 		this.ShowTips(msg);
-
-		if (callback != null) callback();
 	}
 
 	play(url) {

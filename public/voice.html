@@ -12,17 +12,11 @@
 
 	</style>
 </head>
-
 <body>
-	<audio id="audio" controls></audio>
+	<div id="log">
+		
+	</div>
 	<script type="text/javascript">
-		var audio = document.getElementById("audio");
-		function play(url) {
-			audio.src = url;
-			audio.play();
-		}
-
-
 		//录音状态
 		var recognizing = false;
 		//是否结束
@@ -135,7 +129,10 @@
 		};
 
 		function showInfo(msg) {
-			console.log(msg);
+			var p = document.createElement('p');
+			p.innerHTML = msg;
+			document.getElementById("log").appendChild(p);
+			//console.log(msg);
 		}
 
 		function startButton() {
@@ -192,9 +189,6 @@
 								case 'close':
 									//关闭语音识别，重新刷新界面
 									location.reload();
-									break;									
-								case 'speak':
-									play(obj.msg);
 									break;
 							}
 							break;
