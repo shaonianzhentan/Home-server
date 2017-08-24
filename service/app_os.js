@@ -25,16 +25,14 @@ module.exports = {
     //增加声音
     vol_up: () => {
         os.setVolume(1).then(data => {
-
+            res.json(data);
         })
-        res.send('增加声音');
     },
     //减少声音
     vol_down: () => {
         os.setVolume(0).then(data => {
-
+            res.json(data);
         })
-        res.send('减少声音');
     },
     //校准时间
     date: () => {

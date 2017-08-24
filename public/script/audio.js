@@ -21,32 +21,32 @@ class Media {
 		}
 	}
 	ShowMsg(msg) {
-
-		var _self = this;
-		try {
-
-			var vcn = 'yefang',
-				ssb_param = { "appid": '577ca2ac', "appkey": "9a77addd1154848d", "synid": "12345", "params": "ent=aisound,appid=577ca2ac,aue=lame,vcn=" + vcn };
-
-			this.session.start(ssb_param, msg, function (err, obj) {
-				var audio_url = audioPalyUrl + obj.audio_url;
-				if (audio_url != null && audio_url != undefined) {
-					_self.home.music.set(audio_url)
-				}
-			});
-			//play(msg, 'vivixiaoxin')
-			//play(msg, 'yefang');
-			/*
-			  this.audio.src="http://tts.baidu.com/text2audio?idx=1&tex="+msg+"&cuid=baidu_speech_demo&cod=2&lan=zh&ctp=1&pdt=1&spd=5&per=0&vol=5&pit=5";
-			  this.audio.play();	
-			*/
-		} catch (ex) {
-
-		}
 		this.ShowTips(msg);
 	}
 
 	ShowTips(msg) {
 		Messenger().post(msg);
+	}
+
+	PlayMsg(msg) {
+
+		var _self = this;
+		var vcn = 'yefang',
+			ssb_param = { "appid": '577ca2ac', "appkey": "9a77addd1154848d", "synid": "12345", "params": "ent=aisound,appid=577ca2ac,aue=lame,vcn=" + vcn };
+
+		return new Promise((resolve, reject) => {
+
+			_self.session.start(ssb_param, msg, function (err, obj) {
+				var audio_url = audioPalyUrl + obj.audio_url;
+				if (audio_url != null && audio_url != undefined) {
+					_self.home.music.set(audio_url).then(() => {
+						resolve();
+					})
+				}else{
+					resolve();
+				}
+			});
+
+		})
 	}
 }

@@ -1,8 +1,8 @@
 ﻿class HOME {
-	constructor() {		
+	constructor() {
+		this.music = new Music();
 		this.media = new Media(this);
 		this.clock = new Clock(this);
-		this.music = new Music();
 		this.conn();
 		this.tick();
 		this.voice = new Voice(this);
@@ -111,11 +111,11 @@
 		}
 
 		this.ws.onopen = function () {
-			_self.media.ShowMsg('连接成功');
+			_self.media.PlayMsg('连接成功');
 		}
 
 		this.ws.onclose = function () {
-			_self.media.ShowMsg('连接关闭，30秒后重新连接');
+			_self.media.PlayMsg('连接关闭，30秒后重新连接');
 			setTimeout(function () {
 				_self.conn();
 			}, 30000);
