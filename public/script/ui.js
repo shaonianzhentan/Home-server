@@ -6,18 +6,6 @@ $('.BackHome').click(function () {
 $('.linkAction').click(function () {
 	var type = $(this).data('type');
 	switch (type) {
-		case 'back':
-			home.music.wv.goBack();
-			break;
-		case 'forward':
-			home.music.wv.goForward();
-			break;
-		case 'reload':
-			home.music.wv.reload();
-			break;
-		case 'dev':
-			ipcRenderer.send('system', 'dev');
-			break;
 		case 'cursor':
 			var cursor = $('html,body').css('cursor');
 			if (cursor == 'auto') {

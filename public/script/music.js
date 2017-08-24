@@ -5,11 +5,6 @@
 		this.video.controls = true;
 		this.video.autoplay = true;
 		var _self = this;
-		this.video.onended = function () {
-			console.log('play end');
-			_self.next();
-
-		}
 		this.video.onerror = function () {
 			console.log('play error');
 		}
@@ -170,7 +165,7 @@
 							arr.push({
 								title: ele.title,
 								name: k,
-								url: ele.url
+								m3u8: ele.url
 							})
 						})
 					}
@@ -186,6 +181,11 @@
 	load() {
 		if (this.musicList.length == 0) return;
 
+		this.video.onended = function () {
+			console.log('play end');
+			_self.next();
+		}
+
 		if (this.isLoading) return;
 		this.isLoading = true;
 		var obj = this.musicList[this.musicIndex];
@@ -194,20 +194,20 @@
 		var video = this.video;
 
 		//支付m3u8格式
-		if (obj['url'] && obj['url'].indexOf('.m3u8') > 0) {
-
+		if (obj['m3u8']) {
 			return new Promise((resolve, reject) => {
 				home.text.start();
+				_self.isLoading = false;
 				if (Hls.isSupported()) {
 					var hls = new Hls();
-					hls.loadSource(obj['url']);
+					hls.loadSource(obj['m3u8']);
 					hls.attachMedia(video);
 					hls.on(Hls.Events.MANIFEST_PARSED, function () {
 						_self.play();
 						resolve();
 					});
 					hls.on(Hls.Events.ERROR, function (event, data) {
-						//console.warn(data);
+						console.warn(data);
 
 						switch (data.details) {
 							case Hls.ErrorDetails.MANIFEST_LOAD_ERROR:
@@ -328,5 +328,14 @@
 		this.musicIndex = index;
 		this.setStatus('随机播放');
 		this.load();
+	}
+
+	set(url){
+		return new Promise((resolve, reject)=>{
+			this.video.onended = function () {
+				resolve();
+			}
+			this.video.src = url;
+		})
 	}
 }

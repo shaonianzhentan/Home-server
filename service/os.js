@@ -80,11 +80,11 @@ module.exports = {
                     console.log(max, volume_value);
                     if (type == 1) {
                         //增加声音  
-                        volume_value += 1;
+                        volume_value += 3;
                         if (volume_value >= max) volume_value = max;
                     } else {
                         //减少声音
-                        volume_value -= 1;
+                        volume_value -= 3;
                         if (volume_value < 3) volume_value = 3;
                     }
 

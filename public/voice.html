@@ -23,9 +23,6 @@
 			parent.home.send(data);
 		}
 
-
-
-
 		//录音状态
 		var recognizing = false;
 		//是否结束
@@ -51,7 +48,9 @@
 			}
 			if (event.error == 'audio-capture') {
 				showInfo('info_no_microphone');
-				ignore_onend = true;
+				setTimeout(function () {
+					recognition.start();
+				}, 1000);
 			}
 			if (event.error == 'not-allowed') {
 				showInfo('info_denied');
@@ -61,7 +60,7 @@
 		
 
 		function SendEndText() {
-			console.log('sending...');
+			showInfo('sending...');
 			send({
 				type: 'voice',
 				result: 'end',
@@ -93,7 +92,7 @@
 		recognition.onresult = function (event) {
 			var result = event.results;
 			if (typeof (result) == 'undefined') {
-				console.log("gg---");
+				showInfo("gg---");
 				/*
 				recognition.onend = null;
 				recognition.stop();
@@ -111,13 +110,13 @@
 			}
 			//一句话识别完毕
 			if (final_transcript != "") {
-				console.log(final_transcript);
+				showInfo(final_transcript);
 				endText = final_transcript;
 				recognition.stop();
 				return;
 			}
 
-			console.log(listenText);
+			showInfo(listenText);
 
 			send({
 				type: 'voice',
@@ -129,7 +128,7 @@
 
 			clearTimeout(timer);
 			timer = setTimeout(function () {
-				console.log('timeout...');
+				showInfo('timeout...');
 				recognition.stop();
 				setTimeout(function () {
 					SendEndText();

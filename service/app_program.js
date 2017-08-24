@@ -1,5 +1,5 @@
 const request = require('request');
-const os = require('os');
+const os = require('./os.js');
 
 module.exports = {
     init: (obj) => {

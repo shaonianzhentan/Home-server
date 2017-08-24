@@ -8,26 +8,13 @@ var audioPalyUrl = "http://h5.xf-yun.com/audioStream/";
 
 class Media {
 	constructor(home) {
-		/*
 		this.home = home;
-		this.audio = document.createElement('audio');
-		this.audio.style.display = 'none';
-		this.audio.controls = true;
-		this.audio.onend = function () {
-
-		}
-		this.audio.oncanplay = function () {
-			this.play();
-		}
-
-		document.body.appendChild(this.audio);
-
 		this.session = new IFlyTtsSession({
 			'url': 'ws://h5.xf-yun.com/tts.do',
 			'reconnection': true,
 			'reconnectionDelay': 30000
 		});
-*/
+
 		Messenger.options = {
 			extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
 			theme: 'flat'
@@ -37,17 +24,16 @@ class Media {
 
 		var _self = this;
 		try {
-/*
+
 			var vcn = 'yefang',
 				ssb_param = { "appid": '577ca2ac', "appkey": "9a77addd1154848d", "synid": "12345", "params": "ent=aisound,appid=577ca2ac,aue=lame,vcn=" + vcn };
 
 			this.session.start(ssb_param, msg, function (err, obj) {
 				var audio_url = audioPalyUrl + obj.audio_url;
 				if (audio_url != null && audio_url != undefined) {
-					_self.play(audio_url);
+					_self.home.music.set(audio_url)
 				}
 			});
-*/
 			//play(msg, 'vivixiaoxin')
 			//play(msg, 'yefang');
 			/*
@@ -58,10 +44,6 @@ class Media {
 
 		}
 		this.ShowTips(msg);
-	}
-
-	play(url) {
-		//this.audio.src = url;
 	}
 
 	ShowTips(msg) {
