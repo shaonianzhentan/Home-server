@@ -35,6 +35,9 @@ class Media {
 
 
 		return new Promise((resolve, reject) => {
+			_self.ShowTips(msg);
+			resolve();
+			/*
 			try {
 				_self.session.start(ssb_param, msg, function (err, obj) {
 
@@ -52,6 +55,7 @@ class Media {
 			} catch (ex) {
 				resolve();
 			}
+			*/
 		})
 	}
 }
