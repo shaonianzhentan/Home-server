@@ -8,7 +8,7 @@ class Voice {
 
 	start() {		
 		//发送信息，开始监听		
-		document.getElementById("#voiceFrame").contentWindow.startButton();
+		document.getElementById("voiceFrame").contentWindow.startButton();
 		this.text('魔镜魔镜，正在聆听...');
 		var _self = this;
 		//5秒后，还没有听到任何内容就重置

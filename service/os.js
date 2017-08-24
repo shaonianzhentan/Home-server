@@ -75,9 +75,9 @@ module.exports = {
   | dBminmax-min=-45.00dB,max=0.00dB
  */
                     var min = 0;
-                    var max = stdout.match(/max=(\d+)/)[1];
-                    var volume_value = stdout.match(/values=\d+,(\d+)/)[1];
-
+                    var max = parseInt(stdout.match(/max=(\d+)/)[1]);
+                    var volume_value = parseInt(stdout.match(/values=\d+,(\d+)/)[1]);
+                    console.log(max, volume_value);
                     if (type == 1) {
                         //增加声音  
                         volume_value += 1;
