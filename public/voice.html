@@ -19,7 +19,7 @@
 	</div>
 	<script type="text/javascript">
 		//发送命令给服务端
-		function send(data){
+		function send(data) {
 			parent.home.send(data);
 		}
 
@@ -40,14 +40,16 @@
 		};
 		//出现错误
 		recognition.onerror = function (event) {
-			if (event.error == 'no-speech') {
-				showInfo('info_no_speech');
-				setTimeout(function () {
-					recognition.start();
-				}, 1000);
-			}
 			if (event.error == 'audio-capture') {
 				showInfo('info_no_microphone');
+			}
+			if (event.error == 'no-speech' || event.error == 'audio-capture') {
+				showInfo('info_no_speech');
+				send({
+					type: 'voice',
+					result: 'listen',
+					msg: '未检测到语音，正在重新监听，请说话...'
+				});
 				setTimeout(function () {
 					recognition.start();
 				}, 1000);
@@ -57,7 +59,7 @@
 				ignore_onend = true;
 			}
 		};
-		
+
 
 		function SendEndText() {
 			showInfo('sending...');
@@ -122,7 +124,7 @@
 				type: 'voice',
 				result: 'listen',
 				msg: listenText
-			});			
+			});
 
 			endText = listenText;
 
