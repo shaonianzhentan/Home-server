@@ -18,8 +18,7 @@ process.on('uncaughtException', (err) => {
 });
 
 /*******引入功能模块*******/
-const os = require('./service/os.js'),
-	Volume = require('./service/volume.js');
+const os = require('./service/os.js');
 
 //让网站跨域访问
 app.use(cors());

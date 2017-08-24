@@ -1,0 +1,52 @@
+﻿html,body{margin:0;padding:0;height:100%;cursor:url(../favicon.ico),auto;	}
+body{font-family: cursive,幼圆,微软雅黑;background:black;overflow:hidden;color:white;}
+webview {display:inline-flex;height:100%;}
+webview.hide {    flex: 0 1;    width: 0px;    height: 0px;  }
+a{text-decoration:none;}
+.pointer{cursor:pointer}
+
+.color-ef522c{color:#ef522c;}
+.color-7db900{color:#7db900;}
+.color-02a2ef{color:#02a2ef;}
+.color-fcb900{color:#fcb900;}
+
+#MainPage{width:100%;z-index:0;position:absolute;height:100%;top:0;left:0;background:black;}
+#mainFrame{width:100%;z-index:-1;position:absolute;height:100%;top:0;left:0;}
+
+#weather{margin-top:50px;}
+
+#NavPanel{width:150px;height:10px;position:fixed;overflow:hidden;left:0;top:0;z-index:100000;cursor:auto;transition:.5s;}
+#NavPanel:hover{height:100%;background:rgba(255,255,255,.2);}
+
+#NavPanel .BackHome{cursor:pointer;    color: white;    text-align: center;    height: 150px;    line-height: 150px;        
+				font-weight: bold;    
+				font-size: 45px;}
+#NavPanel .linkAction{display:block;width:100%;padding:20px 0;text-align:center;
+		margin-bottom:1px;background-color:rgba(0,0,0,.5);font-size:20px;font-weight:bold;
+		transition:.5s;}
+#NavPanel .linkAction:hover{background-color:rgba(0,0,0,.8);cursor:pointer;}
+
+#music-panel{width:400px;float:left;}
+#music-info{text-align:left;margin-top:10px;}
+#music-info #music-title{display:inline-block;width:300px;}
+
+#voice-panel{width:400px;float:right;}
+.speech-loader{display:flex;width:400px; }
+.speech-loader .speech-text{color:white;padding:10px 0 0 20px;
+/*  animation: neon2 1.5s ease-in-out infinite alternate; */}
+
+@keyframes neon2 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #228DFF,
+               0 0 70px  #228DFF,
+               0 0 80px  #228DFF,
+               0 0 100px #228DFF,
+               0 0 150px #228DFF;
+  }
+  to {
+    text-shadow:none;
+  }
+}

@@ -1,9 +1,9 @@
 ﻿'use strict';
 
 var request = require('request'),
-	fs = require('fs'),	
+	fs = require('fs'),
 	cheerio = require('cheerio');
-
+/*
 var db;	
 function InitData(){
 	var file = "home.db";
@@ -80,5 +80,33 @@ module.exports={
 			});
 			return promise;
 		}
+
+}
+*/
+
+
+module.exports = {
+	get: function () {
+		var promise = new Promise(function (resolve, reject) {
+
+		});
+		return promise;
+	},
+	//添加
+	save: function (id, type, link, title) {
+		//保存到数据库
+		var promise = new Promise(function (resolve, reject) {
+
+
+		});
+		return promise;
+	},
+	//删除
+	del: function (id) {
+		var promise = new Promise(function (resolve, reject) {
+
+		});
+		return promise;
+	}
 
 }

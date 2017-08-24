@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>我的PI</title>
+  <!--动画-->
+  <link href="style/animate.min.css" rel="stylesheet">
+  <link href="style/loaders.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!--文件库-->
+  <script src='script/jquery.min.js'></script>
+  <script src="script/hls.min.js"></script>
+  <!--提示插件-->
+  <link href="script/messenger/messenger.min.css" rel="stylesheet">
+  <link href="script/messenger/messenger-theme-flat.min.css" rel="stylesheet">
+  <script src="script/messenger/messenger.min.js"></script>
+  <!--自定义样式-->
+  <link rel="stylesheet" type="text/css" href="style/index.css?v=1.0" />
+</head>
+
+<body>
+
+  <!--菜单-->
+  <div id="NavPanel">
+    <div class="BackHome pointer">主页</div>
+    <a class="linkAction color-ef522c" data-type="back">后退</a>
+    <a class="linkAction color-7db900" data-type="forward">前进</a>
+    <a class="linkAction color-02a2ef" data-type="reload">刷新</a>
+    <a class="linkAction color-02a2ef" data-type="dev">控制台</a>
+    <a class="linkAction color-02a2ef" data-type="cursor">鼠标箭头</a>
+  </div>
+
+  <!--主界面-->
+  <div id="MainPage">
+    <center>
+      <iframe id="weather" width="800" scrolling="no" height="350" frameborder="0" src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=3&site=27"
+        onload="LoadWeather()"></iframe>
+      <div id="welcome" style="font-size:50px;font-family:幼圆;margin-top:110px;margin-bottom:90px;">你好啊</div>
+
+      <div style="width:900px;position:absolute;bottom:50px;;left:50%;margin-left:-450px;">
+        <div id="music-panel">
+          <div id="music-info">            
+            <marquee id="music-title" direction="left" scrollamount="2">
+              
+            </marquee>
+          </div>
+        </div>
+        <div id="voice-panel">
+          <div class="speech-loader">
+            <div class="loader-inner line-scale-pulse-out-rapid">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="speech-text">
+              家庭控制系统语音助手，小白不能为您服务
+            </div>
+          </div>
+        </div>
+      </div>
+    </center>
+  </div>
+
+  <!--语音-->
+  <script src="script/xfyun/fingerprint.js"></script>
+  <script src="script/xfyun/tts.min.js"></script>
+  <script src="script/audio.js"></script>
+  <script src="script/clock.js"></script>
+  <script src="script/voice.js"></script>
+  <!--音乐-->
+  <script src="script/lrc.js"></script>
+  <script src="script/music.js"></script>  
+  <!--界面操作-->
+  <script src="script/ui.js"></script>
+  <!--入口点-->
+  <script src="script/index.js"></script>
+</body>
+
+</html>
