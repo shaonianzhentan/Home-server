@@ -28,9 +28,8 @@ module.exports = {
         res.send('success')
     },
     //唤醒语音识别
-    openvoice: () => {
-        wsend({ type: 'voice', result: 'listen', msg: '魔镜魔镜，开始聆听...' });
-        wsend({ type: 'voice-remote', result: 'open' });
+    openvoice: () => {        
+        wsend({ type: 'voice', result: 'start' });
         res.send('success')
     },
     //通知可以使用魔镜命令了

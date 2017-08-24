@@ -6,20 +6,16 @@ class Voice {
 		this.isListening = false;
 	}
 
-	ready() {
-
-	}
-
-	start() {
+	start() {		
 		//发送信息，开始监听		
-		this.home.send({ type: 'voice-remote', result: 'open' });
-		this.text('开始聆听...');
+		document.getElementById("#voiceFrame").contentWindow.startButton();
+		this.text('魔镜魔镜，正在聆听...');
 		var _self = this;
 		//5秒后，还没有听到任何内容就重置
 		setTimeout(function () {
 			if (_self.isListening == false) {
 				//通知服务重启热词监听，因为没听到任何数据，
-				this.home.http_program('resetvoice', '').then(res => {
+				_self.home.http_program('resetvoice', '').then(res => {
 					_self.reset();
 				})				
 			}
@@ -123,11 +119,6 @@ class Voice {
 		setTimeout(function () {
 			_self.reset();
 		}, 3000);
-	}
-
-	//关闭语音识别
-	close() {
-		this.home.send({ type: 'voice-remote', result: 'close' });
 	}
 
 	//还原
