@@ -29,14 +29,15 @@ class Media {
 	}
 
 	PlayMsg(msg) {
-
 		var _self = this;
 		var vcn = 'yefang',
 			ssb_param = { "appid": '577ca2ac', "appkey": "9a77addd1154848d", "synid": "12345", "params": "ent=aisound,appid=577ca2ac,aue=lame,vcn=" + vcn };
 
 		return new Promise((resolve, reject) => {
-
 			_self.session.start(ssb_param, msg, function (err, obj) {
+				
+				_self.ShowTips(msg);
+				
 				var audio_url = audioPalyUrl + obj.audio_url;
 				if (audio_url != null && audio_url != undefined) {
 					_self.home.music.set(audio_url).then(() => {
