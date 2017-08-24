@@ -278,21 +278,23 @@
 	}
 
 	next() {
+		this.musicIndex++;
+
 		if (this.musicIndex >= this.musicList.length) {
 			this.musicIndex = 0;
-		} else {
-			this.musicIndex++;
 		}
+
 		this.setStatus('下一曲');
 		this.load();
 	}
 
 	prev() {
+
+		this.musicIndex--;
 		if (this.musicIndex < 0) {
 			this.musicIndex = this.musicList.length - 1;
-		} else {
-			this.musicIndex--;
 		}
+
 		this.setStatus('上一曲');
 		this.load();
 	}
