@@ -45,14 +45,7 @@
 			}
 			if (event.error == 'no-speech' || event.error == 'audio-capture') {
 				showInfo('info_no_speech');
-				send({
-					type: 'voice',
-					result: 'listen',
-					msg: '未检测到语音，正在重新监听，请说话...'
-				});
-				setTimeout(function () {
-					recognition.start();
-				}, 1000);
+				location.search = "?reset=1";
 			}
 			if (event.error == 'not-allowed') {
 				showInfo('info_denied');
@@ -70,7 +63,7 @@
 			})
 
 			setTimeout(function () {
-				location.reload();
+				location.search = "?reset=0";
 			}, 1000);
 		}
 
@@ -82,7 +75,7 @@
 			}
 			console.log('end...', endText);
 			if (!endText) {
-				location.reload();
+				location.search = "?reset=0";
 				return;
 			}
 			ignore_onend = true;
@@ -151,6 +144,10 @@
 			}
 			recognition.start();
 			showInfo('info_allow');
+		}
+
+		if(location.search.indexOf('?reset=1') >= 0){
+			startButton();
 		}
 	</script>
 </body>
