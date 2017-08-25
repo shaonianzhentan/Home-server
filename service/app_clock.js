@@ -1,4 +1,6 @@
-const Clock = require('./clock.js');
+const Storage = require('./storage.js');
+Storage.init('clock.json');
+
 
 module.exports = {
     init: (obj) => {
@@ -8,19 +10,24 @@ module.exports = {
     },
     //添加
     save: () => {
-        var args = value;
-        Clock.save(args.id, args.time, args.voice, args.count).then(function (data) {
+
+        Storage.save({
+            id: Storage.identity,
+            time: value.time,
+            voice: value.voice
+        }).then(data => {
             wsend({ type: 'program', result: 'refresh' })
             res.send(data);
-        });
+        })
     },
     //删除
     del: () => {
-        var args = value;
-        Clock.del(args).then(function (data) {
+        Storage.del(value.id).then(function (data) {
             wsend({ type: 'program', result: 'refresh' })
             res.send(data);
-        });
+        }).catch(err=>{
+            res.status(500).send(err)
+        })
     },
     //报时
     baoshi: () => {
@@ -28,8 +35,10 @@ module.exports = {
         res.send('success');
     },
     get: () => {
-        Clock.get().then(function (arr) {
-            res.jsonp(arr);
-        });
+        Storage.read().then(data => {
+            res.json(data);
+        }).catch((err) => {
+            res.status(500).send(err)
+        })
     }
 }

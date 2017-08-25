@@ -1,7 +1,3 @@
-const Music = require('./music.js')
-
-var res = null, wsend = null, args = null;
-
 module.exports = {
     init: (obj) => {
         res = obj.res;
@@ -40,24 +36,14 @@ module.exports = {
     },
     //添加音乐
     save: () => {
-        Music.save(args.id, args.type, args.link, args.title).then(function (data) {
-            res.send(data);
-        }, function (data) {
-            res.send(data);
-        });
+        res.send('success')
     },
     //删除音乐
     del: () => {
-        Music.del(args).then(function (data) {
-            res.send(data);
-        }, function (data) {
-            res.send(data);
-        });
+        res.send('success')
     },
     //获取音乐
     get: () => {
-        Music.get().then(function (data) {
-            res.send(data);
-        });
+        res.send('success')
     }
 }

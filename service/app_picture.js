@@ -1,4 +1,5 @@
-const Picture = require('./picture.js');
+const Storage = require('./storage.js');
+Storage.init('picture.json');
 
 module.exports = {
     init: (obj) => {
@@ -7,39 +8,40 @@ module.exports = {
         value = obj.value;
     },
     //添加
-    add: () => {
-        var args = value;
+    save: () => {
+
         var oldname = req.files.picfile.path;
         var newname = (new Date()).getTime() + '.png';
-        fs.rename(oldname, 'public/data/' + newname, function (err) {
+        fs.rename(oldname, 'public/pic/' + newname, function (err) {
             if (err) {
                 throw err;
             }
             console.log('upload success');
-            Picture.add(args.uid, args.source, newname).then(function (data) {
-                console.log(data);
-                res.send('success');
-            });
+
+            Storage.save({
+                id: Storage.identity,
+                source: value.source,
+                pic: newname
+            }).then(data => {
+                wsend({ type: 'program', result: 'refresh' })
+                res.send(data);
+            })
+
         })
     },
     //删除
     del: () => {
-        var args = value;
-        Picture.del(args.id).then(function (data) {
+        Storage.del(value.id).then(function (data) {
             res.send(data);
-        });
-    },
-    //置顶
-    top: () => {
-        var args = value;
-        Picture.top(args.id).then(function (data) {
-            res.send(data);
-        });
+        }).catch(err => {
+            res.status(500).send(err)
+        })
     },
     get: () => {
-        var args = value;
-        Picture.get(args.uid).then(function (arr) {
-            res.jsonp(arr);
-        });
+        Storage.read().then(data => {
+            res.json(data);
+        }).catch((err) => {
+            res.status(500).send(err)
+        })
     }
 }
