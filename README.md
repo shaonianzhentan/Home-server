@@ -5,6 +5,7 @@
 ## 依赖项目
 
 离线唤醒项目 https://github.com/Kitt-AI/snowboy
+
 网易云音乐接口 https://github.com/Binaryify/NeteaseCloudMusicApi
 
 ## 服务端运行
