@@ -114,12 +114,20 @@ module.exports = {
     },
     /*************************************以下方法有依赖项目，特定环境下才能运行************************************* */
     StartVoiceServer: () => {
-        if (VoiceServerRunStatus == false) return;
-        VoiceServerRunStatus = false;
-        exec("pm2 restart voiceServer", function (err, stdout, stderr) {
-            console.log('reset complate');
-            VoiceServerRunStatus = true;
-        });
-        console.log('reset VoiceServer...');
+
+        return new Promise((resolve, reject) => {
+
+            if (VoiceServerRunStatus == true) {
+                VoiceServerRunStatus = false;
+                exec("pm2 restart voiceServer", function (err, stdout, stderr) {
+                    if(err) reject(err);
+                    else resolve();
+                    console.log('reset complate');
+                    VoiceServerRunStatus = true;
+                });
+                console.log('reset VoiceServer...');
+            }
+        })
+
     }
 }

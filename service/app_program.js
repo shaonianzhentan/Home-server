@@ -28,7 +28,7 @@ module.exports = {
         res.send('success')
     },
     //唤醒语音识别
-    openvoice: () => {        
+    openvoice: () => {
         wsend({ type: 'voice', result: 'start' });
         res.send('success')
     },
@@ -39,27 +39,20 @@ module.exports = {
     },
     //重置魔镜
     resetvoice: () => {
-        os.StartVoiceServer();
+        wsend({ type: 'voice', result: 'listen', msg: '魔镜正在重新启动中...' });
+        os.StartVoiceServer().then(() => {
+            wsend({ type: 'voice', result: 'listen', msg: '魔镜重启完成，快念出咒语召唤我吧！' });
+        });
+        res.send('success')
+    },
+    //给魔镜发送命令
+    sendvoice: () => {
+        wsend({ type: 'voice', result: 'end', msg: value });
         res.send('success')
     },
     //输入
     write: () => {
         wsend({ type: 'program', result: 'write', msg: value })
-        res.send('success')
-    },
-    "screenshots-up": () => {
-        /*
-        request.post({
-            url: 'http://23.105.217.23:8081/jiluxinqingupload', formData: {
-                jiluxinqing: fs.createReadStream(value),
-            }
-        }, function optionalCallback(err, httpResponse, body) {
-            if (err) {
-                console.log(err);
-            }
-            OS_STATUS.screenshots = body;
-        });
-        */
         res.send('success')
     }
 }
