@@ -1,5 +1,4 @@
-const Storage = require('./storage.js');
-Storage.init('picture.json');
+const Storage = require('./storage.js').init('picture.json');
 
 module.exports = {
     init: (obj) => {

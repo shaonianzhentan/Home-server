@@ -1,5 +1,4 @@
-const Storage = require('./storage.js');
-Storage.init('clock.json');
+const Storage = require('./storage.js').init('clock.json');
 
 
 module.exports = {

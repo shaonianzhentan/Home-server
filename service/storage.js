@@ -2,11 +2,7 @@ const fs = require('fs');
 
 class Storage {
 
-    get identity() {
-        return (new Date()).getTime();
-    }
-
-    init(file) {
+    constructor(file) {
         this.file = file;
         let path = 'public/data/' + file;
         if (fs.existsSync(path) == false) {
@@ -14,10 +10,15 @@ class Storage {
         }
         this.path = path;
     }
+
+    get identity() {
+        return (new Date()).getTime();
+    }
+
     //读取数据
     read() {
         var _self = this;
-        new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             try {
                 var obj = JSON.parse(fs.readFileSync(_self.path, 'utf8'));
                 resolve(obj);
@@ -29,7 +30,7 @@ class Storage {
     //写入数据
     write(data) {
         var _self = this;
-        new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             try {
                 if (Array.isArray(data)) {
                     fs.writeFileSync(_self.path, JSON.stringify(data));
@@ -45,7 +46,7 @@ class Storage {
     //添加数据
     save(data) {
         var _self = this;
-        new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
 
             _self.read().then(arr => {
                 arr.push(data);
@@ -60,13 +61,12 @@ class Storage {
             }).catch(err => {
                 reject(ex);
             })
-
         })
     }
     //删除数据
     del(id) {
         var _self = this;
-        new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
 
             _self.read().then(arr => {
                 //找到索引
@@ -94,4 +94,8 @@ class Storage {
     }
 }
 
-module.exports = new Storage();
+module.exports = {
+    init: (file) => {
+        return new Storage(file)
+    }
+};

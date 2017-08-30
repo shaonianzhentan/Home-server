@@ -1,3 +1,5 @@
+const Storage = require('./storage.js').init('music.json');
+
 module.exports = {
     init: (obj) => {
         res = obj.res;
@@ -40,15 +42,33 @@ module.exports = {
         res.send('success')
     },
     //添加音乐
-    save: () => {
-        res.send('success')
+    save: () => {        
+        Storage.save({
+            id: Storage.identity,
+            type: args.type,
+            link: args.link,
+            title: args.title
+        }).then(data => {
+            res.send(data);
+        }).catch(err => {
+            res.status(500).send(err)
+        })
+
     },
     //删除音乐
     del: () => {
-        res.send('success')
+        Storage.del(value.id).then(function (data) {
+            res.send(data);
+        }).catch(err => {
+            res.status(500).send(err)
+        })
     },
     //获取音乐
     get: () => {
-        res.send('success')
+        Storage.read().then(data => {
+            res.json(data);
+        }).catch((err) => {
+            res.status(500).send(err)
+        })
     }
 }
