@@ -6,7 +6,6 @@ class Action {
     constructor(args) {
         this.wsend = args.wsend;
     }
-
     //载入歌单
     load() {
         this.wsend({ type: 'music', result: 'load', msg: this.value })
