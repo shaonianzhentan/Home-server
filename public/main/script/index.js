@@ -24,6 +24,10 @@
 									this.music.load();
 								});
 								return;
+							case 'loadlist': //播放歌单								
+								this.music.musicList = obj.msg;								
+								this.music.load();								
+								return;
 							case 'play':
 								this.music.play();
 								break;

@@ -11,6 +11,10 @@ class Action {
         this.wsend({ type: 'music', result: 'load', msg: this.value })
         this.res.send('success')
     }
+    loadlist(){
+        this.wsend({ type: 'music', result: 'loadlist', msg: this.value })
+        this.res.send('success')
+    }
     //播放
     play() {
         this.wsend({ type: 'music', result: 'play', msg: '播放' })
