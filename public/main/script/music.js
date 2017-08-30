@@ -4,7 +4,6 @@
 		this.video.style.display = 'none';
 		this.video.controls = true;
 		this.video.autoplay = true;
-		var _self = this;
 		this.video.onerror = () => {
 			console.log('play error');
 			this.setStatus('出现错误');
@@ -65,25 +64,23 @@
 		if (limit) args += '&limit=' + limit;
 		if (offset) args += '&type=' + offset;
 
-		var _self = this;
-
 		return new Promise((resolve, reject) => {
-			fetch('http://localhost:3000/search' + args).then(function (res) {
+			fetch('http://localhost:3000/search' + args).then((res) => {
 
-				res.json().then(function (data) {
+				res.json().then((data) => {
 
 					var arr = [];
 
 					if (!type || type == 1) {
 						//单曲搜索
-						data.result.songs.forEach(function (ele) {
+						data.result.songs.forEach((ele) => {
 							arr.push({
 								id: ele.id,
 								title: ele.name,
 								name: ele.artists[0].name
 							});
 						})
-						_self.musicList = arr;
+						this.musicList = arr;
 
 						resolve();
 					} else if (type == 100) {
@@ -91,16 +88,16 @@
 						if (data.result.artistCount) {
 							var id = data.result.artists[0].id;
 							fetch('http://localhost:3000/artists?id=' + id).then(res => {
-								res.json().then(function (data) {
+								res.json().then((data) => {
 
-									data.hotSongs.forEach(function (ele) {
+									data.hotSongs.forEach((ele) => {
 										arr.push({
 											id: ele.id,
 											title: ele.name,
 											name: ele.ar[0].name
 										});
 									})
-									_self.musicList = arr;
+									this.musicList = arr;
 
 									resolve();
 
@@ -119,14 +116,14 @@
 									name: ele.radio.name
 								});
 							})
-							_self.musicList = arr;
+							this.musicList = arr;
 							resolve();
 						}
 					} else if (type == 1000) {
 						//歌单
 						if (data.result.playlistCount) {
 							var id = data.result.playlists[0].id;
-							_self.playlist(id).then(() => {
+							this.playlist(id).then(() => {
 								resolve();
 							});
 						}
@@ -134,7 +131,7 @@
 				});
 
 
-			}).catch(function (err) {
+			}).catch((err) => {
 				console.log('Fetch Error : %S', err);
 				reject(err);
 			})
@@ -143,19 +140,18 @@
 
 	//播放歌单
 	playlist(id) {
-		var _self = this;
 		return new Promise((resolve, reject) => {
 			fetch('http://localhost:3000/playlist/detail?id=' + id).then(res => {
-				res.json().then(function (data) {
+				res.json().then((data) => {
 					var arr = [];
-					data.playlist.tracks.forEach(function (ele) {
+					data.playlist.tracks.forEach((ele) => {
 						arr.push({
 							id: ele.id,
 							title: ele.name,
 							name: ele.ar[0].name
 						});
 					})
-					_self.musicList = arr;
+					this.musicList = arr;
 					resolve();
 				})
 			}).catch(err => {
@@ -200,7 +196,6 @@
 		this.isLoading = true;
 		var obj = this.musicList[this.musicIndex];
 
-		var _self = this;
 		var video = this.video;
 
 		//支付m3u8格式
@@ -212,18 +207,18 @@
 					var hls = new Hls();
 					hls.loadSource(obj['m3u8']);
 					hls.attachMedia(video);
-					hls.on(Hls.Events.MANIFEST_PARSED, function () {
-						_self.play();
+					hls.on(Hls.Events.MANIFEST_PARSED, () => {
+						this.play();
 						resolve();
 					});
-					hls.on(Hls.Events.ERROR, function (event, data) {
+					hls.on(Hls.Events.ERROR, (event, data) => {
 						console.warn(data);
 
 						switch (data.details) {
 							case Hls.ErrorDetails.MANIFEST_LOAD_ERROR:
 							case Hls.ErrorDetails.LEVEL_LOAD_ERROR:
 							case Hls.ErrorDetails.MANIFEST_LOAD_TIMEOUT:
-								_self.next();
+								this.next();
 								break;
 						}
 
@@ -231,7 +226,7 @@
 							//console.log('fatal error :' + data.details);
 							switch (data.type) {
 								case Hls.ErrorTypes.MEDIA_ERROR:
-									_self.next();
+									this.next();
 									break;
 								case Hls.ErrorTypes.NETWORK_ERROR:
 									//$("#HlsStatus").append(",network error ...");
@@ -251,14 +246,14 @@
 					var url = data.data[0].url;
 					if (url) video.src = url;
 					else this.next();
-					//_self.play();
+					//this.play();
 
 					this.isLoading = false;
 					resolve();
 
 					//获取歌词					
 					fetch('http://localhost:3000/lyric?id=' + obj.id).then(res => {
-						res.json().then(function (data) {
+						res.json().then((data) => {
 							home.text.showlrc(data.lrc.lyric);
 						})
 					})

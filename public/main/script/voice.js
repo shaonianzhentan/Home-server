@@ -1,8 +1,8 @@
 //语音控制类
 class Voice {
 
-	constructor(h) {
-		this.home = h;
+	constructor(home) {
+		this.home = home;
 		this.isListening = false;
 		this.isLoading = false;
 		this.timer = null;
@@ -12,13 +12,12 @@ class Voice {
 		//发送信息，开始监听		
 		document.getElementById("voiceFrame").contentWindow.startButton();
 		this.text('魔镜魔镜，正在聆听...');
-		var _self = this;
 		//5秒后，还没有听到任何内容就重置
-		setTimeout(function () {
-			if (_self.isListening == false) {
+		setTimeout(() => {
+			if (this.isListening == false) {
 				//通知服务重启热词监听，因为没听到任何数据，
-				_self.home.http_program('resetvoice', '').then(res => {
-					_self.reset();
+				this.home.http_program('resetvoice', '').then(res => {
+					this.reset();
 				})
 			}
 		}, 5000);
@@ -38,8 +37,7 @@ class Voice {
 	//理解与执行
 	end(msg) {
 		this.text(msg);
-		var _self = this;
-		clearInterval(_self.timer);
+		clearInterval(this.timer);
 		this.isLoading = false;
 
 		var singer = msg.match(/播放([^.]+)的歌/) || msg.match(/我想听([^.]+)的歌/);
@@ -49,56 +47,56 @@ class Voice {
 
 		if (songList) {
 			var key = songList[1];
-			_self.home.music.search(key, 1000).then(function () {
-				_self.isLoading = true;
+			this.home.music.search(key, 1000).then(() => {
+				this.isLoading = true;
 			});
-			_self.home.media.PlayMsg('正在为你播放歌单,' + key).then(() => {
-				_self.timer = setInterval(function () {
-					if (_self.isLoading) {
-						_self.home.music.load();
-						clearInterval(_self.timer);
+			this.home.media.PlayMsg('正在为你播放歌单,' + key).then(() => {
+				this.timer = setInterval(() => {
+					if (this.isLoading) {
+						this.home.music.load();
+						clearInterval(this.timer);
 					}
 				}, 1000)
 			});
 
 		} else if (singer) {
 			var key = singer[1];
-			this.home.music.search(key, 100).then(function () {
-				_self.isLoading = true;
+			this.home.music.search(key, 100).then(() => {
+				this.isLoading = true;
 			});
-			_self.home.media.PlayMsg('正在为你播放' + key + '的歌').then(() => {
-				_self.timer = setInterval(function () {
-					if (_self.isLoading) {
-						_self.home.music.load();
-						clearInterval(_self.timer);
+			this.home.media.PlayMsg('正在为你播放' + key + '的歌').then(() => {
+				this.timer = setInterval(() => {
+					if (this.isLoading) {
+						this.home.music.load();
+						clearInterval(this.timer);
 					}
 				}, 1000)
 			});
 
 		} else if (radio) {
 			var key = radio[1];
-			this.home.music.search(key, 1009).then(function () {
-				_self.isLoading = true;
+			this.home.music.search(key, 1009).then(() => {
+				this.isLoading = true;
 			});
-			_self.home.media.PlayMsg('正在为你播放' + key).then(() => {
-				_self.timer = setInterval(function () {
-					if (_self.isLoading) {
-						_self.home.music.load();
-						clearInterval(_self.timer);
+			this.home.media.PlayMsg('正在为你播放' + key).then(() => {
+				this.timer = setInterval(() => {
+					if (this.isLoading) {
+						this.home.music.load();
+						clearInterval(this.timer);
 					}
 				}, 1000)
 			});
 
 		} else if (song) {
 			var key = song[1];
-			this.home.music.search(key).then(function () {
-				_self.isLoading = true;
+			this.home.music.search(key).then(() => {
+				this.isLoading = true;
 			});
-			_self.home.media.PlayMsg('正在为你播放' + key).then(() => {
-				_self.timer = setInterval(function () {
-					if (_self.isLoading) {
-						_self.home.music.load();
-						clearInterval(_self.timer);
+			this.home.media.PlayMsg('正在为你播放' + key).then(() => {
+				this.timer = setInterval(() => {
+					if (this.isLoading) {
+						this.home.music.load();
+						clearInterval(this.timer);
 					}
 				}, 1000)
 			});
@@ -106,23 +104,23 @@ class Voice {
 		} else if (/(刷新页面)/.test(msg)) {
 			location.reload();
 		} else if (/(大点声|增加音量|大声一点)/.test(msg)) {
-			_self.home.http_os('vol_up', '').then(data => {
-				_self.home.media.ShowMsg('增加音量' + data.value);
+			this.home.http_os('vol_up', '').then(data => {
+				this.home.media.ShowMsg('增加音量' + data.value);
 			});
 		} else if (/(小点声|减少音量|小声一点)/.test(msg)) {
-			_self.home.http_os('vol_down', '').then(data => {
-				_self.home.media.ShowMsg('减少音量' + data.value);
+			this.home.http_os('vol_down', '').then(data => {
+				this.home.media.ShowMsg('减少音量' + data.value);
 			});
 		} else if (/(收音机|打开广播|播放广播)/.test(msg)) {
-			this.home.music.fm().then(function () {
-				_self.isLoading = true;
+			this.home.music.fm().then(() => {
+				this.isLoading = true;
 			});
 
-			_self.home.media.PlayMsg('播放收音机').then(() => {
-				_self.timer = setInterval(function () {
-					if (_self.isLoading) {
-						_self.home.music.load();
-						clearInterval(_self.timer);
+			this.home.media.PlayMsg('播放收音机').then(() => {
+				this.timer = setInterval(() => {
+					if (this.isLoading) {
+						this.home.music.load();
+						clearInterval(this.timer);
 					}
 				}, 1000)
 			});
@@ -134,12 +132,12 @@ class Voice {
 			this.home.music.play();
 			this.home.media.ShowMsg('播放音乐');
 		} else if (/(上一曲)/.test(msg)) {
-			
-			this.home.media.PlayMsg('上一曲').then(()=>{
+
+			this.home.media.PlayMsg('上一曲').then(() => {
 				this.home.music.prev();
 			});
 		} else if (/(下一曲)/.test(msg)) {
-			this.home.media.PlayMsg('下一曲').then(()=>{
+			this.home.media.PlayMsg('下一曲').then(() => {
 				this.home.music.next();
 			});
 		} else {
@@ -154,17 +152,17 @@ class Voice {
 					info: encodeURIComponent(msg),
 					userid: '9527'
 				})
-			}).then(function (res) {
-				res.json().then(function (data) {
+			}).then((res) => {
+				res.json().then((data) => {
 					//console.log(data);
-					_self.home.media.PlayMsg(data.text);
+					this.home.media.PlayMsg(data.text);
 				})
-			}).catch(function (e) {
+			}).catch((ex) => {
 
 			});
 		}
-		setTimeout(function () {
-			_self.reset();
+		setTimeout(() => {
+			this.reset();
 		}, 3000);
 	}
 

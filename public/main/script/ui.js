@@ -68,7 +68,7 @@ class HomeText {
 		var textArr = this.textList,
 			textIndex = this.textIndex;
 
-		this.timer = setInterval(function () {
+		this.timer = setInterval(() => {
 			$('#welcome').text(textArr[textIndex]).animateCss('fadeInDown');
 			textIndex += 1;
 			if (textIndex >= textArr.length) {
@@ -77,18 +77,17 @@ class HomeText {
 		}, 5000);
 	}
 
-	showlrc(lrc){
-		var self = this;
-		try {			
-			if(this.lrc) this.lrc.stop();
+	showlrc(lrc) {
+		try {
+			if (this.lrc) this.lrc.stop();
 			console.log('show lrc');
 			this.lrc = new Lrc(lrc, (line, extra) => {
 				//console.log(line)
-				self.show(line);
+				this.show(line);
 			});
 			this.lrc.play();
 		} catch (ex) {
-			self.start();
+			this.start();
 		}
 	}
 }

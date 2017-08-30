@@ -9,9 +9,8 @@
 		this.text = new HomeText();
 	}
 	conn() {
-		var _self = this;
 		this.ws = new WebSocket('ws://localhost:8888');
-		this.ws.onmessage = function (data) {
+		this.ws.onmessage = (data) => {
 			try {
 				var obj = JSON.parse(data.data);
 				switch (obj.type) {
@@ -21,35 +20,35 @@
 						switch (result) {
 							case 'load': //播放歌单
 								var id = obj.msg;
-								_self.music.playlist(id).then(function () {
-									_self.music.load();
+								this.music.playlist(id).then(() => {
+									this.music.load();
 								});
 								return;
 							case 'play':
-								_self.music.play();
+								this.music.play();
 								break;
 							case 'random':
-								_self.music.random();
+								this.music.random();
 								break;
 							case 'up':
-								_self.music.fm().then(function () {
-									_self.music.load();
+								this.music.fm().then(() => {
+									this.music.load();
 								});
 								break;
 							case 'down':
-								_self.music.random();
+								this.music.random();
 								break;
 							case 'prev':
-								_self.music.prev();
+								this.music.prev();
 								break;
 							case 'next':
-								_self.music.next();
+								this.music.next();
 								break;
 							case 'pause':
-								_self.music.pause();
+								this.music.pause();
 								break;
 						}
-						_self.media.ShowMsg(obj.msg);
+						this.media.ShowMsg(obj.msg);
 						break;
 					//程序控制
 					case 'program':
@@ -61,30 +60,30 @@
 								$(".NavPanel").fadeToggle();
 								break;
 							case 'refresh': //更新配置数据								
-								_self.clock.load();
+								this.clock.load();
 								break;
 							case 'screenshots'://截图
 
 								break;
 							case 'baoshi':
-								_self.clock.play(obj.msg);
+								this.clock.play(obj.msg);
 								break;
 							case 'lock': //锁屏
 
 								break;
 							case 'tips': //提示信息
-								_self.media.ShowTips(obj.msg);
+								this.media.ShowTips(obj.msg);
 								break;
 							case 'speak': //说话
-								_self.media.ShowMsg(obj.msg);
+								this.media.ShowMsg(obj.msg);
 								break;
 							case 'voice': //声音
-								_self.media.play(obj.msg);
+								this.media.play(obj.msg);
 								break;
 							case 'write': //输入
 								clipboard.writeText(obj.msg);
 								setTimeout(function () {
-									_self.music.wv.paste();
+									this.music.wv.paste();
 								}, 1000);
 								break;
 						}
@@ -93,13 +92,13 @@
 					case 'voice':
 						switch (obj.result) {
 							case 'start':
-								_self.voice.start();
+								this.voice.start();
 								break;
 							case 'listen': //显示听到的文字
-								_self.voice.listen(obj.msg);
+								this.voice.listen(obj.msg);
 								break;
 							case 'end': //结束聆听
-								_self.voice.end(obj.msg);
+								this.voice.end(obj.msg);
 								break;
 						}
 						break;
@@ -109,18 +108,18 @@
 			}
 			console.log(data);
 		}
-		this.ws.onerror = function (err) {
+		this.ws.onerror = (err) => {
 			console.log(err);
 		}
 
-		this.ws.onopen = function () {
-			_self.media.PlayMsg('连接成功');
+		this.ws.onopen = () => {
+			this.media.PlayMsg('连接成功');
 		}
 
-		this.ws.onclose = function () {
-			_self.media.PlayMsg('连接关闭，30秒后重新连接');
-			setTimeout(function () {
-				_self.conn();
+		this.ws.onclose = () => {
+			this.media.PlayMsg('连接关闭，30秒后重新连接');
+			setTimeout(() => {
+				this.conn();
 			}, 30000);
 		}
 
@@ -135,16 +134,16 @@
 	}
 
 	http_os(key, value) {
-		return new Promise(function (resolve, reject) {
-			$.post('http://localhost:8888/os', { key: key, value: value }, function (data) {
+		return new Promise((resolve, reject) => {
+			$.post('http://localhost:8888/os', { key: key, value: value }, (data) => {
 				resolve(data);
 			})
 		})
 	}
 
 	http_program(key, value) {
-		return new Promise(function (resolve, reject) {
-			$.post('http://localhost:8888/program', { key: key, value: value }, function (data) {
+		return new Promise((resolve, reject) => {
+			$.post('http://localhost:8888/program', { key: key, value: value }, (data) => {
 				resolve(data);
 			})
 		})
@@ -152,11 +151,10 @@
 
 	//定时器，每秒触发一次
 	tick() {
-		var _self = this;
-		setTimeout(function () {
+		setTimeout(() => {
 
-			setInterval(function () {
-				_self.clock.start();
+			setInterval(() => {
+				this.clock.start();
 			}, 1000);
 
 		}, 1000);

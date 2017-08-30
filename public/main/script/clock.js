@@ -10,16 +10,15 @@
 	}
 
 	load() {
-		var _self = this;
-		$.post("http://localhost:8888/clock", { key: "get" }, function (data) {
-			_self.ClockDataAlarm = data;
+		$.post("http://localhost:8888/clock", { key: "get" }, (data) => {
+			this.ClockDataAlarm = data;
 			localStorage["ClockData-Alarm"] = JSON.stringify(data);
 		});
 	}
 
 	start() {
 		if (this.clockToggle) {
-			var _self = this;
+
 			var today = new Date()
 				, h = today.getHours()
 				, m = today.getMinutes()
@@ -28,11 +27,11 @@
 			try {
 				if (this.ClockDataAlarm.length == 0) return;
 				//判断当前时间是否在数据库中
-				this.ClockDataAlarm.forEach(function (ele) {
+				this.ClockDataAlarm.forEach((ele) => {
 					var arr = ele.time.split(':');
 					if (arr[0] == h && arr[1] == m && s == 0) {
-						if (ele.voice.indexOf('http://') == 0) _self.home.media.play(ele.voice);
-						else _self.play(ele.voice);
+						if (ele.voice.indexOf('http://') == 0) this.home.media.play(ele.voice);
+						else this.play(ele.voice);
 					}
 				});
 			} catch (ex) {
