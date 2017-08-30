@@ -15,6 +15,15 @@ class StatusOS {
 		this.volume = '';
 		this.screenshots = '';
 		this.sensor_humidity = ''; //湿度
+
+		//设备相关信息
+		os.getcpu().then(data=>{
+			for(var k in data){
+				this[k] = data[k];
+			}
+		}).catch(err=>{
+			console.log('获取设备相关信息错误：',err);
+		})
 	}
 
 	//温度

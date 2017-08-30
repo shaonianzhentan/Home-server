@@ -19,17 +19,14 @@
 					case 'music':
 						var result = obj.result;
 						switch (result) {
-							case 'load':
-								_self.music.load();
-								return;
-							case 'play':
-								_self.music.play();
-								break;
-							case 'playlist': //播放歌单
+							case 'load': //播放歌单
 								var id = obj.msg;
 								_self.music.playlist(id).then(function () {
 									_self.music.load();
 								});
+								return;
+							case 'play':
+								_self.music.play();
 								break;
 							case 'random':
 								_self.music.random();

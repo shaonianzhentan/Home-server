@@ -49,7 +49,17 @@ class Storage {
         return new Promise((resolve, reject) => {
 
             _self.read().then(arr => {
-                arr.push(data);
+
+                //找到索引
+                var index = arr.findIndex((value, index, arr) => {
+                    return value.id == data.id;
+                });
+
+                if(index < 0 ){
+                    arr.push(data);
+                }else{
+                    arr[index] = data;
+                }                
 
                 //保存
                 _self.write(arr).then(() => {

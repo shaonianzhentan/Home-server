@@ -23,24 +23,24 @@ module.exports = {
     ip: ip,
     getcpu: () => {
         return new Promise(function (resolve, reject) {
-            PythonShell.run('../sensor/sensor-os.py', function (err, results) {
+            PythonShell.run('./sensor/sensor-os.py', function (err, results) {
                 if (err) {
                     reject(err);
                     return;
                 }
+                //console.log('results: %j', results);
                 try {
                     var obj = JSON.parse(results[0]);
                     resolve(obj);
                 } catch (ex) {
                     reject(ex);
-                }
-                console.log('results: %j', results);
+                }                                
             });
         });
     },
     getTemperature: () => {
         return new Promise(function (resolve, reject) {
-            PythonShell.run('../sensor/sensor-temperature.py', function (err, results) {
+            PythonShell.run('./sensor/sensor-temperature.py', function (err, results) {
                 if (err) {
                     reject(err);
                     return;

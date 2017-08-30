@@ -7,7 +7,7 @@ class Action {
         this.wsend = args.wsend;
     }
 
-    //载入链接
+    //载入歌单
     load() {
         this.wsend({ type: 'music', result: 'load', msg: this.value })
         this.res.send('success')
@@ -15,11 +15,6 @@ class Action {
     //播放
     play() {
         this.wsend({ type: 'music', result: 'play', msg: '播放' })
-        this.res.send('success')
-    }
-    //播放歌单
-    playlist() {
-        this.wsend({ type: 'music', result: 'playlist', msg: this.value })
         this.res.send('success')
     }
     //上一曲
@@ -45,7 +40,7 @@ class Action {
     //添加音乐
     save() {
         Storage.save({
-            id: Storage.identity,
+            id: this.value.id || Storage.identity,
             type: this.value.type,
             link: this.value.link,
             title: this.value.title
@@ -54,7 +49,6 @@ class Action {
         }).catch(err => {
             this.res.status(500).send(err)
         })
-
     }
     //删除音乐
     del() {
