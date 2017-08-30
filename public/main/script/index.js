@@ -20,10 +20,16 @@
 						var result = obj.result;
 						switch (result) {
 							case 'load':
-								_self.music.load(obj.msg);
+								_self.music.load();
 								return;
 							case 'play':
 								_self.music.play();
+								break;
+							case 'playlist': //播放歌单
+								var id = obj.msg;
+								_self.music.playlist(id).then(function () {
+									_self.music.load();
+								});
 								break;
 							case 'random':
 								_self.music.random();
@@ -61,7 +67,7 @@
 								_self.clock.load();
 								break;
 							case 'screenshots'://截图
-								
+
 								break;
 							case 'baoshi':
 								_self.clock.play(obj.msg);

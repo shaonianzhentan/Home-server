@@ -7,6 +7,7 @@
 		var _self = this;
 		this.video.onerror = function () {
 			console.log('play error');
+			_self.setStatus('出现错误');
 		}
 		this.video.oncanplay = function () {
 			console.log('can play');
@@ -125,22 +126,8 @@
 						//歌单
 						if (data.result.playlistCount) {
 							var id = data.result.playlists[0].id;
-							fetch('http://localhost:3000/playlist/detail?id=' + id).then(res => {
-								res.json().then(function (data) {
-
-									data.playlist.tracks.forEach(function (ele) {
-										arr.push({
-											id: ele.id,
-											title: ele.name,
-											name: ele.ar[0].name
-										});
-									})
-									_self.musicList = arr;
-									resolve();
-
-								})
-							}).catch(err => {
-
+							_self.playlist(id).then(() => {
+								resolve();
 							});
 						}
 					}
@@ -153,6 +140,30 @@
 			})
 		})
 	}
+
+	//播放歌单
+	playlist(id) {
+		var _self = this;
+		return new Promise((resolve, reject) => {
+			fetch('http://localhost:3000/playlist/detail?id=' + id).then(res => {
+				res.json().then(function (data) {
+					var arr = [];
+					data.playlist.tracks.forEach(function (ele) {
+						arr.push({
+							id: ele.id,
+							title: ele.name,
+							name: ele.ar[0].name
+						});
+					})
+					_self.musicList = arr;
+					resolve();
+				})
+			}).catch(err => {
+				reject(err);
+			});
+		})
+	}
+
 	//收音机
 	fm() {
 		var _self = this;
@@ -330,8 +341,8 @@
 		this.load();
 	}
 
-	set(url){
-		return new Promise((resolve, reject)=>{
+	set(url) {
+		return new Promise((resolve, reject) => {
 			this.video.onended = function () {
 				resolve();
 			}

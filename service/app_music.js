@@ -14,6 +14,11 @@ module.exports = {
         wsend({ type: 'music', result: 'play', msg: '播放' })
         res.send('success')
     },
+    //播放歌单
+    playlist: () => {
+        wsend({ type: 'music', result: 'playlist', msg: args })
+        res.send('success')
+    },
     //上一曲
     prev: () => {
         wsend({ type: 'music', result: 'prev', msg: '上一曲' })
