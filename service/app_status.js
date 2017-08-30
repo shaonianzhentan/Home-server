@@ -4,8 +4,8 @@ const os = require('./os.js');
 class StatusOS {
 	constructor() {
 		//私有变量
-		this._infraredSwitch = '开';
-		this._sensor_temperature = ''; 
+		this._infraredSwitch = 1;
+		this._sensor_temperature = '';
 
 
 
@@ -13,7 +13,7 @@ class StatusOS {
 		this.BootTime = (new Date()).toLocaleString();
 		this.ServerTime = (new Date()).toLocaleString();
 		this.volume = '';
-		this.screenshots = '';		
+		this.screenshots = '';
 		this.sensor_humidity = ''; //湿度
 	}
 
@@ -34,17 +34,15 @@ class StatusOS {
 	set infraredSwitch(newValue) {
 		this._infraredSwitch = newValue;
 		//推送到界面
-		wsend({ type: 'program', result: 'speak', msg: '红外控制' + newValue });
+		wsend({ type: 'program', result: 'speak', msg: '红外控制' + (newValue ? '开' : '关') });
 	}
 }
 
 
-var APP_STATUS = {
+module.exports = {
 	init: (obj) => {
 		wsend = obj.wsend;
 	},
 	//系统状态
 	OS_STATUS: new StatusOS()
 }
-
-module.exports = APP_STATUS;

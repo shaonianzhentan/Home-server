@@ -1,74 +1,95 @@
 const Storage = require('./storage.js').init('music.json');
 
-module.exports = {
-    init: (obj) => {
-        res = obj.res;
-        wsend = obj.wsend;
-        args = obj.value;
-    },
+
+class Action {
+
+    constructor(args) {
+        this.wsend = args.wsend;
+    }
+
     //载入链接
-    load: () => {
-        wsend({ type: 'music', result: 'load', msg: args })
-        res.send('success')
-    },
+    load() {
+        this.wsend({ type: 'music', result: 'load', msg: this.value })
+        this.res.send('success')
+    }
     //播放
-    play: () => {
-        wsend({ type: 'music', result: 'play', msg: '播放' })
-        res.send('success')
-    },
+    play() {
+        this.wsend({ type: 'music', result: 'play', msg: '播放' })
+        this.res.send('success')
+    }
     //播放歌单
-    playlist: () => {
-        wsend({ type: 'music', result: 'playlist', msg: args })
-        res.send('success')
-    },
+    playlist() {
+        this.wsend({ type: 'music', result: 'playlist', msg: this.value })
+        this.res.send('success')
+    }
     //上一曲
-    prev: () => {
-        wsend({ type: 'music', result: 'prev', msg: '上一曲' })
-        res.send('success')
-    },
+    prev() {
+        this.wsend({ type: 'music', result: 'prev', msg: '上一曲' })
+        this.res.send('success')
+    }
     //下一曲
-    next: () => {
-        wsend({ type: 'music', result: 'next', msg: '下一曲' })
-        res.send('success')
-    },
+    next() {
+        this.wsend({ type: 'music', result: 'next', msg: '下一曲' })
+        this.res.send('success')
+    }
     //暂停
-    pause: () => {
-        wsend({ type: 'music', result: 'pause', msg: '暂停' })
-        res.send('success')
-    },
+    pause() {
+        this.wsend({ type: 'music', result: 'pause', msg: '暂停' })
+        this.res.send('success')
+    }
     //随机播放
-    random: () => {
-        wsend({ type: 'music', result: 'random', msg: '随机播放' })
-        res.send('success')
-    },
+    random() {
+        this.wsend({ type: 'music', result: 'random', msg: '随机播放' })
+        this.res.send('success')
+    }
     //添加音乐
-    save: () => {        
+    save() {
         Storage.save({
             id: Storage.identity,
-            type: args.type,
-            link: args.link,
-            title: args.title
+            type: this.value.type,
+            link: this.value.link,
+            title: this.value.title
         }).then(data => {
-            res.send(data);
+            this.res.send(data);
         }).catch(err => {
-            res.status(500).send(err)
+            this.res.status(500).send(err)
         })
 
-    },
+    }
     //删除音乐
-    del: () => {
-        Storage.del(value.id).then(function (data) {
-            res.send(data);
+    del() {
+        Storage.del(this.value.id).then(data => {
+            this.res.send(data);
         }).catch(err => {
-            res.status(500).send(err)
-        })
-    },
-    //获取音乐
-    get: () => {
-        Storage.read().then(data => {
-            res.json(data);
-        }).catch((err) => {
-            res.status(500).send(err)
+            this.res.status(500).send(err)
         })
     }
+    //获取音乐
+    get() {
+        Storage.read().then(data => {
+            this.res.json(data);
+        }).catch((err) => {
+            this.res.status(500).send(err)
+        })
+    }
+
+    action(req, res) {
+        var obj = req.body;
+        this.req = req;
+        this.res = res;
+        this.key = obj.key;
+        this.value = obj.value;
+
+        if ((typeof this[this.key]) === "function") {
+            this[this.key]();
+        } else {
+            this.res.send('404');
+        }
+    }
+}
+
+
+
+module.exports = function (args) {
+    return new Action(args);
 }

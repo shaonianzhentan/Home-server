@@ -5,13 +5,13 @@
 		this.video.controls = true;
 		this.video.autoplay = true;
 		var _self = this;
-		this.video.onerror = function () {
+		this.video.onerror = () => {
 			console.log('play error');
-			_self.setStatus('出现错误');
+			this.setStatus('出现错误');
 		}
-		this.video.oncanplay = function () {
+		this.video.oncanplay = () => {
 			console.log('can play');
-			_self.play();
+			this.play();
 		}
 		document.body.appendChild(this.video);
 		this.isLoading = false;
@@ -166,7 +166,6 @@
 
 	//收音机
 	fm() {
-		var _self = this;
 		return new Promise((resolve, reject) => {
 			fetch('http://localhost:8888/radio.json').then(res => {
 				res.json().then(data => {
@@ -180,7 +179,7 @@
 							})
 						})
 					}
-					_self.musicList = arr;
+					this.musicList = arr;
 					resolve();
 				})
 			}).catch(err => {
@@ -192,9 +191,9 @@
 	load() {
 		if (this.musicList.length == 0) return;
 
-		this.video.onended = function () {
+		this.video.onended = () => {
 			console.log('play end');
-			_self.next();
+			this.next();
 		}
 
 		if (this.isLoading) return;
@@ -208,7 +207,7 @@
 		if (obj['m3u8']) {
 			return new Promise((resolve, reject) => {
 				home.text.start();
-				_self.isLoading = false;
+				this.isLoading = false;
 				if (Hls.isSupported()) {
 					var hls = new Hls();
 					hls.loadSource(obj['m3u8']);
@@ -246,28 +245,28 @@
 		//网易云音乐
 		return new Promise((resolve, reject) => {
 			//获取音乐地址
-			fetch('http://localhost:3000/music/url?id=' + obj.id).then(function (res) {
-				res.json().then(function (data) {
+			fetch('http://localhost:3000/music/url?id=' + obj.id).then(res => {
+				res.json().then(data => {
 					//console.log(data);
 					var url = data.data[0].url;
 					if (url) video.src = url;
-					else _self.next();
+					else this.next();
 					//_self.play();
 
-					_self.isLoading = false;
+					this.isLoading = false;
 					resolve();
 
 					//获取歌词					
-					fetch('http://localhost:3000/lyric?id=' + obj.id).then(function (res) {
+					fetch('http://localhost:3000/lyric?id=' + obj.id).then(res => {
 						res.json().then(function (data) {
 							home.text.showlrc(data.lrc.lyric);
 						})
 					})
 				})
 
-			}).catch(function (err) {
+			}).catch(err => {
 				console.log('Fetch Error : %S', err);
-				_self.isLoading = false;
+				this.isLoading = false;
 				reject(err);
 			})
 		})
@@ -311,14 +310,14 @@
 	setStatus(ss) {
 		this.status = ss;
 		this.optime = (new Date()).toLocaleString();
-		var _self = this;
-		setTimeout(function () {
+
+		setTimeout(() => {
 			//发送状态信息到服务器
 			home.http_os('setStatus', {
-				MusicTitle: _self.title,
-				MusicStatus: _self.status,
-				MusicUrl: _self.url,
-				MusicTime: _self.optime
+				MusicTitle: this.title,
+				MusicStatus: this.status,
+				MusicUrl: this.url,
+				MusicTime: this.optime
 			}).then(result => {
 				console.log(result);
 			})

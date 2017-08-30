@@ -12,7 +12,6 @@
 	, port = 8888
 	, { exec } = require('child_process');
 
-
 process.on('uncaughtException', (err) => {
 	console.error('全局错误信息：', err);
 });
@@ -67,107 +66,49 @@ APP_STATUS.init({
 /*************express**********************/
 
 app.get('/', function (req, res) {
-	res.send('hello world');
+	res.redirect('/index.html');
+	//res.send('hello world');
 });
 
 //操作系统
-const app_os = require('./service/app_os.js')
-app.post('/os', function (req, res) {
-	var obj = req.body,
-		key = obj.key;
-
-	app_os.init({
-		res: res,
-		wsend: wsend,
-		value: obj.value,
-		OS_STATUS: APP_STATUS.OS_STATUS
-	});
-
-	if ((typeof app_os[key]) === "function") {
-		app_os[key]();
-	} else {
-		res.send('404');
-	}
+var app_os = require('./service/app_os.js')({
+	wsend: wsend,
+	OS_STATUS: APP_STATUS.OS_STATUS
+});
+app.post('/os', (req, res) => {
+	app_os.action(req, res);
 });
 
 //客户端程序
-const app_program = require('./service/app_program.js')
-app.post('/program', function (req, res) {
-	var obj = req.body;
-	var key = obj.key;
-	console.log(obj);
-	app_program.init({
-		res: res,
-		wsend: wsend,
-		value: obj.value
-	});
-
-	if ((typeof app_program[key]) === "function") {
-		app_program[key]();
-	} else {
-		res.send('404');
-	}
+var app_program = require('./service/app_program.js')({
+	wsend: wsend
+});
+app.post('/program', (req, res) => {
+	app_program.action(req, res);
 });
 
 //音乐
-const app_music = require('./service/app_music.js')
-app.post('/music', function (req, res) {
-	var obj = req.body;
-	var key = obj.key;
-	var value = obj.value;
-
-	app_music.init({
-		res: res,
-		wsend: wsend,
-		value: value
-	});
-
-	if ((typeof app_music[key]) === "function") {
-		app_music[key]();
-	} else {
-		res.send('404');
-	}
-
+var app_music = require('./service/app_music.js')({
+	wsend: wsend
+});
+app.post('/music', (req, res) => {
+	app_music.action(req, res);
 });
 
 //闹钟
-const app_clock = require('./service/app_clock.js')
-app.post('/clock', function (req, res) {
-	var obj = req.body;
-	var key = obj.key;
-	var value = obj.value;
-
-	app_clock.init({
-		res: res,
-		wsend: wsend,
-		value: value
-	});
-
-	if ((typeof app_clock[key]) === "function") {
-		app_clock[key]();
-	} else {
-		res.send('404');
-	}
+var app_clock = require('./service/app_clock.js')({
+	wsend: wsend
+});
+app.post('/clock', (req, res) => {
+	app_clock.action(req, res);
 });
 
 //相片
-const app_picture = require('./service/app_picture.js')
-app.post('/picture', function (req, res) {
-	var obj = req.body;
-	var key = obj.key;
-	var value = obj.value;
-
-	app_picture.init({
-		res: res,
-		wsend: wsend,
-		value: value
-	});
-
-	if ((typeof app_picture[key]) === "function") {
-		app_picture[key]();
-	} else {
-		res.send('404');
-	}
+var app_picture = require('./service/app_picture.js')({
+	wsend: wsend
+});
+app.post('/picture', (req, res) => {
+	app_picture.action(req, res);
 });
 
 //获取css,js,image文件
@@ -187,42 +128,42 @@ server.listen(port, function listening() {
 const sensor_lirc = require('./sensor/sensor-lirc.js');
 sensor_lirc.init({
 	KEY_X: () => {
-		APP_STATUS.OS_STATUS.infraredSwitch = APP_STATUS.OS_STATUS.infraredSwitch == '开' ? '关' : '开';
+		APP_STATUS.OS_STATUS.infraredSwitch = !APP_STATUS.OS_STATUS.infraredSwitch;
 	},
 	KEY_LEFT: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'prev', msg: '上一曲' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch) wsend({ type: 'music', result: 'prev', msg: '上一曲' })
 	},
 	KEY_RIGHT: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'next', msg: '下一曲' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch) wsend({ type: 'music', result: 'next', msg: '下一曲' })
 	},
 	KEY_VOLUMEUP: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开')
+		if (APP_STATUS.OS_STATUS.infraredSwitch)
 			os.setVolume(1).then(data => {
 				wsend({ type: 'program', result: 'tips', msg: '增加音量' });
 			})
 	},
 	KEY_VOLUMEDOWN: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开')
+		if (APP_STATUS.OS_STATUS.infraredSwitch)
 			os.setVolume(0).then(data => {
 				wsend({ type: 'program', result: 'tips', msg: '减少音量' });
 			})
 	},
 	KEY_ENTER: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'play', msg: '播放' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch) wsend({ type: 'music', result: 'play', msg: '播放' })
 	},
 	KEY_BACK: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'pause', msg: '暂停' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch) wsend({ type: 'music', result: 'pause', msg: '暂停' })
 	},
 	KEY_HOME: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'program', result: 'reload' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch) wsend({ type: 'program', result: 'reload' })
 	},
 	KEY_UP: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'up', msg: '播放广播' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch) wsend({ type: 'music', result: 'up', msg: '播放广播' })
 	},
 	KEY_DOWN: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'music', result: 'down', msg: '播放音乐' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch) wsend({ type: 'music', result: 'down', msg: '播放音乐' })
 	},
 	KEY_WWW: () => {
-		if (APP_STATUS.OS_STATUS.infraredSwitch == '开') wsend({ type: 'voice', result: 'start' })
+		if (APP_STATUS.OS_STATUS.infraredSwitch) wsend({ type: 'voice', result: 'start' })
 	}
 });

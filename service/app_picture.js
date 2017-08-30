@@ -1,46 +1,68 @@
 const Storage = require('./storage.js').init('picture.json');
 
-module.exports = {
-    init: (obj) => {
-        res = obj.res;
-        wsend = obj.wsend;
-        value = obj.value;
-    },
-    //添加
-    save: () => {
+class Action {
 
-        var oldname = req.files.picfile.path;
+    constructor(args) {
+        this.wsend = args.wsend;
+    }
+
+    //添加
+    save() {
+        var oldname = this.req.files.picfile.path;
         var newname = (new Date()).getTime() + '.png';
-        fs.rename(oldname, 'public/pic/' + newname, function (err) {
+        fs.rename(oldname, 'public/pic/' + newname, err => {
             if (err) {
-                throw err;
+                this.res.status(500).send(err)
+                return;
             }
             console.log('upload success');
 
             Storage.save({
                 id: Storage.identity,
-                source: value.source,
+                source: this.value.source,
                 pic: newname
             }).then(data => {
-                wsend({ type: 'program', result: 'refresh' })
-                res.send(data);
+                this.wsend({ type: 'program', result: 'refresh' })
+                this.res.send(data);
             })
 
         })
-    },
+    }
+
     //删除
-    del: () => {
-        Storage.del(value.id).then(function (data) {
-            res.send(data);
+    del() {
+        Storage.del(this.value.id).then(data => {
+            this.res.send(data);
         }).catch(err => {
-            res.status(500).send(err)
-        })
-    },
-    get: () => {
-        Storage.read().then(data => {
-            res.json(data);
-        }).catch((err) => {
-            res.status(500).send(err)
+            this.res.status(500).send(err)
         })
     }
+
+    get() {
+        Storage.read().then(data => {
+            this.res.json(data);
+        }).catch((err) => {
+            this.res.status(500).send(err)
+        })
+    }
+
+    action(req, res) {
+        var obj = req.body;
+        this.req = req;
+        this.res = res;
+        this.key = obj.key;
+        this.value = obj.value;
+
+        if ((typeof this[this.key]) === "function") {
+            this[this.key]();
+        } else {
+            this.res.send('404');
+        }
+    }
+}
+
+
+
+module.exports = args => {
+    return new Action(args);
 }
