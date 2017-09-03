@@ -16,8 +16,9 @@
     "lirc_node": "0.0.4",
     "localtunnel": "^1.8.3",
     "multer": "^1.3.0",
+    "node-fetch": "^1.7.2",
     "python-shell": "^0.4.0",
-    "request": "^2.81.0",    
+    "request": "^2.81.0",
     "ws": "^3.0.0"
   }
 }

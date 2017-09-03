@@ -18,27 +18,6 @@ $('.linkAction').click(function () {
 	}
 });
 
-/***************天气预报***********************/
-function LoadWeather() {
-	var doc = document.querySelector("#weather").contentWindow.document;
-
-	doc.querySelectorAll("a").forEach(function (ele) {
-		ele.removeAttribute('target');
-		ele.removeAttribute('href');
-	});
-
-	var link = doc.createElement("link");
-	link.type = "text/css";
-	link.rel = "stylesheet";
-	link.href = "http://localhost:8888/weather/weather.css";
-	doc.head.appendChild(link);
-
-	var script = doc.createElement("script")
-	script.src = "http://localhost:8888/weather/weather.js";
-	doc.body.appendChild(script);
-
-}
-
 /***************动画插件定义***********************/
 $.fn.extend({
 	animateCss: function (animationName) {
@@ -91,3 +70,45 @@ class HomeText {
 		}
 	}
 }
+
+var weatherApp = new Vue({
+	el: '#weather-panel',
+	data: {
+		city: '上海',
+		list: [],
+		date: '',
+		time: ''
+	},
+	methods: {
+		init() {
+			var index = 0;
+			setInterval(() => {
+
+				this.date = Date.today().toString('yyyy年M月d日，dddd');
+				this.time = new Date().toString('HH : mm : ss');
+				if (index == 1800) {
+					index = 0;
+					this.get();
+				}
+				index++;
+				
+			}, 1000);
+			this.get();
+		},
+		get() {
+			this.$http.get('http://jiluxinqing.top:4000/weather?py=shanghai').then(function (res) {
+				var obj = res.data;
+				this.city = obj.city;
+				for (var i = 0; i < 3; i++) this.list.push(obj.data[i]);
+				console.log(res.data);
+			}, function (error) {
+
+			});
+		}
+	}
+})
+
+weatherApp.init();
+
+
+
