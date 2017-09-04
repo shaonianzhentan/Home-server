@@ -1,4 +1,4 @@
-﻿html,body{margin:0;padding:0;height:100%;cursor:url(../favicon.ico),auto;	}
+﻿html,body{margin:0;padding:0;height:100%;cursor:url(../favicon.ico),pointer,auto;	}
 
 body{font-family: cursive,幼圆,微软雅黑;background:black;overflow:hidden;color:white;}
 webview {display:inline-flex;height:100%;}
