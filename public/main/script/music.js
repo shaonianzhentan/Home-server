@@ -1,5 +1,6 @@
 ﻿class Music {
 	constructor() {
+		this.api_url = 'http://localhost:3000/';
 		this.video = document.createElement('video');
 		this.video.style.display = 'none';
 		this.video.controls = true;
@@ -75,7 +76,7 @@
 		if (offset) args += '&type=' + offset;
 
 		return new Promise((resolve, reject) => {
-			fetch('http://localhost:3000/search' + args).then((res) => {
+			fetch(this.api_url + 'search' + args).then((res) => {
 
 				res.json().then((data) => {
 
@@ -97,7 +98,7 @@
 						//歌手搜索
 						if (data.result.artistCount) {
 							var id = data.result.artists[0].id;
-							fetch('http://localhost:3000/artists?id=' + id).then(res => {
+							fetch(this.api_url + 'artists?id=' + id).then(res => {
 								res.json().then((data) => {
 
 									data.hotSongs.forEach((ele) => {
@@ -152,7 +153,7 @@
 	//播放歌单
 	playlist(id) {
 		return new Promise((resolve, reject) => {
-			fetch('http://localhost:3000/playlist/detail?id=' + id).then(res => {
+			fetch(this.api_url + 'playlist/detail?id=' + id).then(res => {
 				res.json().then((data) => {
 					var arr = [];
 					data.playlist.tracks.forEach((ele) => {
@@ -252,7 +253,7 @@
 		//网易云音乐
 		return new Promise((resolve, reject) => {
 			//获取音乐地址
-			fetch('http://localhost:3000/music/url?id=' + obj.id).then(res => {
+			fetch(this.api_url + 'music/url?id=' + obj.id).then(res => {
 				res.json().then(data => {
 					//console.log(data);
 					var url = data.data[0].url;
@@ -264,7 +265,7 @@
 					resolve();
 
 					//获取歌词					
-					fetch('http://localhost:3000/lyric?id=' + obj.id).then(res => {
+					fetch(this.api_url + 'lyric?id=' + obj.id).then(res => {
 						res.json().then((data) => {
 
 							home.text.stop();
