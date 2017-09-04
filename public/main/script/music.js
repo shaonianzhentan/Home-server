@@ -8,9 +8,14 @@
 			console.log('play error');
 			this.setStatus('出现错误');
 		}
+		
 		this.video.oncanplay = () => {
 			console.log('can play');
 			this.play();
+		}
+
+		this.video.ontimeupdate = () => {
+
 		}
 		document.body.appendChild(this.video);
 		this.isLoading = false;
@@ -132,6 +137,7 @@
 
 
 			}).catch((err) => {
+				this.setStatus('搜索失败');
 				console.log('Fetch Error : %S', err);
 				reject(err);
 			})
@@ -155,6 +161,7 @@
 					resolve();
 				})
 			}).catch(err => {
+				this.setStatus('获取歌单失败');
 				reject(err);
 			});
 		})
@@ -260,6 +267,7 @@
 				})
 
 			}).catch(err => {
+				this.setStatus('获取音乐失败');
 				console.log('Fetch Error : %S', err);
 				this.isLoading = false;
 				reject(err);
