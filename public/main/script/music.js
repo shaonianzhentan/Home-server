@@ -8,14 +8,17 @@
 			console.log('play error');
 			this.setStatus('出现错误');
 		}
-		
+
 		this.video.oncanplay = () => {
 			console.log('can play');
 			this.play();
 		}
 
 		this.video.ontimeupdate = () => {
-
+			var obj = this.lrc.get(parseInt(this.video.currentTime));
+			if (obj && obj.txt) {
+				home.text.show(obj.txt)
+			}
 		}
 		document.body.appendChild(this.video);
 		this.isLoading = false;
@@ -261,8 +264,21 @@
 					//获取歌词					
 					fetch('http://localhost:3000/lyric?id=' + obj.id).then(res => {
 						res.json().then((data) => {
-							home.text.showlrc(data.lrc.lyric);
+
+							home.text.stop();
+							try {
+								this.lrc = new Lrc(data.lrc.lyric, (line, extra) => {
+
+								});
+							} catch (ex) {
+								home.text.start();
+								this.lrc = null;
+							}
+
 						})
+					}).catch(err => {
+						home.text.start();
+						this.lrc = null;
 					})
 				})
 

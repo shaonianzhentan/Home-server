@@ -34,7 +34,8 @@ class HomeText {
 		this.textList = ['下雨天了怎么办', '我好想你', '不敢打给你', '我找不到原因', '什么失眠的声音', '变得好熟悉', '沉默的场景 做你的代替', '陪我听雨滴', '期待让人越来越沉溺'];
 		this.textIndex = 0;
 		this.timer = null;
-		this.lrc = null;
+
+		this.start();
 	}
 
 	show(msg) {
@@ -56,18 +57,8 @@ class HomeText {
 		}, 5000);
 	}
 
-	showlrc(lrc) {
-		try {
-			if (this.lrc) this.lrc.stop();
-			console.log('show lrc');
-			this.lrc = new Lrc(lrc, (line, extra) => {
-				//console.log(line)
-				this.show(line);
-			});
-			this.lrc.play();
-		} catch (ex) {
-			this.start();
-		}
+	stop() {
+		clearInterval(this.timer);
 	}
 }
 
@@ -106,7 +97,7 @@ var weatherApp = new Vue({
 					arr.push(item);
 				}
 				this.list = arr;
-				console.log(res.data);
+				//console.log(res.data);
 			}, function (error) {
 
 			});
