@@ -99,11 +99,13 @@ var weatherApp = new Vue({
 			this.$http.get('http://jiluxinqing.top:4000/weather?py=shanghai').then(function (res) {
 				var obj = res.data;
 				this.city = obj.city;
+				var arr = [];
 				for (var i = 0; i < 3; i++) {
 					var item = obj.data[i]
 					item.pic = item.pic.replace('tianqibig', 'tqicon1');
-					this.list.push(item);
+					arr.push(item);
 				}
+				this.list = arr;
 				console.log(res.data);
 			}, function (error) {
 
