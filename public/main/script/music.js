@@ -15,9 +15,11 @@
 		}
 
 		this.video.ontimeupdate = () => {
-			var obj = this.lrc.get(parseInt(this.video.currentTime));
-			if (obj && obj.txt) {
-				home.text.show(obj.txt)
+			if (this.lrc) {
+				var obj = this.lrc.get(Math.floor(this.video.currentTime));
+				if (obj && obj.txt) {
+					home.text.show(obj.txt)
+				}
 			}
 		}
 		document.body.appendChild(this.video);
