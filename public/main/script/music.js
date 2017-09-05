@@ -1,6 +1,6 @@
 ﻿class Music {
 	constructor() {
-		this.api_url = 'http://localhost:3000/';
+		this.api_url = 'http://' + location.hostname + ':3000/';
 		this.video = document.createElement('video');
 		this.video.style.display = 'none';
 		this.video.controls = true;
@@ -176,7 +176,7 @@
 	//收音机
 	fm() {
 		return new Promise((resolve, reject) => {
-			fetch('http://localhost:8888/radio.json').then(res => {
+			fetch('/radio.json').then(res => {
 				res.json().then(data => {
 					var arr = [];
 					for (var k in data) {

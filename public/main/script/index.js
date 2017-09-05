@@ -9,7 +9,7 @@
 		this.text = new HomeText();
 	}
 	conn() {
-		this.ws = new WebSocket('ws://localhost:8888');
+		this.ws = new WebSocket('ws://' + location.host);
 		this.ws.onmessage = (data) => {
 			try {
 				var obj = JSON.parse(data.data);
@@ -26,7 +26,7 @@
 								return;
 							case 'loadlist': //播放歌单								
 								this.music.musicList = JSON.parse(obj.msg);
-								this.music.load();								
+								this.music.load();
 								return;
 							case 'play':
 								this.music.play();
@@ -139,7 +139,7 @@
 
 	http_os(key, value) {
 		return new Promise((resolve, reject) => {
-			$.post('http://localhost:8888/os', { key: key, value: value }, (data) => {
+			$.post('http://' + location.host + '/os', { key: key, value: value }, (data) => {
 				resolve(data);
 			})
 		})
@@ -147,7 +147,7 @@
 
 	http_program(key, value) {
 		return new Promise((resolve, reject) => {
-			$.post('http://localhost:8888/program', { key: key, value: value }, (data) => {
+			$.post('http://' + location.host + '/program', { key: key, value: value }, (data) => {
 				resolve(data);
 			})
 		})
