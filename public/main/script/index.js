@@ -1,5 +1,7 @@
 ﻿class HOME {
 	constructor() {
+		this.api_url = 'http://' + location.host + '/';
+		this.ws_url = 'ws://' + location.host;
 		this.music = new Music();
 		this.media = new Media(this);
 		this.clock = new Clock(this);
@@ -9,7 +11,7 @@
 		this.text = new HomeText();
 	}
 	conn() {
-		this.ws = new WebSocket('ws://' + location.host);
+		this.ws = new WebSocket(this.ws_url);
 		this.ws.onmessage = (data) => {
 			try {
 				var obj = JSON.parse(data.data);
@@ -139,7 +141,7 @@
 
 	http_os(key, value) {
 		return new Promise((resolve, reject) => {
-			$.post('http://' + location.host + '/os', { key: key, value: value }, (data) => {
+			$.post(this.api_url + 'os', { key: key, value: value }, (data) => {
 				resolve(data);
 			})
 		})
@@ -147,7 +149,7 @@
 
 	http_program(key, value) {
 		return new Promise((resolve, reject) => {
-			$.post('http://' + location.host + '/program', { key: key, value: value }, (data) => {
+			$.post(this.api_url + 'program', { key: key, value: value }, (data) => {
 				resolve(data);
 			})
 		})

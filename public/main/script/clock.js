@@ -10,7 +10,7 @@
 	}
 
 	load() {
-		$.post("http://localhost:8888/clock", { key: "get" }, (data) => {
+		$.post(this.home.api_url + "clock", { key: "get" }, (data) => {
 			this.ClockDataAlarm = data;
 			localStorage["ClockData-Alarm"] = JSON.stringify(data);
 		});
