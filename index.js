@@ -139,13 +139,13 @@ sensor_lirc.init({
 	KEY_VOLUMEUP: () => {
 		if (APP_STATUS.OS_STATUS.infraredSwitch)
 			os.setVolume(1).then(data => {
-				wsend({ type: 'program', result: 'tips', msg: '增加音量' });
+				wsend({ type: 'program', result: 'tips', msg: '增加音量：' + data.value });
 			})
 	},
 	KEY_VOLUMEDOWN: () => {
 		if (APP_STATUS.OS_STATUS.infraredSwitch)
 			os.setVolume(0).then(data => {
-				wsend({ type: 'program', result: 'tips', msg: '减少音量' });
+				wsend({ type: 'program', result: 'tips', msg: '减少音量：' + data.value });
 			})
 	},
 	KEY_ENTER: () => {
