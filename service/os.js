@@ -1,27 +1,27 @@
 var exec = require('child_process').exec;
 const PythonShell = require('python-shell');
 
-//获取本机IP地址
-function getIPAdress() {
-    var interfaces = require('os').networkInterfaces();
-    for (var devName in interfaces) {
-        var iface = interfaces[devName];
-        for (var i = 0; i < iface.length; i++) {
-            var alias = iface[i];
-            if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
-                return alias.address;
+
+class OS {
+    constructor() {
+        //语音服务开启状态
+        this.VoiceServerRunStatus = true;
+    }
+    //获取本机IP地址
+    get ip() {
+        var interfaces = require('os').networkInterfaces();
+        for (var devName in interfaces) {
+            var iface = interfaces[devName];
+            for (var i = 0; i < iface.length; i++) {
+                var alias = iface[i];
+                if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+                    return alias.address;
+                }
             }
         }
     }
-}
 
-var ip = getIPAdress();
-//语音服务开启状态
-var VoiceServerRunStatus = true;
-
-module.exports = {
-    ip: ip,
-    getcpu: () => {
+    getcpu() {
         return new Promise(function (resolve, reject) {
             PythonShell.run('./sensor/sensor-os.py', function (err, results) {
                 if (err) {
@@ -34,11 +34,12 @@ module.exports = {
                     resolve(obj);
                 } catch (ex) {
                     reject(ex);
-                }                                
+                }
             });
         });
-    },
-    getTemperature: () => {
+    }
+
+    getTemperature() {
         return new Promise(function (resolve, reject) {
             PythonShell.run('./sensor/sensor-temperature.py', function (err, results) {
                 if (err) {
@@ -57,9 +58,9 @@ module.exports = {
                 console.log('results: %j', results);
             });
         });
-    },
+    }
     //设置声音
-    setVolume: (type) => {
+    setVolume(type) {
         return new Promise(function (resolve, reject) {
             //获取当前声音大小
             exec("amixer cget numid=6,iface=MIXER,name='Speaker Playback Volume'", function (err, stdout, stderr) {
@@ -111,23 +112,26 @@ module.exports = {
                 }
             });
         });
-    },
+    }
     /*************************************以下方法有依赖项目，特定环境下才能运行************************************* */
-    StartVoiceServer: () => {
+    StartVoiceServer() {
 
         return new Promise((resolve, reject) => {
 
-            if (VoiceServerRunStatus == true) {
-                VoiceServerRunStatus = false;
-                exec("pm2 restart voiceServer", function (err, stdout, stderr) {
-                    if(err) reject(err);
+            if (this.VoiceServerRunStatus == true) {
+                this.VoiceServerRunStatus = false;
+                exec("pm2 restart voiceServer", (err, stdout, stderr) => {
+                    if (err) reject(err);
                     else resolve();
                     console.log('reset complate');
-                    VoiceServerRunStatus = true;
+                    this.VoiceServerRunStatus = true;
                 });
                 console.log('reset VoiceServer...');
             }
+
         })
 
     }
 }
+
+module.exports = new OS()
