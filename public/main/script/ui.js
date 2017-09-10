@@ -3,6 +3,7 @@ $('.BackHome').click(function () {
 	location.reload();
 });
 
+$('html,body').css('cursor', 'url(favicon.ico),auto');
 $('.linkAction').click(function () {
 	var type = $(this).data('type');
 	switch (type) {
