@@ -17,9 +17,9 @@
   <script src="script/messenger/messenger.min.js"></script>
   <script src="http://cdn.bootcss.com/vue/2.1.1/vue.min.js"></script>
   <script src="http://cdn.bootcss.com/vue-resource/1.0.3/vue-resource.min.js"></script>
-  
+
   <script src="http://cdn.bootcss.com/datejs/1.0/date.min.js"></script>
-  
+
   <!--自定义样式-->
   <link rel="stylesheet" type="text/css" href="style/index.css?v=1.0" />
 </head>
@@ -54,10 +54,15 @@
           </div>
         </div>
       </div>
-      <div id="welcome">你好啊</div>
+      <div id="welcome">魔镜，魔镜 你是世界上最漂亮的女人</div>
       <div style="width:900px;position:fixed;bottom:50px;;left:50%;margin-left:-450px;">
         <div id="music-panel">
           <div id="music-info">
+            <div style="font-size:12px;">
+              <i class="fa fa-exclamation-triangle" aria-hidden="true" v-show="!online"></i>
+              <i class="fa fa-wifi" aria-hidden="true" v-show="online"></i> {{ip}}
+              
+            </div>
             <marquee id="music-title" direction="left" scrollamount="2">
 
             </marquee>
@@ -97,4 +102,5 @@
   <script src="script/index.js"></script>
 
 </body>
+
 </html>

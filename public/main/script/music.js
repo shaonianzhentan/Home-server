@@ -17,7 +17,7 @@
 
 		this.video.ontimeupdate = () => {
 			if (this.lrc) {
-				var obj = this.lrc.get(Math.floor(this.video.currentTime));
+				var obj = this.lrc.get(Math.floor(this.video.currentTime) + 1);
 				if (obj && obj.txt) {
 					home.text.show(obj.txt)
 				}

@@ -14,7 +14,7 @@ class Action {
         for (var k in this.value) {
             this.OS_STATUS[k] = this.value[k];
         }
-        this.res.send('success');
+        this.res.json(this.OS_STATUS);
     }
     //获取状态
     status() {
