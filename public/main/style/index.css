@@ -15,12 +15,15 @@ a{text-decoration:none;}
 #mainFrame{width:100%;z-index:-1;position:absolute;height:100%;top:0;left:0;}
 
 /*********天气************/
-#weather-panel{width:800px;font-family: STXihei,微软雅黑;text-align:left;margin-top:50px;}
+#weather-panel{width:850px;font-family: STXihei,微软雅黑;text-align:left;margin-top:50px;}
 #weather-city{font-size:50px;    padding: 15px 0;}
 #weather-date{font-size:27px;}
 #weather-data{display:flex;margin-top:50px;}
 .weather-data-item{width:33.3%;text-align:center;}
 .weather-data-item div{display: inline-block;font-size:27px;}
+#weather-tips{float:right;text-align:right;padding-top: 28px;}
+#weather-tips span{display:inline-block;width:30px;}
+#weather-tips p{line-height: 10px;color:#eee;}
 
 
 

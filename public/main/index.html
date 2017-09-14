@@ -40,11 +40,26 @@
   <div id="MainPage">
     <center>
       <div id="weather-panel">
-        <div id="weather-city">{{city}}</div>
-        <div id="weather-date">
-          <span style="font-size:20px;">{{date}}</span>
-          <br>{{time}}
+
+        <div>
+          <div style="display:inline-block;">
+            <div id="weather-city">{{city}}</div>
+            <div id="weather-date">
+              <span style="font-size:20px;">{{date}}</span>
+              <br>{{time}}
+            </div>
+          </div>
+          <div id="weather-tips">
+            <p>{{weather.notice}}</p>
+            <p> 天气质量：<span>{{weather.quality}}</span></p>
+            <p> PM2.5：<span>{{weather.pm25}}</span></p>
+            <p> 温度：<span>{{weather.wendu}}</span></p>
+            <p> 湿度：<span>{{weather.shidu}}         </span></p>
+          </div>
         </div>
+
+
+
         <div id="weather-data">
           <div class="weather-data-item" v-for="item in list">
             <img v-bind:src="item.pic" v-bind:title="item.text" />
@@ -61,7 +76,7 @@
             <div style="font-size:12px;">
               <i class="fa fa-exclamation-triangle" aria-hidden="true" v-show="!online"></i>
               <i class="fa fa-wifi" aria-hidden="true" v-show="online"></i> {{ip}}
-              
+
             </div>
             <marquee id="music-title" direction="left" scrollamount="2">
 
