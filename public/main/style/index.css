@@ -23,7 +23,7 @@ a{text-decoration:none;}
 .weather-data-item div{display: inline-block;font-size:27px;}
 #weather-tips{float:right;text-align:right;padding-top: 28px;}
 #weather-tips span{display:inline-block;width:30px;}
-#weather-tips p{line-height: 10px;color:#eee;}
+#weather-tips p{margin: 3px;color:#eee;}
 
 
 
