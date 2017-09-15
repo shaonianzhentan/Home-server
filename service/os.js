@@ -26,7 +26,6 @@ class OS {
             PythonShell.run('./sensor/sensor-os.py', function (err, results) {
                 if (err) {
                     reject(err);
-                    return;
                 }
                 //console.log('results: %j', results);
                 try {

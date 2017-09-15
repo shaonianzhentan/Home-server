@@ -89,6 +89,7 @@ var app = new Vue({
 				}).then((res) => {
 					var obj = res.body;
 					app.ip = obj.ip;
+					console.log(obj.ip);
 				})
 			}
 		}
@@ -134,7 +135,7 @@ var app = new Vue({
 				this.weather.pm25=obj.pm25;
 				this.weather.quality=obj.quality;
 				this.weather.notice = obj.forecast[0].notice;
-				console.log(res.data);
+				//console.log(res.data);
 			}, function (error) {
 
 			});
