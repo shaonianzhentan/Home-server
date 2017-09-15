@@ -16,6 +16,29 @@ detector.on('hotword', function (index, hotword) {
   console.log(hotword);
   if (hotword === '魔镜魔镜') {
     record.stop();
+
+
+
+/*
+    var AipSpeech = require("baidu-ai").speech;    
+    // 设置APPID/AK/SK
+    var APP_ID = "你的 App ID";
+    var API_KEY = "你的 Api ID";
+    var SECRET_KEY = "你的 Secret Key";
+    var client = new AipVoice(APP_ID, API_KEY, SECRET_KEY);
+
+    let voice = fs.readFileSync('assets/voice/16k_test.pcm');
+    let voiceBuffer = new Buffer(voice);
+    // 识别本地文件 
+    client.recognize(voiceBuffer, 'pcm', 16000).then(function (result) {
+        console.log('<recognize>: ' + JSON.stringify(result));
+    }, function(err) {
+        console.log(err);
+    });
+*/
+
+
+
     request.post({
       url: 'http://localhost:8888/program', form: {
         key: "openvoice"
