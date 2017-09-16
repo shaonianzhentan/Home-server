@@ -70,9 +70,9 @@ var app = new Vue({
 		weather: {
 			wendu: '',
 			shidu: '',
-			quality:'',
-			pm25:'',
-			notice:''
+			quality: '',
+			pm25: '',
+			notice: ''
 		},
 		city: '上海',
 		list: [],
@@ -132,8 +132,8 @@ var app = new Vue({
 				var obj = res.data.data;
 				this.weather.wendu = obj.wendu;
 				this.weather.shidu = obj.shidu;
-				this.weather.pm25=obj.pm25;
-				this.weather.quality=obj.quality;
+				this.weather.pm25 = obj.pm25;
+				this.weather.quality = obj.quality;
 				this.weather.notice = obj.forecast[0].notice;
 				//console.log(res.data);
 			}, function (error) {
@@ -152,5 +152,7 @@ window.onoffline = function () {
 }
 //在线
 window.ononline = function () {
-	app.online = true;
+	setTimeout(() => {
+		app.online = true;
+	}, 5000)
 }
