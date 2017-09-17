@@ -18,9 +18,9 @@ detector.on('hotword', function (index, hotword) {
   console.log(hotword);
   if (hotword === '魔镜魔镜') {
 
-    player.play('https://ai.baidu.com/aidemo?type=tns2&idx=1&tex=' +
-      encodeURIComponent('你好啊')
-      + '&cuid=baidu_speech_demo&cod=2&lan=zh&ctp=1&pdt=1&spd=5&per=4&vol=5&pit=5');
+
+    var mp3Url = "http://tts.baidu.com/text2audio?idx=1&tex=" + encodeURIComponent('干嘛') + "&cuid=baidu_speech_demo&cod=2&lan=zh&ctp=1&pdt=1&spd=5&per=0&vol=5&pit=5"
+    player.play(mp3Url);
 
     //record.stop();
 
@@ -55,13 +55,13 @@ detector.on('hotword', function (index, hotword) {
           }
           console.log(body);
         });
+        
+
+        setTimeout(function () {
+          console.log('reseting...');
+        }, 30000);
     
     */
-
-
-    setTimeout(function () {
-      console.log('reseting...');
-    }, 30000);
   }
 });
 
