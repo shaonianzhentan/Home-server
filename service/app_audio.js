@@ -1,4 +1,5 @@
 var mpg = require('mpg123');
+let fs = require('fs');
 
 class Action {
 
