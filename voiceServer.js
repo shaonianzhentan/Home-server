@@ -15,7 +15,7 @@ process.on('uncaughtException', (err) => {
 class VoiceServer {
 
   constructor() {
-    this.recordFile = 'test.wav';
+    this.recordFile = 'service/test.wav';
     this.listen();
   }
 
