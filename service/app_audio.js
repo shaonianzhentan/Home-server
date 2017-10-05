@@ -69,12 +69,12 @@ class Action {
             let voice = fs.readFileSync(this.recognitionFile);
             let voiceBuffer = new Buffer(voice);
             // 识别本地文件 
-            client.recognize(voiceBuffer, 'wav', 16000).then(function (result) {
-                resolve(result);
+            client.recognize(voiceBuffer, 'wav', 16000).then(function (result) {                
                 console.log('<recognize>: ' + JSON.stringify(result));
+                resolve(result);
             }, function (err) {
-                reject(err);
                 console.log(err);
+                reject(err);
             });
 
         })
