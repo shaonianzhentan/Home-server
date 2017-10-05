@@ -42,6 +42,8 @@ class Action {
 
             })
         });
+
+        this.res.send('success')
     }
 
     speak(msg) {
