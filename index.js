@@ -70,6 +70,14 @@ app.get('/', function (req, res) {
 	//res.send('hello world');
 });
 
+
+app.get('/start', function (req, res) {
+	var ip = APP_STATUS.OS_STATUS.ip;
+	res.redirect('/start.html?ip=' + ip + ':' + port);
+	//res.send('hello world');
+});
+
+
 //操作系统
 var app_os = require('./service/app_os.js')({
 	wsend: wsend,

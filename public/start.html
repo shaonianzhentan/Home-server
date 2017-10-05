@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>家庭控制系统</title>
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background: #7e57c2;
+            padding: 0;
+            text-align: center;
+            color: white;
+        }
+
+        #footer {
+            position: fixed;
+            bottom: 50%;
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a id="footer">
+        <h1 style="font-size:55px;">智能魔镜</h1>
+        <span style="color:#eee;">点击进入</span>
+    </a>
+    <script>
+        var ip = location.search.replace('?ip=', '');
+        document.getElementById('footer').onclick = function () {
+            location.href = 'http://' + ip + '/index.html';
+        }
+    </script>
+</body>
+
+</html>
