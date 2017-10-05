@@ -5,6 +5,8 @@ class Action {
 
     constructor(args) {
         this.wsend = args.wsend;
+        this.recordFile = 'test.wav';
+        this.recognitionFile = 'test1.wav';
     }
     //开始录音
     ding() {

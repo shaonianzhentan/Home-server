@@ -16,7 +16,6 @@ class VoiceServer {
 
   constructor() {
     this.recordFile = 'test.wav';
-    this.recognitionFile = 'test1.wav';
     this.listen();
   }
 
