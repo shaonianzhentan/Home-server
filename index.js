@@ -111,6 +111,14 @@ app.post('/picture', (req, res) => {
 	app_picture.action(req, res);
 });
 
+//声音输出
+var app_audio = require('./service/app_audio.js')({
+	wsend: wsend
+});
+app.post('/audio', (req, res) => {
+	app_audio.action(req, res)
+})
+
 //获取css,js,image文件
 app.get('*', function (req, res) {
 	var pathname = url.parse(req.url).pathname;
