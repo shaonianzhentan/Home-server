@@ -5,8 +5,8 @@ class Action {
 
     constructor(args) {
         this.wsend = args.wsend;
-        this.recordFile = 'test.wav';
-        this.recognitionFile = 'test1.wav';
+        this.recordFile = __dirname + '/' + 'test.wav';
+        this.recognitionFile = __dirname + '/' + 'test1.wav';
     }
     //开始录音
     ding() {
@@ -23,7 +23,9 @@ class Action {
     dong() {
         if (fs.existsSync(this.recognitionFile)) fs.unlinkSync(this.recognitionFile);
         fs.linkSync(this.recordFile, this.recognitionFile)
+        console.log(this.recordFile, this.recognitionFile)
         this.play(__dirname + '/' + "dong.mp3").then(() => {
+    
             this.recognition().then(data => {
                 var msg = data.result[0];
                 console.log(msg);
@@ -35,8 +37,10 @@ class Action {
                     //this.close();
                 })
 
-            }).catch(err => {
+                this.res.send('success')
 
+            }).catch(err => {
+                console.log(err);
                 this.speak('对不起，我没有听清楚').then(() => {
                     //this.close();
                 }).catch(() => {
@@ -45,8 +49,6 @@ class Action {
 
             })
         });
-
-        this.res.send('success')
     }
 
     speak(msg) {
@@ -69,7 +71,7 @@ class Action {
             let voice = fs.readFileSync(this.recognitionFile);
             let voiceBuffer = new Buffer(voice);
             // 识别本地文件 
-            client.recognize(voiceBuffer, 'wav', 16000).then(function (result) {                
+            client.recognize(voiceBuffer, 'wav', 16000).then(function (result) {
                 console.log('<recognize>: ' + JSON.stringify(result));
                 resolve(result);
             }, function (err) {
